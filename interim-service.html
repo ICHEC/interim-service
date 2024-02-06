@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css?v=b0ea452a" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=5732b780" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -69,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'interim-service';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contact Us" href="contact-us.html" />
     <link rel="prev" title="National HPC Service" href="national-hpc-service.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,6 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">New Platform for Interim National HPC Service</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="contact-us.html">Contact Us</a></li>
 </ul>
 
     </div>
@@ -378,9 +380,17 @@ Meluxina Docs</div>
 <p class="sd-card-text">Here we provide some quick references for users transitioning to meluxina, please refere to <a class="reference external" href="https://docs.lxp.lu/">Meluxina Docs</a> for more details.</p>
 </div>
 </div>
-<p>Below is a <a class="reference internal" href="#kay-lxp-comp"><span class="std std-ref">table</span></a> of comparison between kay and meluxina machine, highlighting similarities and differences -</p>
+<div class="admonition-quick-summary admonition">
+<p class="admonition-title">Quick Summary</p>
+<ul class="simple">
+<li><p>Similar to kay, there is a login node for meluxina <code class="docutils literal notranslate"><span class="pre">login.lxp.lu</span></code> where you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. One noteworthy difference is that meluxina has the default ssh port 22 closed, and uses port 8822 for ssh. So you ssh command would be <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">8822</span> <span class="pre">username&#64;login.lxp.lu</span></code> .</p></li>
+<li><p>You are assigned a user name when your account is created on meluxina, so it’s good idea to use $USER variable in your script rather than using your username.</p></li>
+<li><p>You might need to rethink in terms of taskfarming or resource management, if your HPC runs were optimized for 40 core nodes. For most people, this will not be an issue, but if it is, please do <a class="reference internal" href="contact-us.html"><span class="doc std std-doc">contact us</span></a>.</p></li>
+</ul>
+</div>
+<p>Below is a <a class="reference internal" href="#kay-lxp-comp"><span class="std std-ref">Table</span></a> of comparison between kay and meluxina machine, highlighting similarities and differences -</p>
 <table class="table" id="kay-lxp-comp">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Table of Comparison</span><a class="headerlink" href="#kay-lxp-comp" title="Link to this table">#</a></caption>
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Table of Comparison of Kay vs Meluxina</span><a class="headerlink" href="#kay-lxp-comp" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Specs/features</p></th>
 <th class="head text-center"><p>kay</p></th>
@@ -409,8 +419,8 @@ Meluxina Docs</div>
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">8822</span> <span class="pre">user&#64;login.lxp.lu</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>queue manager</p></td>
-<td class="text-center"><p>Slurm</p></td>
-<td class="text-center"><p>Slurm</p></td>
+<td class="text-center"><p>Slurm <a class="reference external" href="https://www.ichec.ie/academic/national-hpc/kay-documentation/slurm-workload-manager">See link</a></p></td>
+<td class="text-center"><p>Slurm <a class="reference external" href="https://docs.lxp.lu/first-steps/handling_jobs/">See link</a></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Resource Consumption unit</p></td>
 <td class="text-center"><p>CPU core hour</p></td>
@@ -462,6 +472,15 @@ Meluxina Docs</div>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">National HPC Service</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="contact-us.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Contact Us</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

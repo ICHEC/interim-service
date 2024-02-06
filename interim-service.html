@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Documentation for the Interim Service &#8212; Documentations for the Interim Service</title>
+    <title>New Platform for Interim National HPC Service &#8212; Documentations for the Interim Service</title>
   
   
   
@@ -66,12 +66,10 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'interim-service';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="National HPC Service" href="national-hpc-service.html" />
+    <link rel="prev" title="National HPC Service" href="national-hpc-service.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -133,8 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -151,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -182,16 +178,16 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Documentation for the Interim Service
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="national-hpc-service.html">National HPC Service</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="interim-service.html">New Platform for Interim National HPC Service</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">New Platform for Interim National HPC Service</a></li>
 
 </ul>
 
@@ -247,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/index.md" target="_blank"
+      <li><a href="_sources/interim-service.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +327,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Documentation for the Interim Service</h1>
+    <h1>New Platform for Interim National HPC Service</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -341,8 +337,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact us</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">New Platform for Interim National HPC Service</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kay-vs-meluxina">Kay vs Meluxina</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -353,63 +351,77 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>The National HPC Service is going through a major upgrade, as the current machine <code class="docutils literal notranslate"><span class="pre">kay</span></code> has reached <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">of</span> <span class="pre">life</span></code>. Until the new machine is procured and setup (which will happen around mid 2025), ICHEC has secured access to <a class="reference external" href="https://luxembourg.public.lu/en/invest/innovation/meluxina-supercomputer.html">Meluxina</a> systems for our usage for the bridging time between 2024-2025 when our own system CASPIR comes online.</p>
-<section class="tex2jax_ignore mathjax_ignore" id="documentation-for-the-interim-service">
-<h1>Documentation for the Interim Service<a class="headerlink" href="#documentation-for-the-interim-service" title="Link to this heading">#</a></h1>
-<div class="mermaid">
-            %%{init: {'theme':'base', 'fontSize': '24', 'securityLevel': &quot;loose&quot;}}%%
-mindmap
-  root((National HPC))
-    lec1(&quot;General HPC info&quot;)
-    ::icon(fa fa-book)
-        (Introduction)
-        (Basics)
-        (Usage Policy)
-    lec2(&quot;Interim Service&quot;)
-    ::icon(fa fa-book)
-        (Meluxina System)
-        (Comparison to kay)
-        (Using Meluxina)
-    lec3(&quot;Programming tips&quot;)
-    ::icon(fa fa-book)
-        (Do's and Do not's)
-    lec4(National Service fingerprints)
-    ::icon(fa fa-book)
-        (Activities)
-        (Projects)
-        (Security)
-        (Publications)
-    lec5(Kay Usage and statistics)
-    ::icon(fa fa-book)
-    lec6(User Support)
-    ::icon(fa fa-book)
-        (Helpdesk)
-        (Staff Expertise)
-        (Code development and optimization)
-    lec7(Software Catalogue)
-    ::icon(fa fa-book)
-        (Software access and Licenses)
-        (Compilation and usage support)
-        (Releases)
-        </div><hr class="docutils" />
-<section id="contact-us">
-<h2>Contact us<a class="headerlink" href="#contact-us" title="Link to this heading">#</a></h2>
-<p>For any help, contact us at following -</p>
-<table class="table">
+  <section class="tex2jax_ignore mathjax_ignore" id="new-platform-for-interim-national-hpc-service">
+<h1>New Platform for Interim National HPC Service<a class="headerlink" href="#new-platform-for-interim-national-hpc-service" title="Link to this heading">#</a></h1>
+<p>This page describes the nature of the service being put in place to enable researchers maintain access to HPC resources as well as the high level migration plan in operation to migrate researchers to the new system.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Background<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">ICHEC first presented its plan for the provision of compute sources from foreign sites (to be procured on a commercial basis) at its Board meeting of September 2022. These arrangements were deemed essential to ensure continuity of service to the research community.</p>
+<p class="sd-card-text">After submitting a funding proposal to DFHERIS in order to purchase HPC compute services in May 2023, a tender was published in July seeking compute resources with a similar environment and user interface as that provided by Kay. Subsequently this contract was awarded in November to <a class="reference external" href="https://www.luxprovide.lu/">LuxProvide</a> and their <a class="reference external" href="https://www.luxprovide.lu/meluxina/">Meluxina</a> HPC platform.</p>
+<p class="sd-card-text">All National HPC Service projects will eventually be hosted on this platform with a gradual migration of existing projects from Kay to it occurring through the first half of 2024. The migration of Class A projects was initiated in mid-December, with Class B to follow in January 2024 and Class C beginning in February 2024.  Kay will continue to run on an at-risk basis until June 2024 with a reduced number of compute nodes available. Here, at-risk means that because there is no longer any warranty or technical support covering the system by the hardware and software vendors, certain hardware component or software failures could potentially result in a sudden and permanent loss of service (as well as potentially loss of all data stored on the system).</p>
+</div>
+</details></section>
+<section class="tex2jax_ignore mathjax_ignore" id="kay-vs-meluxina">
+<h1>Kay vs Meluxina<a class="headerlink" href="#kay-vs-meluxina" title="Link to this heading">#</a></h1>
+<p>Meluxina is actually a tier-0 machine, and as such has bigger and faster nodes.
+It provides an opportunity to the users of our national service to access tier-0
+system in the same project framework as their existing kay projects.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Meluxina Docs</div>
+<p class="sd-card-text">Here we provide some quick references for users transitioning to meluxina, please refere to <a class="reference external" href="https://docs.lxp.lu/">Meluxina Docs</a> for more details.</p>
+</div>
+</div>
+<p>Below is a <a class="reference internal" href="#kay-lxp-comp"><span class="std std-ref">table</span></a> of comparison between kay and meluxina machine, highlighting similarities and differences -</p>
+<table class="table" id="kay-lxp-comp">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Table of Comparison</span><a class="headerlink" href="#kay-lxp-comp" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head text-center"><p>Email</p></th>
+<tr class="row-odd"><th class="head text-center"><p>Specs/features</p></th>
+<th class="head text-center"><p>kay</p></th>
+<th class="head text-center"><p>meluxina</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Helpdesk Portal</p></td>
-<td class="text-center"><p><a class="reference external" href="mailto:support&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a></p></td>
+<tr class="row-even"><td class="text-center"><p>Standard CPU nodes</p></td>
+<td class="text-center"><p>Intel CPUs 40core per node</p></td>
+<td class="text-center"><p>Amd CPUs 128core per node</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Standard GPU nodes</p></td>
+<td class="text-center"><p>2 x (NVidia V100 cards, 16GB) per node</p></td>
+<td class="text-center"><p>4 x (Nvidia A100 cards, 40GB) per node</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Large Memory Nodes</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Hyperthreading</p></td>
+<td class="text-center"><p>No</p></td>
+<td class="text-center"><p>On demad per job</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>login access</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user&#64;kay.ichec.ie</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">8822</span> <span class="pre">user&#64;login.lxp.lu</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>queue manager</p></td>
+<td class="text-center"><p>Slurm</p></td>
+<td class="text-center"><p>Slurm</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Resource Consumption unit</p></td>
+<td class="text-center"><p>CPU core hour</p></td>
+<td class="text-center"><p>CPU/GPU Node hour</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Popular slurm partitions</p></td>
+<td class="text-center"><p>DevQ, ProdQ, LongQ, GpuQ, …</p></td>
+<td class="text-center"><p>cpu, gpu, fpga, largemem</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -442,14 +454,14 @@ mindmap
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="national-hpc-service.html"
-       title="next page">
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">National HPC Service</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -467,8 +479,10 @@ mindmap
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact-us">Contact us</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">New Platform for Interim National HPC Service</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kay-vs-meluxina">Kay vs Meluxina</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

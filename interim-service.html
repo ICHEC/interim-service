@@ -54,22 +54,16 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'interim-service';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contributing to the documentation page" href="README.html" />
+    <link rel="next" title="Slurm Workload Manager" href="slurm.html" />
     <link rel="prev" title="National HPC Service" href="national-hpc-service.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,7 +184,12 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Interim National HPC Service</a></li>
 
+
+<li class="toctree-l1"><a class="reference internal" href="slurm.html">Slurm Workload Manager</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="national-service-projects.html">National Service Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Contributing to the documentation page</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="contact-us.html">Contact Us</a></li>
 </ul>
 
@@ -340,8 +339,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interim National HPC Service</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interim National HPC Service</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart">Quickstart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account-and-access">Setting up an Account and Access</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kay-vs-meluxina">Kay vs Meluxina</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-meluxina">Connecting to Meluxina</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-project-name-and-resource-allocations">Finding your Project Name and Resource Allocations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-storage">File Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transfer">Data Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-packages">Software Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission">Job Submission</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -354,7 +369,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interim-national-hpc-service">
+  <p>(target)=interim-service</p>
+<section class="tex2jax_ignore mathjax_ignore" id="interim-national-hpc-service">
 <h1>Interim National HPC Service<a class="headerlink" href="#interim-national-hpc-service" title="Link to this heading">#</a></h1>
 <p>This page describes the nature of the service being put in place to enable researchers maintain access to HPC resources as well as the high level migration plan in operation to migrate researchers to the new system.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -368,7 +384,41 @@ Background<div class="sd-summary-down docutils">
 <p class="sd-card-text">After submitting a funding proposal to DFHERIS in order to purchase HPC compute services in May 2023, a tender was published in July seeking compute resources with a similar environment and user interface as that provided by Kay. Subsequently this contract was awarded in November to <a class="reference external" href="https://www.luxprovide.lu/">LuxProvide</a> and their <a class="reference external" href="https://www.luxprovide.lu/meluxina/">Meluxina</a> HPC platform.</p>
 <p class="sd-card-text">All National HPC Service projects will eventually be hosted on this platform with a gradual migration of existing projects from Kay to it occurring through the first half of 2024. The migration of Class A projects was initiated in mid-December, with Class B to follow in January 2024 and Class C beginning in February 2024.  Kay will continue to run on an at-risk basis until June 2024 with a reduced number of compute nodes available. Here, at-risk means that because there is no longer any warranty or technical support covering the system by the hardware and software vendors, certain hardware component or software failures could potentially result in a sudden and permanent loss of service (as well as potentially loss of all data stored on the system).</p>
 </div>
-</details></section>
+</details><section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h2>
+<p>This provides some basic guidelines on getting started with the interim service on Meluxina, you should read this documentation first.</p>
+</section>
+<section id="setting-up-an-account-and-access">
+<h2>Setting up an Account and Access<a class="headerlink" href="#setting-up-an-account-and-access" title="Link to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">To become a user on Meluxina, you must:</p>
+<ol class="arabic simple">
+<li><p>Register an ICHEC user account here if you don’t already have one</p></li>
+<li><p>Then you will need to do one of the following:
+i. Apply for your own National Service project (Paused until April 2024)
+ii. Join an existing project by requesting the PI of that project to contact the ICHEC helpdesk</p></li>
+<li><p>ICHEC support staff then submit a request to LuxProvide  to create a user account on Meluxina for you and to add you to the relevant project</p></li>
+<li><p>You will receive an email from LuxProvide with your Meluxina username (which will be different to you ICHEC one) and instructions on completing the user account setup.</p></li>
+<li><p>You will need to register a SSH key via the LuxProvide helpdesk in order to be able to log in to Meluxina</p></li>
+</ol>
+</div>
+<div align="center" class="mermaid align-center">
+            flowchart TD;
+
+A(Do you have an account on ICHEC) --No--&gt; B1(Register to create and ICHEC account)
+A --Yes--&gt; B2(&quot;Apply for your own National Service project (Paused till April 2024)
+Or
+Join an existing project by requesting the PI of that project&quot;)
+B1 --&gt; B2
+B2 ---&gt; C(&quot;ICHEC Support staff requests LuxProvide to create
+a user account on Meluxina for you to add you on relevant project&quot;)
+C ---&gt; D(&quot;You get email from LuxProvide with your Meluxina Username
+and instructions to create an account on them&quot;)
+D ---&gt; F(&quot;Register your ssh keys on Meluxina via the LuxProvide Helpdesk.
+Follow further instructions below&quot;)
+        </div>
+        </section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="kay-vs-meluxina">
 <h1>Kay vs Meluxina<a class="headerlink" href="#kay-vs-meluxina" title="Link to this heading">#</a></h1>
 <p>Meluxina is actually a tier-0 machine, and as such has bigger and faster nodes.
@@ -434,6 +484,149 @@ Meluxina Docs</div>
 </tbody>
 </table>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="connecting-to-meluxina">
+<h1>Connecting to Meluxina<a class="headerlink" href="#connecting-to-meluxina" title="Link to this heading">#</a></h1>
+<section id="ssh">
+<h2>SSH<a class="headerlink" href="#ssh" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All users must initially configure an SSH key to connect to Meluxina. Check out our tutorial - Setting up SSH Keys - for more details. As a new user, you will need to send your public key via the LuxProvide helpdesk as described in the onboarding email before you can connect.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Meluxina runs SSH on a non-standard port number 8822 for security reasons.</p>
+<p>Your ssh client will need to explicitly specify port 8822 instead of relying on the default port 22.
+Many university firewalls restrict outgoing connections to all but a few standard port numbers and
+so you may need to request outbound access to <a class="reference external" href="http://login.lxp.lu">login.lxp.lu</a> on port 8822 in order to be able to connect.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to login using your Meluxina account username, not your ICHEC username.</p>
+</div>
+</section>
+<section id="logging-in">
+<h2>Logging in<a class="headerlink" href="#logging-in" title="Link to this heading">#</a></h2>
+<p>You can connect to Meluxina using a SSH client:</p>
+<p>Unix-like systems, such as Linux, macOS, the SSH clients are usually pre-installed. You can access these through the Terminal (or any other command line interface).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ssh -p 8822 $USER@login.lxp.lu
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">$USER</span></code> should be replaced by your username on Meluxina. For example, if your user name is u12345, then replace <code class="docutils literal notranslate"><span class="pre">$USER</span></code> in the code examples with u12345</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For <strong>Windows</strong>, you need to install a SSH client. We recommend MobaXterm.</p>
+</div>
+</section>
+<section id="finding-your-project-name-and-resource-allocations">
+<h2>Finding your Project Name and Resource Allocations<a class="headerlink" href="#finding-your-project-name-and-resource-allocations" title="Link to this heading">#</a></h2>
+<p>The notion of project is very similar to that of Kay. Use the myquota command to list the node hour allocations and usage as well as disk storage quotas and usage for each of the projects you are a member of. Note that node hour allocations are made on a monthly basis. Projects names are of the form p200XXX.</p>
+<section id="file-storage">
+<h3>File Storage<a class="headerlink" href="#file-storage" title="Link to this heading">#</a></h3>
+<p>Two locations are available for storing files on Meluxina</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/users/$USER</span>
+
+<span class="nt">Work</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/project/home/$ProjectName</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">$USER</span></code> is your username, and <code class="docutils literal notranslate"><span class="pre">$ProjectName</span></code> is name of the project assigned to you. The purpose of both <code class="docutils literal notranslate"><span class="pre">Home</span></code> and <code class="docutils literal notranslate"><span class="pre">Work</span></code> storage is explained through the table below.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Name</p></th>
+<th class="head text-center"><p>Home</p></th>
+<th class="head text-center"><p>Work</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Purpose</p></td>
+<td class="text-center"><p>Store personal file or source code</p></td>
+<td class="text-center"><p>Store simulation data</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Quota</p></td>
+<td class="text-center"><p>Smaller Limit: 100GB</p></td>
+<td class="text-center"><p>Larger Limit (see <a class="reference internal" href="national-service-projects.html"><span class="std std-doc">Class Projects Limits</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Access</p></td>
+<td class="text-center"><p>Only to you</p></td>
+<td class="text-center"><p>To all users in the project</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Backup</p></td>
+<td class="text-center"><p>No</p></td>
+<td class="text-center"><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="data-transfer">
+<h2>Data Transfer<a class="headerlink" href="#data-transfer" title="Link to this heading">#</a></h2>
+<p>On Unix-like systems, you can use command line applications such as SCP or SFTP.</p>
+<p><strong>Using SCP</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-P<span class="w"> </span><span class="m">8822</span><span class="w"> </span>localFilePath<span class="w"> </span><span class="nv">$USER</span>@login.lxp.lu:remoteFilePath
+</pre></div>
+</div>
+<p><strong>Using SFTP</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sftp<span class="w"> </span>-P<span class="w"> </span><span class="m">8822</span><span class="w"> </span><span class="nv">$USER</span>@login.lxp.lu
+
+put<span class="w"> </span>localFilePath
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note, that while using scp or sftp, the port option is given by captical <code class="docutils literal notranslate"><span class="pre">-P</span></code>, not small <code class="docutils literal notranslate"><span class="pre">-p</span></code>.</p>
+</div>
+<p>On Windows, you can use graphical applications such as <a class="reference external" href="https://winscp.net/eng/index.php">WinSCP</a>.</p>
+</section>
+<section id="software-packages">
+<h2>Software Packages<a class="headerlink" href="#software-packages" title="Link to this heading">#</a></h2>
+<p><em>Environment modules</em> (or commonly known as modules) are used to organise all the software packages we provide on Meluxina including scientific applications, compilers and development libraries. To start using the package of interest, you should load the corresponding module (NOTE that modules and the associated application software are only accessible on compute nodes and not on the login nodes). You can list all the available modules on the system by running an interactive compute jobs and using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>avail
+</pre></div>
+</div>
+<p>Note that this can take up to 30 seconds when run the first time on a compute node.</p>
+<p>To load the module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+</pre></div>
+</div>
+<p>To check the loaded modules in your environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>list
+</pre></div>
+</div>
+</section>
+<section id="job-submission">
+<h2>Job Submission<a class="headerlink" href="#job-submission" title="Link to this heading">#</a></h2>
+<p>As is standard on most HPC systems a batch system (SLURM) is used to allocate compute nodes to users. Please refer to <a class="reference internal" href="slurm.html#slurm-workload-manager"><span class="std std-ref">Slurm Workload Manager</span></a>, and <a class="reference internal" href="slurm.html#slurm-commands"><span class="std std-ref">Slurm Commands</span></a> pages for more detailed documentation.</p>
+<p>To submit a job, create a submission script in a file named, say <code class="docutils literal notranslate"><span class="pre">mybatchjob.sh</span></code> using emacs, nano or vim with the following text as an example (for a MPI application):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh </span>
+
+<span class="c1">#SBATCH --time=00:20:00</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH -A {{myProjectID}}</span>
+<span class="c1">#SBATCH -p cpu</span>
+
+
+module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
+
+mpirun<span class="w"> </span>mpi-benchmarks/src/IMB-MPI1
+</pre></div>
+</div>
+<p>Submit the job using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>mybatchjob.sh
+</pre></div>
+</div>
+<p>You can check the progress of any jobs you have submitted by using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
+</pre></div>
+</div>
+<p>Need help?</p>
+<p>If you get stuck, you can check our:</p>
+<ul class="simple">
+<li><p>FAQs</p></li>
+<li><p>Tutorials</p></li>
+<li><p>Software Guides</p></li>
+<li><p>Or alternatively, contact our <a class="reference external" href="https://www.ichec.ie/academic/national-hpc/user-support">Helpdesk</a>.</p></li>
+</ul>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -475,11 +668,11 @@ Meluxina Docs</div>
       </div>
     </a>
     <a class="right-next"
-       href="README.html"
+       href="slurm.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributing to the documentation page</p>
+        <p class="prev-next-title">Slurm Workload Manager</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -499,8 +692,24 @@ Meluxina Docs</div>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interim National HPC Service</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Interim National HPC Service</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart">Quickstart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-an-account-and-access">Setting up an Account and Access</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kay-vs-meluxina">Kay vs Meluxina</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-meluxina">Connecting to Meluxina</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-your-project-name-and-resource-allocations">Finding your Project Name and Resource Allocations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-storage">File Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transfer">Data Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-packages">Software Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission">Job Submission</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

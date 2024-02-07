@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing to the documentation page &#8212; Documentations for the Interim Service</title>
+    <title>Slurm Workload Manager &#8212; Documentations for the Interim Service</title>
   
   
   
@@ -58,11 +58,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'slurm';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contact Us" href="contact-us.html" />
-    <link rel="prev" title="National Service Projects" href="national-service-projects.html" />
+    <link rel="next" title="National Service Projects" href="national-service-projects.html" />
+    <link rel="prev" title="Interim National HPC Service" href="interim-service.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,10 +183,10 @@
 <li class="toctree-l1"><a class="reference internal" href="interim-service.html">Interim National HPC Service</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="slurm.html">Slurm Workload Manager</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Slurm Workload Manager</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="national-service-projects.html">National Service Projects</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing to the documentation page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Contributing to the documentation page</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="contact-us.html">Contact Us</a></li>
 </ul>
@@ -243,7 +243,7 @@
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/slurm.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +327,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Contributing to the documentation page</h1>
+    <h1>Slurm Workload Manager</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -337,8 +337,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Contributing to the documentation page</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-source">Structure of the source</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Slurm Workload Manager</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm-commands">Slurm Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further Information</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -351,49 +357,132 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-the-documentation-page">
-<h1>Contributing to the documentation page<a class="headerlink" href="#contributing-to-the-documentation-page" title="Link to this heading">#</a></h1>
-<div class="note admonition">
-<p class="admonition-title">For Users</p>
-<p>If you find mistakes in the page, please report it using <a class="reference external" href="https://github.com/ICHEC/interim-service/issues">Issues</a> page.
-Please mention topics you think are missing, incorrect, or aren’t structured appropriately. If you want to get more actively involved, make a fork, implement you changes, and submit a pull request.</p>
-</div>
-<div class="note admonition">
-<p class="admonition-title">For staff</p>
-<p>Please add yourself as members of this <a class="reference external" href="https://github.com/ICHEC/interim-service">repository</a>, and make changes to a branch in your name. Once changes are made, submit a pull/merge request to the main branch.</p>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="structure-of-the-source">
-<h1>Structure of the source<a class="headerlink" href="#structure-of-the-source" title="Link to this heading">#</a></h1>
-<p>This website is created using <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyterbook</a>, based on <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a>.
-See the <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyterbook</a> for more details. The source for this website uses <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/index.html">MyST Markdown</a>.</p>
-<p>The structure of the files looks like follows -</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(web)</span> <span class="go">👽 618-rajarshi 0 (main)✗  tree .</span>
-<span class="go">.</span>
-<span class="go">├── README.md</span>
-<span class="go">├── _config.yml</span>
-<span class="go">├── _static</span>
-<span class="go">│   └── style.css</span>
-<span class="go">├── _toc.yml</span>
-<span class="go">├── contact-us.md</span>
-<span class="go">├── index.md</span>
-<span class="go">├── interim-service.md</span>
-<span class="go">├── logo.png</span>
-<span class="go">├── lxp</span>
-<span class="go">│   └── introduction.md</span>
-<span class="go">├── national-hpc-service.md</span>
-<span class="go">├── references.bib</span>
-<span class="go">├── requirements.txt</span>
-<span class="go">└── scratch.md</span>
-<span class="go">...</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="slurm-workload-manager">
+<span id="id1"></span><h1>Slurm Workload Manager<a class="headerlink" href="#slurm-workload-manager" title="Link to this heading">#</a></h1>
+<p>The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used [Slurm(<a class="reference external" href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>)] workload manager.</p>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
+<p>The typical way a user will interact with compute resources managed by a workload manager is as follows:</p>
+<ul class="simple">
+<li><p>Write a job script which describes the resources required (e.g how many CPUs and for how long), instructions such as where to print standard out and error, and the commands to run once the job starts.</p></li>
+<li><p>Submit the job to the workload manager which will then start the job once the requested resources are available.</p></li>
+<li><p>Once the job completes, the user will see all results as well as output that would normally appear on screen in previously specified files.</p></li>
+</ul>
+<p>The two types of job commonly used are:</p>
+<ul class="simple">
+<li><p><strong>Interactive</strong> : Request a set of nodes to run an interactive bash shell on. This is useful for quick tests and development work. These type of jobs should only be used with the DevQ queue. For example, the following command will submit an interactive job requesting 1 node for 1 hour to be charged to myproj_id:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun<span class="w"> </span>-p<span class="w"> </span>DevQ<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-A<span class="w"> </span>myproj_id<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>:00:00<span class="w"> </span>--pty<span class="w"> </span>bash
 </pre></div>
 </div>
-<p>There are three types of files</p>
 <ul class="simple">
-<li><p>YAML files, with extension <code class="docutils literal notranslate"><span class="pre">.yml</span></code> which are used to define structure and build process of the pages. <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file defines all the configurational options for building the pages, and <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> file defines the <a class="reference external" href="https://jupyterbook.org/en/stable/start/create.html#table-of-contents-toc-yml">table of contents</a>, and structure of the documents.</p></li>
-<li><p>CSS files, primarily stored in <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder, and define the appearance settings for the webpages.</p></li>
-<li><p>Markdown files, with <code class="docutils literal notranslate"><span class="pre">.md</span></code> extension. These are primarily ones that contain the documentation information. Jupyterbook follows MyST format, which is quite feature rich for building pages and pdfs of the technical documents. Checkout the MyST features <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">here</a>.</p></li>
+<li><p><strong>Batch</strong> : A script is submitted for later execution whenever the requested resources are available. Both within this script and on the commandline when submitting the job, a set of constraints, required information and instructions are given. The file must be a shell script (i.e start with <code class="docutils literal notranslate"><span class="pre">#!/bin/sh</span></code>) and Slurm directives must be preceeded by <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code>. A sample script is displayed below which request 4 nodes (each with 40 cores) for 48 hours to run an MPI application and could be submitted using the command:</p></li>
 </ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>mybatchjob.sh
+</pre></div>
+</div>
+<p>Where the file <code class="docutils literal notranslate"><span class="pre">mybatchjob.sh</span></code> looks like -</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh </span>
+
+<span class="c1">#SBATCH --time=00:20:00</span>
+<span class="c1">#SBATCH --nodes=4</span>
+<span class="c1">#SBATCH -A myproj_id</span>
+
+module<span class="w"> </span>load<span class="w"> </span>intel/2019
+
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</span><span class="w"> </span>./a.out
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="slurm-commands">
+<span id="id2"></span><h1>Slurm Commands<a class="headerlink" href="#slurm-commands" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Slurm informational command summary</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sinfo</span></code>: It lists all partition/queues and limits. Run <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">sinfo</span></code> for more details about the command and further arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span></code>: It lists all queued jobs. Run <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">squeue</span></code> for more details about the command and further arguments, such as</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">$USER</span></code> prints jobs by the $USER.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-j</span> <span class="pre">jobid</span></code> shows info about a particular job with job-id <code class="docutils literal notranslate"><span class="pre">jobid</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">--start</span></code> shows estimated start time of the job.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-A</span> <span class="pre">myproj_id</span></code> lists all jobs using specific account.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mybalance</span></code>: Lists summary of core hour balances of all of the users’s account.</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Slurm job commands</p>
+<p>Below is a table of some of the common slurm commands used in running jobs.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Command</p></th>
+<th class="head text-center"><p>Description</p></th>
+<th class="head text-center"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>sbatch</p></td>
+<td class="text-center"><p>Submit job script</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">myjob.sh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>submit script to use 5 nodes</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">-N</span> <span class="pre">5</span> <span class="pre">myjob.sh</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>submit job with dependency on successful completion of other jobs</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">-d</span> <span class="pre">afterok:job_id[:jobid...]</span> <span class="pre">myjob.sh</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>scancel</p></td>
+<td class="text-center"><p>Cancel job</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">&lt;jobid&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>sattach</p></td>
+<td class="text-center"><p>Attach terminal to standard output of running job (job step 0)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sattach</span> <span class="pre">&lt;jobid&gt;.0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>scontrol</p></td>
+<td class="text-center"><p>Prevent a queued job from running</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">hold</span> <span class="pre">&lt;jobid&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>release a job hold</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">release</span> <span class="pre">&lt;jobid&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>display detailed info about specific job</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">scontrol</span> <span class="pre">show</span> <span class="pre">jobid</span> <span class="pre">&lt;jobid&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>srun</p></td>
+<td class="text-center"><p>Run a parallel job (mostly within an allocation created with a job script)</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>run a 2 node interactive job for 30 minutes</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-N</span> <span class="pre">2</span> <span class="pre">-A</span> <span class="pre">myproj_id</span> <span class="pre">-t</span> <span class="pre">00:30:00</span> <span class="pre">-p</span> <span class="pre">DevQ</span> <span class="pre">--pty</span> <span class="pre">bash</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>run an MPI application within a Slurm submit script (using all cores allocated on all nodes)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-n</span> <span class="pre">$[$SLURM_JOB_NUM_NODES</span> <span class="pre">*</span> <span class="pre">40]</span> <span class="pre">./my_mpi_app</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>run a Hybrid MPI/OpenMP application using 1 MPI process per node</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-n</span> <span class="pre">$SLURM_JOB_NUM_NODES</span> <span class="pre">--ntasks-per-node=1</span> <span class="pre">./my_hybrid_mpi_app</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>run a command on a job already running. e.g. to find out the CPU/Memory usage</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--jobid</span> <span class="pre">&lt;jobid&gt;</span> <span class="pre">ps</span> <span class="pre">u</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<section id="further-information">
+<h2>Further Information<a class="headerlink" href="#further-information" title="Link to this heading">#</a></h2>
+<p>For detailed understanding of Slurm, please see the official website of <a class="reference external" href="https://slurm.schedmd.com/">Slurm</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,20 +516,20 @@ See the <a class="reference external" href="https://jupyterbook.org/en/stable/in
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="national-service-projects.html"
+       href="interim-service.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">National Service Projects</p>
+        <p class="prev-next-title">Interim National HPC Service</p>
       </div>
     </a>
     <a class="right-next"
-       href="contact-us.html"
+       href="national-service-projects.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contact Us</p>
+        <p class="prev-next-title">National Service Projects</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -460,8 +549,14 @@ See the <a class="reference external" href="https://jupyterbook.org/en/stable/in
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Contributing to the documentation page</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-source">Structure of the source</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Slurm Workload Manager</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm-commands">Slurm Commands</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-information">Further Information</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

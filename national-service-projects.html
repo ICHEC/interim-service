@@ -58,6 +58,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'national-service-projects';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -479,8 +481,23 @@ document.write(`
 <li><p>Simulation’s plan is in agreement with ICHEC scheduling policies</p></li>
 <li><p>Any special requirement is needed</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">techn</span> <span class="pre">eval</span></code></p>
-<p>After the technical evaluation, Class C applicants are notified and their respective projects are activated. In the case of Class A and B applications, after the technical evaluation, projects are sent out for peer review by the <a class="reference external" href="https://www.ichec.ie/about/governance/science-council">Science Council</a>, usually by two national reviewers (Class B) or one national and one international reviewer (Class A) in order to evaluate the scientific merit of the proposal and applicant track record. Once both reviewer’s reports are received, the decision is communicated to the applicant. This process might take between 4-8 weeks for Class B projects and up to 12 weeks for Class A projects</p>
+<div class="mermaid">
+            flowchart TD
+subgraph within 1 week;
+    Asub[Application Submitted] --&gt; Aa[Application Assignment] --&gt; Ts[Technical Evaluation]
+end
+cc[Class C]
+subgraph &quot;class A: max 12 week, class B: max 8 week&quot;;
+    scc[Science Council Chair] &lt;--&gt; rev[Reviewers]
+    scc &lt;--&gt; ichec[ICHEC]
+    cab[Class A, B] --&gt; scc
+end
+Ts --&gt; cc &amp; cab
+cc --Approved--&gt; pa[Project Activated]
+ichec --Approved--&gt; pa
+cc --Rejected--&gt; Asub
+ichec --Rejected--&gt; Asub
+        </div><p>After the technical evaluation, Class C applicants are notified and their respective projects are activated. In the case of Class A and B applications, after the technical evaluation, projects are sent out for peer review by the <a class="reference external" href="https://www.ichec.ie/about/governance/science-council">Science Council</a>, usually by two national reviewers (Class B) or one national and one international reviewer (Class A) in order to evaluate the scientific merit of the proposal and applicant track record. Once both reviewer’s reports are received, the decision is communicated to the applicant. This process might take between 4-8 weeks for Class B projects and up to 12 weeks for Class A projects</p>
 <ul class="simple">
 <li><p>How to apply for the National Service</p></li>
 <li><p>Class Projects Requirements</p></li>

@@ -372,7 +372,7 @@ document.write(`
   <p>(target)=interim-service</p>
 <section class="tex2jax_ignore mathjax_ignore" id="interim-national-hpc-service">
 <h1>Interim National HPC Service<a class="headerlink" href="#interim-national-hpc-service" title="Link to this heading">#</a></h1>
-<p>This page describes the nature of the service being put in place to enable researchers maintain access to HPC resources as well as the high level migration plan in operation to migrate researchers to the new system.</p>
+<p>This page describes the nature of the service being put in place to enable researchers maintain access to HPC resources following the closure of the Kay supercomputer. It also highlights the differences between the two systems and services as well as the high level migration plan in operation to migrate researchers to the new system.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Background<div class="sd-summary-down docutils">
@@ -434,9 +434,12 @@ Meluxina Docs</div>
 <div class="admonition-quick-summary admonition">
 <p class="admonition-title">Quick Summary</p>
 <ul class="simple">
-<li><p>Similar to kay, there is a login node for meluxina <code class="docutils literal notranslate"><span class="pre">login.lxp.lu</span></code> where you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. One noteworthy difference is that meluxina has the default ssh port 22 closed, and uses port 8822 for ssh. So you ssh command would be <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">8822</span> <span class="pre">username&#64;login.lxp.lu</span></code> .</p></li>
-<li><p>You are assigned a user name when your account is created on meluxina, so it’s good idea to use $USER variable in your script rather than using your username.</p></li>
-<li><p>You might need to rethink in terms of taskfarming or resource management, if your HPC runs were optimized for 40 core nodes. For most people, this will not be an issue, but if it is, please do <a class="reference internal" href="contact-us.html"><span class="doc std std-doc">contact us</span></a>.</p></li>
+<li><p>Similar to kay, there is a login node for meluxina <code class="docutils literal notranslate"><span class="pre">login.lxp.lu</span></code> where you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. One noteworthy difference is that meluxina uses port 8822 for ssh instead of the default port 22. So your ssh command would be <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">8822</span> <span class="pre">username&#64;login.lxp.lu</span></code> . If your ssh session to meluxina does not connect or hangs, it is likely that you are not specifying the correct port (8822) or that your local firewall is preventing outbound connections to this port.</p></li>
+<li><p>The meluxina login nodes do not have access to the centrally installed applications or modules and so to see what modules are available or to load modules and build your software you will need to launch an interactive slurm job.</p></li>
+<li><p>You are assigned a (different) user name when your account is created on meluxina, so it’s good idea to use $USER variable in your script rather than using your username.</p></li>
+<li><p>Resources are allocated based on node hours and each node has considerably more CPU cores and/or GPUs than kay. As a result, each node hour used is considerably more expensive (and powerful) than kay and so it is important that you fully use all cores or GPUs on the node. You might need to rethink in terms of domain decomposition, taskfarming or other hardcoded compute or memory sizing when transferring scripts from kay. Please <a class="reference internal" href="contact-us.html"><span class="doc std std-doc">contact us</span></a> for help with performance optimisation.</p></li>
+<li><p>Extensive documentation is available on <a class="reference external" href="https://docs.lxp.lu/">Meluxina Documentation Site</a></p></li>
+<li><p>After initial onboarding, all technical support on meluxina should be via the <a class="reference internal" href="contact-us.html"><span class="doc std std-doc">ICHEC Helpdesk</span></a>.</p></li>
 </ul>
 </div>
 <p>Below is a <a class="reference internal" href="#kay-lxp-comp"><span class="std std-ref">Table</span></a> of comparison between kay and meluxina machine, highlighting similarities and differences -</p>
@@ -450,16 +453,16 @@ Meluxina Docs</div>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>Standard CPU nodes</p></td>
-<td class="text-center"><p>Intel CPUs 40core per node</p></td>
-<td class="text-center"><p>Amd CPUs 128core per node</p></td>
+<td class="text-center"><p>Intel CPUs 40core, 192GB RAM, 400 GB SSD per node</p></td>
+<td class="text-center"><p>Amd CPUs 128core, 512 GB RAM, No local disk per node</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Standard GPU nodes</p></td>
 <td class="text-center"><p>2 x (NVidia V100 cards, 16GB) per node</p></td>
 <td class="text-center"><p>4 x (Nvidia A100 cards, 40GB) per node</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Large Memory Nodes</p></td>
-<td class="text-center"><p></p></td>
-<td class="text-center"><p></p></td>
+<td class="text-center"><p>Intel CPUs 40 core, 1.5 TiB RAM</p></td>
+<td class="text-center"><p>AMD CPUs 128core, 4TiB RAM</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Hyperthreading</p></td>
 <td class="text-center"><p>No</p></td>
@@ -477,9 +480,17 @@ Meluxina Docs</div>
 <td class="text-center"><p>CPU core hour</p></td>
 <td class="text-center"><p>CPU/GPU Node hour</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>Popular slurm partitions</p></td>
+<tr class="row-odd"><td class="text-center"><p>Slurm partitions</p></td>
 <td class="text-center"><p>DevQ, ProdQ, LongQ, GpuQ, …</p></td>
 <td class="text-center"><p>cpu, gpu, fpga, largemem</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Internet connectivity</p></td>
+<td class="text-center"><p>No internet connection from compute nodes</p></td>
+<td class="text-center"><p>Internet accessible from compute nodes</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Resource usage/allocation command</p></td>
+<td class="text-center"><p>mybalance / quota</p></td>
+<td class="text-center"><p>myquota</p></td>
 </tr>
 </tbody>
 </table>

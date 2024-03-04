@@ -8,6 +8,8 @@ chapters:
 - file: national-hpc-service
 - file: interim-service
 - file: slurm
+- file: software-support
 - file: national-service-projects
+- file: prace-access
 - file: README
 - file: contact-us

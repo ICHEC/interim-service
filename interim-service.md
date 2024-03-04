@@ -79,21 +79,22 @@ Below is a {ref}`Table <kay-lxp-comp>` of comparison between kay and meluxina ma
 
 ```{table} Table of Comparison of Kay vs Meluxina
 :name: kay-lxp-comp
-|Specs/features|kay|meluxina|
-|:---:|:---:|:---:|
-|Standard CPU nodes|Intel CPUs 40core, 192GB RAM, 400 GB SSD per node|Amd CPUs 128core, 512 GB RAM, No local disk per node|
-|Standard GPU nodes|2 x (NVidia V100 cards, 16GB) per node| 4 x (Nvidia A100 cards, 40GB) per node|
-|Large Memory Nodes|Intel CPUs 40 core, 1.5 TiB RAM|AMD CPUs 128core, 4TiB RAM|
-|Hyperthreading| No |On by default, changable per job|
-|login access|`ssh user@kay.ichec.ie`|`ssh -p 8822 user@login.lxp.lu`|
-|queue manager|Slurm [See link](https://www.ichec.ie/academic/national-hpc/kay-documentation/slurm-workload-manager)|Slurm [See link](https://docs.lxp.lu/first-steps/handling_jobs/)|
-|Resource Consumption unit|CPU core hour|CPU/GPU Node hour|
-|Slurm partitions|DevQ, ProdQ, LongQ, GpuQ, ...|cpu, gpu, fpga, largemem|
-|Internet connectivity|No internet connection from compute nodes|Internet accessible from compute nodes|
-|Resource usage/allocation command|mybalance / quota|myquota|
+| Specs/features                    | kay                                                                                                   | meluxina                                                         |
+| :---:                             | :---:                                                                                                 | :---:                                                            |
+| Standard CPU nodes                | Intel CPUs[^intel-cpu] 40 core, 192GB RAM, 400 GB SSD per node                                        | Amd CPUs[^amd-cpu] 128core, 512 GB RAM, No local on node         |
+| Standard GPU nodes                | 2 x (NVidia V100 cards, 16GB) per node                                                                | 4 x (Nvidia A100 cards, 40GB) per node                           |
+| Large Memory Nodes                | Intel CPUs 40 core, 1.5 TiB RAM                                                                       | AMD CPUs 128core, 4TiB RAM                                       |
+| Hyperthreading                    | No                                                                                                    | On by default, changable per job                                 |
+| login access                      | `ssh user@kay.ichec.ie`                                                                               | `ssh -p 8822 user@login.lxp.lu`                                  |
+| queue manager                     | Slurm [See link](https://www.ichec.ie/academic/national-hpc/kay-documentation/slurm-workload-manager) | Slurm [See link](https://docs.lxp.lu/first-steps/handling_jobs/) |
+| Resource Consumption unit         | CPU core hour                                                                                         | CPU/GPU Node hour                                                |
+| Slurm partitions                  | DevQ, ProdQ, LongQ, GpuQ, ...                                                                         | cpu, gpu, fpga, largemem                                         |
+| Internet connectivity             | No internet connection from compute nodes                                                             | Internet accessible from compute nodes                           |
+| Resource usage/allocation command | mybalance / quota                                                                                     | myquota                                                          |
 ```
 
-
+[^intel-cpu]: [Intel Xeon Gold 6148 20core](https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html)
+[^amd-cpu]: [AMD EPYC 7H12 64core](https://www.amd.com/en/products/cpu/amd-epyc-7h12)
 # Connecting to Meluxina
 
 ## SSH
@@ -181,7 +182,13 @@ On Windows, you can use graphical applications such as [WinSCP](https://winscp.n
 
 ## Software Packages
 
-_Environment modules_ (or commonly known as modules) are used to organise all the software packages we provide on Meluxina including scientific applications, compilers and development libraries. To start using the package of interest, you should load the corresponding module (NOTE that modules and the associated application software are only accessible on compute nodes and not on the login nodes). You can list all the available modules on the system by running an interactive compute jobs and using:
+_Environment modules_ (or commonly known as modules) are used to organise all the software packages we provide on Meluxina including scientific applications, compilers and development libraries. To start using the package of interest, you should load the corresponding module.
+
+```{important}
+Note that modules and the associated application software are only accessible on compute nodes and not on the login nodes.
+```
+
+You can list all the available modules on the system by running an interactive compute jobs and using:
 
 ```bash
 module avail

@@ -4,12 +4,23 @@
 format: jb-book
 root: index
 
-chapters:
-- file: national-hpc-service
-- file: interim-service
-- file: slurm
-- file: software-support
-- file: national-service-projects
-- file: prace-access
-- file: README
-- file: contact-us
+parts:
+  - caption: Service
+    chapters:
+    - file: national-hpc-service
+    - file: interim-service
+
+  - caption: Usage
+    chapters:
+    - file: slurm
+    - file: software-support
+
+  - caption: Access
+    chapters:
+    - file: national-service-projects
+    - file: prace-access
+
+  - caption: Support
+    chapters:
+    - file: README
+    - file: contact-us

@@ -1,7 +1,7 @@
 (slurm-workload-manager)=
 # Slurm Workload Manager
 
-The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used [Slurm(https://slurm.schedmd.com/)] workload manager.
+The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used [Slurm](https://slurm.schedmd.com/) workload manager.
 
 ## Basic Usage
 

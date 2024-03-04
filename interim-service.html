@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="slurm.html">Slurm Workload Manager</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="national-service-projects.html">National Service Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prace-access.html">PRACE Access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Contributing to the documentation page</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="contact-us.html">Contact Us</a></li>
@@ -453,8 +454,8 @@ Meluxina Docs</div>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>Standard CPU nodes</p></td>
-<td class="text-center"><p>Intel CPUs 40core, 192GB RAM, 400 GB SSD per node</p></td>
-<td class="text-center"><p>Amd CPUs 128core, 512 GB RAM, No local disk per node</p></td>
+<td class="text-center"><p>Intel CPUs<a class="footnote-reference brackets" href="#intel-cpu" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> 40 core, 192GB RAM, 400 GB SSD per node</p></td>
+<td class="text-center"><p>Amd CPUs<a class="footnote-reference brackets" href="#amd-cpu" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 128core, 512 GB RAM, No local on node</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Standard GPU nodes</p></td>
 <td class="text-center"><p>2 x (NVidia V100 cards, 16GB) per node</p></td>
@@ -589,7 +590,12 @@ put<span class="w"> </span>localFilePath
 </section>
 <section id="software-packages">
 <h2>Software Packages<a class="headerlink" href="#software-packages" title="Link to this heading">#</a></h2>
-<p><em>Environment modules</em> (or commonly known as modules) are used to organise all the software packages we provide on Meluxina including scientific applications, compilers and development libraries. To start using the package of interest, you should load the corresponding module (NOTE that modules and the associated application software are only accessible on compute nodes and not on the login nodes). You can list all the available modules on the system by running an interactive compute jobs and using:</p>
+<p><em>Environment modules</em> (or commonly known as modules) are used to organise all the software packages we provide on Meluxina including scientific applications, compilers and development libraries. To start using the package of interest, you should load the corresponding module.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note that modules and the associated application software are only accessible on compute nodes and not on the login nodes.</p>
+</div>
+<p>You can list all the available modules on the system by running an interactive compute jobs and using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>avail
 </pre></div>
 </div>
@@ -636,6 +642,17 @@ mpirun<span class="w"> </span>mpi-benchmarks/src/IMB-MPI1
 <li><p>Software Guides</p></li>
 <li><p>Or alternatively, contact our <a class="reference external" href="https://www.ichec.ie/academic/national-hpc/user-support">Helpdesk</a>.</p></li>
 </ul>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="intel-cpu" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://ark.intel.com/content/www/us/en/ark/products/120489/intel-xeon-gold-6148-processor-27-5m-cache-2-40-ghz.html">Intel Xeon Gold 6148 20core</a></p>
+</aside>
+<aside class="footnote brackets" id="amd-cpu" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.amd.com/en/products/cpu/amd-epyc-7h12">AMD EPYC 7H12 64core</a></p>
+</aside>
+</aside>
 </section>
 </section>
 

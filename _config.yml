@@ -32,14 +32,18 @@ html:
   use_repository_button: true
 
 html:
-  extra_footer: "Copyright@2022"
+  extra_footer: "Copyright@2024"
 
 # remove jupyterbooks copyright info
 sphinx:
   extra_extensions:
   - sphinxcontrib.mermaid
+  - sphinxcontrib.youtube
+  - sphinxcontrib.drawio
+  - sphinx_design
   config:
     html_show_copyright: false
+    drawio_headless: auto
 
 parse:
   myst_heading_anchors: 3
@@ -55,3 +59,4 @@ parse:
     - smartquotes
     - substitution
     - tasklist
+  myst_url_schemes: [mailto, http, https]

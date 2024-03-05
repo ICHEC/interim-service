@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/drawio.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/style.css?v=aebb3ad3" />
   
@@ -326,7 +327,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -342,6 +345,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilers-and-libraries">Compilers and Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-science">Material Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -357,33 +370,46 @@ document.write(`
 <p>We do our best to offer latest versions of all required software. If you require a newer version please ask us for it.</p>
 <p>On the interim service system, <a class="reference external" href="https://docs.lxp.lu/">Meluxina</a> we are also making sure all the softwares of user’s interest are installed.</p>
 <p>The following list is not exhaustive and does not include many packages one might take for granted, e.g. perl. Certain packages are installed on a request basis and so may not yet have been requested on a given system.</p>
+<section id="compilers-and-libraries">
+<h2>Compilers and Libraries<a class="headerlink" href="#compilers-and-libraries" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#./softwares/abaqus.md"><span class="xref myst">Abaqus</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/abinit.md"><span class="xref myst">Abinit</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/amber.md"><span class="xref myst">Amber</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/cmake3-cross-platform-make.md"><span class="xref myst">Cmake3-Cross-Platform-Make</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/cp2k-0.md"><span class="xref myst">Cp2k-0</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/cuda-toolkit.md"><span class="xref myst">Cuda-Toolkit</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/dlpoly.md"><span class="xref myst">Dlpoly</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/gamess-us.md"><span class="xref myst">Gamess-Us</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/gaussian.md"><span class="xref myst">Gaussian</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/gcc.md"><span class="xref myst">Gcc</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/gromacs.md"><span class="xref myst">Gromacs</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/gsl.md"><span class="xref myst">Gsl</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/intel-compiler.md"><span class="xref myst">Intel-Compiler</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/namd.md"><span class="xref myst">Namd</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/openfoam.md"><span class="xref myst">Openfoam</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/orca.md"><span class="xref myst">Orca</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/parallel.md"><span class="xref myst">Parallel</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/paraview.md"><span class="xref myst">Paraview</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/python-conda.md"><span class="xref myst">Python-Conda</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/quantum-espresso.md"><span class="xref myst">Quantum-Espresso</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/r.md"><span class="xref myst">R</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/siesta.md"><span class="xref myst">Siesta</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/singularity.md"><span class="xref myst">Singularity</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/vasp.md"><span class="xref myst">Vasp</span></a></p></li>
-<li><p><a class="reference internal" href="#./softwares/voro.md"><span class="xref myst">Voro</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/cmake3-cross-platform-make.html"><span class="std std-doc">Cmake3-Cross-Platform-Make</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/cuda-toolkit.html"><span class="std std-doc">Cuda-Toolkit</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/gsl.html"><span class="std std-doc">Gsl</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/intel-compiler.html"><span class="std std-doc">Intel-Compiler</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/python-conda.html"><span class="std std-doc">Python-Conda</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/r.html"><span class="std std-doc">R</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/voro.html"><span class="std std-doc">Voro++: A three dimensional Voronoi cell library in C++</span></a></p></li>
 </ul>
+</section>
+<section id="material-science">
+<h2>Material Science<a class="headerlink" href="#material-science" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="softwares/abinit.html"><span class="std std-doc">Abinit</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/cp2k-0.html"><span class="std std-doc">Cp2k-0</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/dlpoly.html"><span class="std std-doc">Dlpoly</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/gamess-us.html"><span class="std std-doc">Gamess-Us</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/gaussian.html"><span class="std std-doc">Gaussian</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/quantum-espresso.html"><span class="std std-doc">Quantum-Espresso</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/orca.html"><span class="std std-doc">Orca</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/siesta.html"><span class="std std-doc">Siesta</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/vasp.html"><span class="std std-doc">Vasp</span></a></p></li>
+</ul>
+</section>
+<section id="other">
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="softwares/abaqus.html"><span class="std std-doc">Abaqus</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/amber.html"><span class="std std-doc">Amber</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/gcc.html"><span class="std std-doc">Gcc</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/gromacs.html"><span class="std std-doc">Gromacs</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/namd.html"><span class="std std-doc">Namd</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/openfoam.html"><span class="std std-doc">Openfoam</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/parallel.html"><span class="std std-doc">Parallel</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/paraview.html"><span class="std std-doc">Paraview</span></a></p></li>
+<li><p><a class="reference internal" href="softwares/singularity.html"><span class="std std-doc">Singularity</span></a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -441,7 +467,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compilers-and-libraries">Compilers and Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-science">Material Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -469,7 +510,7 @@ By ICHEC Team
   <div class="footer-item">
     
 <div class="extra_footer">
-  Copyright@2022
+  Copyright@2024
 </div>
   </div>
   

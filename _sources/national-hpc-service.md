@@ -22,4 +22,10 @@ During the migration of current projects to the Interim Service, between Feb 1 a
 The `Kay` platform which supported the National HPC Service reached the end of its 5 year service life in November 2023. Because investment for the replacement [CASPIr](https://www.ichec.ie/news/ireland-one-five-sites-selected-eu-host-new-world-class-supercomputer) platform, as part of the [EuroHPC joint undertaking](https://eurohpc-ju.europa.eu/eurohpc-joint-undertaking-announces-five-sites-host-new-world-class-supercomputers-2022-06-15_en), has been delayed and the operational lifespan of Kay could not be further extended for a number of contractual and technical reasons, an interim solution was required to bridge the gap until the CASPIr system can be deployed.
 
 
+```{card} User Registration portal.
+
+[User Registration & Project Applications](https://nationalservice.ichec.ie/) is the where you create and manage your ICHEC account. Every ICHEC user must have an account.
+
+```
+
 

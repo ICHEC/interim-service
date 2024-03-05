@@ -8,28 +8,39 @@ On the interim service system, [Meluxina](https://docs.lxp.lu/) we are also maki
 
 The following list is not exhaustive and does not include many packages one might take for granted, e.g. perl. Certain packages are installed on a request basis and so may not yet have been requested on a given system.
 
-- [Abaqus](./softwares/abaqus.md)
-- [Abinit](./softwares/abinit.md)
-- [Amber](./softwares/amber.md)
+## Compilers and Libraries
+
 - [Cmake3-Cross-Platform-Make](./softwares/cmake3-cross-platform-make.md)
-- [Cp2k-0](./softwares/cp2k-0.md)
 - [Cuda-Toolkit](./softwares/cuda-toolkit.md)
+- [Gsl](./softwares/gsl.md)
+- [Intel-Compiler](./softwares/intel-compiler.md)
+- [Python-Conda](./softwares/python-conda.md)
+- [R](./softwares/r.md)
+- [Voro++: A three dimensional Voronoi cell library in C++](./softwares/voro.md)
+
+## Material Science
+
+- [Abinit](./softwares/abinit.md)
+- [Cp2k-0](./softwares/cp2k-0.md)
 - [Dlpoly](./softwares/dlpoly.md)
 - [Gamess-Us](./softwares/gamess-us.md)
 - [Gaussian](./softwares/gaussian.md)
+- [Quantum-Espresso](./softwares/quantum-espresso.md)
+- [Orca](./softwares/orca.md)
+- [Siesta](./softwares/siesta.md)
+- [Vasp](./softwares/vasp.md)
+
+## Other
+
+- [Abaqus](./softwares/abaqus.md)
+- [Amber](./softwares/amber.md)
+
+
 - [Gcc](./softwares/gcc.md)
 - [Gromacs](./softwares/gromacs.md)
-- [Gsl](./softwares/gsl.md)
-- [Intel-Compiler](./softwares/intel-compiler.md)
 - [Namd](./softwares/namd.md)
 - [Openfoam](./softwares/openfoam.md)
-- [Orca](./softwares/orca.md)
+
 - [Parallel](./softwares/parallel.md)
 - [Paraview](./softwares/paraview.md)
-- [Python-Conda](./softwares/python-conda.md)
-- [Quantum-Espresso](./softwares/quantum-espresso.md)
-- [R](./softwares/r.md)
-- [Siesta](./softwares/siesta.md)
 - [Singularity](./softwares/singularity.md)
-- [Vasp](./softwares/vasp.md)
-- [Voro](./softwares/voro.md)

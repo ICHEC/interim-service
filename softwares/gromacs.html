@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GROMACS &#8212; Documentations for the Interim Service</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=aebb3ad3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'softwares/gromacs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Documentations for the Interim Service - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Documentations for the Interim Service - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ICHEC National Service Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Service</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-hpc-service.html">National HPC Service</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../interim-service.html">Interim National HPC Service</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slurm.html">Slurm Workload Manager</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../software-support.html">Software Support</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Access</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-service-projects.html">National Service Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prace-access.html">PRACE Access</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Contributing to the documentation page</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../contact-us.html">Contact Us</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/softwares/gromacs.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GROMACS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-to-cpu-only-nodes">Job Submission Example to CPU-only nodes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-to-gpu-nodes">Job submission to GPU nodes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-important-flags-that-you-may-need-to-submit-your-jobs-to-gpu-nodes">Some important flags that you may need to submit your jobs to GPU nodes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-examples">A few examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5">Example 5:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6">Example 6: —————-</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-7">Example 7:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-speed-up-when-using-these-settings">Expected speed-up when using these settings:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gromacs">
+<h1>GROMACS<a class="headerlink" href="#gromacs" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Versions Installed</p>
+<p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">2018.3</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+</div>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>GROMACS is a versatile package to perform molecular dynamics, i.e., simulate the Newtonian equations of motion for systems with hundreds to millions of particles. It is primarily designed for biochemical molecules like proteins and lipids that have a lot of complicated bonded
+interactions, but as GROMACS is fast at calculating the non-bonded interactions there is also much research on non-biological systems, e.g., polymers.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>GROMACS is available under the <a class="reference external" href="http://www.gnu.org/copyleft/gpl.html" title="GPL homepage">GNU General Public License</a>.</p>
+</section>
+<section id="benchmarks">
+<h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
+<p>N/A</p>
+</section>
+<section id="job-submission-example-to-cpu-only-nodes">
+<h2>Job Submission Example to CPU-only nodes:<a class="headerlink" href="#job-submission-example-to-cpu-only-nodes" title="Link to this heading">#</a></h2>
+<p>To run the code in parallel on Kay, please follow the below example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p ProdQ</span>
+<span class="c1">#SBATCH -N 2</span>
+<span class="c1">#SBATCH -t 02:00:00</span>
+<span class="c1">#SBATCH --job-name=gromacsjob</span>
+
+<span class="c1"># Charge job to myproject </span>
+<span class="c1">#SBATCH -A myproject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=my@email.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2018.3
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</span><span class="w"> </span>gmx_mpi_d<span class="w"> </span>mdrun<span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+</section>
+<section id="job-submission-to-gpu-nodes">
+<h2>Job submission to GPU nodes<a class="headerlink" href="#job-submission-to-gpu-nodes" title="Link to this heading">#</a></h2>
+<p>One can experience significant performance boost when using Gromacs in GPU nodes.</p>
+<p>In the following section, we describe a few guideline to use Gromacs with GPU in the Kay supercomputer.</p>
+<p>First of all, Gromacs is implemented with external MPI library (Intel MPI) and it is built to use in multiple nodes. So, the current installations in Kay do not support thread-mpi. Please do not use <code class="docutils literal notranslate"><span class="pre">-ntmpi</span></code> and <code class="docutils literal notranslate"><span class="pre">-nt</span></code> flags (even if you are running your job in 1 node) otherwise they will result in “Fatal Error”. Instead one can control number of MPI threads using MPI variables.</p>
+<section id="some-important-flags-that-you-may-need-to-submit-your-jobs-to-gpu-nodes">
+<h3>Some important flags that you may need to submit your jobs to GPU nodes:<a class="headerlink" href="#some-important-flags-that-you-may-need-to-submit-your-jobs-to-gpu-nodes" title="Link to this heading">#</a></h3>
+<table data-border="1" data-cellpadding="1" data-cellspacing="1"
+style="width: 500px;">
+<tbody>
+<tr class="odd">
+<td style="width: 92px">-np</td>
+<td style="width: 395px">used to set total number of MPI ranks for the
+job</td>
+</tr>
+<tr class="even">
+<td style="width: 92px">-npme</td>
+<td style="width: 395px">used to set total number of ranks that will be
+working on PME calculations</td>
+</tr>
+<tr class="odd">
+<td style="width: 92px">-dlb</td>
+<td style="width: 395px">used to set dynamic load balancing
+(auto/no/yes)</td>
+</tr>
+<tr class="even">
+<td style="width: 92px">-ntomp</td>
+<td style="width: 395px">used to set number of OpenMP threads per MPI
+rank</td>
+</tr>
+<tr class="odd">
+<td style="width: 92px">-ntomp_pme</td>
+<td style="width: 395px">used to set number of OpenMP threads per MPI
+rank for the PME job</td>
+</tr>
+<tr class="even">
+<td style="width: 92px">-nb</td>
+<td style="width: 395px">Used to set where to execute the short-range
+non-bonded interactions (auto/cpu/gpu)</td>
+</tr>
+<tr class="odd">
+<td style="width: 92px">-pme</td>
+<td style="width: 395px">Used to set where to execute the long-range
+non-bonded interactions (auto/cpu/gpu)</td>
+</tr>
+<tr class="even">
+<td style="width: 92px">-bonded</td>
+<td style="width: 395px">Used to set where to execute the bonded
+interactions that are part of the PP workload for a domain
+(auto/cpu/gpu)</td>
+</tr>
+<tr class="odd">
+<td style="width: 92px">-gpu_id</td>
+<td style="width: 395px">this specifies the ID numbers of the GPUs (
+-gpu_id 01 )</td>
+</tr>
+<tr class="even">
+<td style="width: 92px">-gputasks</td>
+<td style="width: 395px">this flag accepts a string value that specifies
+the ID numbers of the GPUs to be used by corresponding GPU tasks on this
+node</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</section>
+<section id="a-few-examples">
+<h3>A few examples<a class="headerlink" href="#a-few-examples" title="Link to this heading">#</a></h3>
+<p>Below are a few examples shown below to demonstrate how these flags can be used in Kay to submit your job to GPU nodes.</p>
+<section id="example-1">
+<h4>Example 1:<a class="headerlink" href="#example-1" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">20</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-pme<span class="w"> </span>cpu<span class="w"> </span>-gpu_id<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>In this case, you have initiated 2 MPI ranks and 2 GPUs with id 0 and 1. Each MPI rank will use 20 OpenMP threads. The particle mesh Ewald (PME) calculations for the long-range forces will be performed on the CPUs, while the non-bonded short-ranged force calculations will be done on the
+GPUs.</p>
+</section>
+<section id="example-2">
+<h4>Example 2:<a class="headerlink" href="#example-2" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">20</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-gpu_id<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>In this case, you have initiated 2 MPI ranks and 2 GPUs with id 0 and 1
+in a single node. Each MPI rank will use 20 OpenMP threads. The non-bonded short-ranged force calulations will be done on the GPUs.Please note that we have not chosen any value for the <code class="docutils literal notranslate"><span class="pre">-pme</span></code> flag which means that it will be set to the default “auto”. This uses a
+compatible GPU for PME if available.</p>
+</section>
+<section id="example-3">
+<h4>Example 3:<a class="headerlink" href="#example-3" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">6</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">6</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-gpu_id<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>This is similar to the example 2 shown above with the only difference in number of OpenMP threads per MPI rank. Note that you also need to set the <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> to an appropriate value. In this case, it is set to six.</p>
+</section>
+<section id="example-4">
+<h4>Example 4:<a class="headerlink" href="#example-4" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 2</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH --reservation=GROMACS</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">20</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>-ppn<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-pme<span class="w"> </span>gpu<span class="w"> </span>-npme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-ntomp_pme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-gputasks<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>This script submits the job to two nodes using 4 MPI ranks and 4 GPUs in total. There are two different kind of GPU jobs defined here: non-bonded (<code class="docutils literal notranslate"><span class="pre">-nb</span></code>) and PME (<code class="docutils literal notranslate"><span class="pre">-pme</span></code>). PME job has been set to be performed by 1 MPI rank (<code class="docutils literal notranslate"><span class="pre">-npme</span> <span class="pre">1</span></code>) and 1 OpenMp thread (<code class="docutils literal notranslate"><span class="pre">-ntomp_pme</span> <span class="pre">1</span></code>) since the decomposition of PME rank is not currently supported by Gromacs. <code class="docutils literal notranslate"><span class="pre">-gputask</span></code> flag accepts a string value that specifies the ID numbers of the GPUs to be used by corresponding GPU tasks on this node. For the non-PME job the number of OpenMP threads is set to 20 per MPI rank.</p>
+</section>
+<section id="example-5">
+<h4>Example 5:<a class="headerlink" href="#example-5" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 48:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">39</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>-ppn<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">39</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-pme<span class="w"> </span>gpu<span class="w"> </span>-npme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-ntomp_pme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-gputasks<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>In this case, the job is submitted to 1 node with 2 MPI ranks, and 2 GPUs. For the PME job, the number of OpenMP threads is set to 1 (<code class="docutils literal notranslate"><span class="pre">-ntomp_pme</span> <span class="pre">1</span></code>) and for the non-PME job this is set to 39
+(<code class="docutils literal notranslate"><span class="pre">-ntomp</span> <span class="pre">39</span></code>). One GPU with id 1 is fully dedicated to do the PME calculations in this case, while the other GPU is doing the non-bonded force calculations.</p>
+</section>
+<section id="example-6">
+<h4>Example 6: —————-<a class="headerlink" href="#example-6" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 48:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH --reservation=GROMACS</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">20</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>-ppn<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-pme<span class="w"> </span>gpu<span class="w"> </span>-npme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-ntomp_pme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-gputasks<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>This is similar to example 5 with the only exception is in number of OpenMP threads per MPI-rank handling the non-bonded force calculation. This is set to twenty in this case.</p>
+</section>
+<section id="example-7">
+<h4>Example 7:<a class="headerlink" href="#example-7" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -p GpuQ</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=benchmark</span>
+<span class="c1">#SBATCH -A sci_test</span>
+<span class="c1">#SBATCH --reservation=GROMACS</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1">#SBATCH --mail-user=prithwish.nandi@ichec.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gromacs/2019.3_gpu
+<span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">2</span><span class="w"> </span>-ppn<span class="w"> </span><span class="m">2</span><span class="w"> </span>gmx_mpi<span class="w"> </span>mdrun<span class="w"> </span>-ntomp<span class="w"> </span><span class="m">4</span><span class="w">  </span>-nb<span class="w"> </span>gpu<span class="w"> </span>-pme<span class="w"> </span>gpu<span class="w"> </span>-npme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-ntomp_pme<span class="w"> </span><span class="m">1</span><span class="w"> </span>-gputasks<span class="w"> </span><span class="m">01</span><span class="w"> </span>-deffnm<span class="w"> </span>prod
+</pre></div>
+</div>
+<p>This is also similar to example 5 with the only exception is in number of OpenMP threads per MPI-rank handling the non-bonded force calculation. This is set to four in this case.</p>
+</section>
+</section>
+<section id="expected-speed-up-when-using-these-settings">
+<h3>Expected speed-up when using these settings:<a class="headerlink" href="#expected-speed-up-when-using-these-settings" title="Link to this heading">#</a></h3>
+<p>A GROMACS job of solvated Lysozyme in a box (326064 atoms in total) is simulated for a period of 2 ns in each case.</p>
+<table data-border="1" data-cellpadding="1" data-cellspacing="1"
+style="width: 500px;">
+<tbody>
+<tr class="odd">
+<td>job type</td>
+<td>number of nodes</td>
+<td>performance (ns/day)</td>
+<td>speed-up</td>
+</tr>
+<tr class="even">
+<td>cpu-only</td>
+<td>1</td>
+<td>19.75</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>GPU example 1</td>
+<td>1</td>
+<td>33.52</td>
+<td>1.70</td>
+</tr>
+<tr class="even">
+<td>GPU example 2</td>
+<td>1</td>
+<td>33.56</td>
+<td>1.70</td>
+</tr>
+<tr class="odd">
+<td>GPU example 3</td>
+<td>1</td>
+<td>16.67</td>
+<td>0.84</td>
+</tr>
+<tr class="even">
+<td>GPU example 4</td>
+<td>2</td>
+<td>61.87</td>
+<td>3.13</td>
+</tr>
+<tr class="odd">
+<td>GPU example 5</td>
+<td>1</td>
+<td>30.13</td>
+<td>1.53</td>
+</tr>
+<tr class="even">
+<td>GPU example 6</td>
+<td>1</td>
+<td>29.02</td>
+<td>1.50</td>
+</tr>
+<tr class="odd">
+<td>GPU example 7</td>
+<td>1</td>
+<td>15.14</td>
+<td>0.77</td>
+</tr>
+</tbody>
+</table>
+<p>From the above table, one can notice that depending on the settings the speed-up gained from a GPU node can vary a lot. The above settings are tentative only to demonstrate the usage. Users are recommended to perform thorough optimisation  to get optimal values of these settings for availing maximum possible speedup for their production runs.</p>
+</section>
+<section id="additional-notes">
+<h3>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h3>
+<p>Further information can be obtained at <a class="reference external" href="http://www.gromacs.org/" title="GROMACS homepage">www.gromacs.org</a>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./softwares"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-to-cpu-only-nodes">Job Submission Example to CPU-only nodes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-to-gpu-nodes">Job submission to GPU nodes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-important-flags-that-you-may-need-to-submit-your-jobs-to-gpu-nodes">Some important flags that you may need to submit your jobs to GPU nodes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-examples">A few examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5">Example 5:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-6">Example 6: —————-</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-7">Example 7:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-speed-up-when-using-these-settings">Expected speed-up when using these settings:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ICHEC Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright@2024
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

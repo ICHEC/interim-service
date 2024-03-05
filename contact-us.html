@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/drawio.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="_static/style.css?v=aebb3ad3" />
   
@@ -325,7 +326,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -341,6 +344,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-desk">Support Desk</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -352,21 +363,68 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="contact-us">
 <h1>Contact Us<a class="headerlink" href="#contact-us" title="Link to this heading">#</a></h1>
-<p>Please feel free to contact us for any support.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm sd-text-center docutils">
+<figure class="align-center">
+<img alt="https://www.ichec.ie/sites/default/files/styles/sc_image/public/M1525%20ICHEC%20Staff%20050917_ART_fixed.png" src="https://www.ichec.ie/sites/default/files/styles/sc_image/public/M1525%20ICHEC%20Staff%20050917_ART_fixed.png" />
+</figure>
+<p>Please feel free to contact us for any form of support. <a class="reference external" href="https://rt.ichec.ie/">Helpdesk</a> is the primary mechanism to access the user support in ICHEC. Any question, issue and comment will be addressed by one of our computational scientists and systems manager. The wide ranging expertise of our computational scientists can address all issues you may encounter using our facilities. Please do not hesitate to open a ticket if you have any problems with:</p>
+<ul class="simple">
+<li><p>Central ICHEC Account: Registration and authentication.</p></li>
+<li><p>Project applications and review process.</p></li>
+<li><p>Submission issues: submission files, queues, jobs, etc.</p></li>
+<li><p>Software: bugs, outputs, compilations, new installations, upgrades.</p></li>
+<li><p>Storage: file management and permissions.</p></li>
+<li><p>Scientific advice, orientation and collaborations.</p></li>
+<li><p>Licensing issues: acquiring a new license or using licensed programs in ICHEC’s cluster.</p></li>
+<li><p>Access to the cluster via SSH.</p></li>
+<li><p>Code development and optimisation.</p></li>
+</ul>
+<section id="support-desk">
+<h2>Support Desk<a class="headerlink" href="#support-desk" title="Link to this heading">#</a></h2>
+<p>You can log a ticket online using the <a class="reference external" href="https://rt.ichec.ie/">Helpdesk Portal</a> or email us via <a class="reference external" href="mailto:support&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support Hours: Our Helpdesk opening hours are from 09:00 - 17:00 Monday - Friday (Excluding Bank &amp; Public Holidays).</p>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-Support Desk</div>
+Web</div>
+<p class="sd-card-text">Access the Helpdesk
+portal on the web at</p>
+<p class="sd-card-text"><a class="reference external" href="https://rt.ichec.ie/">https://rt.ichec.ie/</a></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Email</div>
+<p class="sd-card-text">Email us at</p>
 <p class="sd-card-text"><a class="reference external" href="mailto:support&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a></p>
 </div>
 </div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-User Registration portal.</div>
-<p class="sd-card-text"><a class="reference external" href="https://nationalservice.ichec.ie/">User Registration &amp; Project Applications</a> is the where you create and manage your ICHEC account.</p>
+Remote</div>
+<p class="sd-card-text">Join the Remote Session</p>
+<p class="sd-card-text"><a class="reference external" href="https://www.ichec.ie/remote-support">https://www.ichec.ie/remote-support</a></p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<figure class="align-center">
+<img alt="https://www.ichec.ie/sites/default/files/inline-images/M1525%20ICHEC%20Icons%20050917_ART_0.png" src="https://www.ichec.ie/sites/default/files/inline-images/M1525%20ICHEC%20Icons%20050917_ART_0.png" />
+</figure>
+<p>ICHEC supports users’ research both from the scientific and technical side, leading to fruitful collaborations and publications. If you are interested or you need computational support with your research, do not hesitate to contact us. Some (but not limited) examples of current running collaborations involving ICHEC members are following</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -415,7 +473,20 @@ User Registration portal.</div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-desk">Support Desk</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -443,7 +514,7 @@ By ICHEC Team
   <div class="footer-item">
     
 <div class="extra_footer">
-  Copyright@2022
+  Copyright@2024
 </div>
   </div>
   

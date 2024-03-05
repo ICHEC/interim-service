@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Singularity &#8212; Documentations for the Interim Service</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=aebb3ad3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'softwares/singularity';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Documentations for the Interim Service - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Documentations for the Interim Service - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ICHEC National Service Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Service</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-hpc-service.html">National HPC Service</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../interim-service.html">Interim National HPC Service</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slurm.html">Slurm Workload Manager</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../software-support.html">Software Support</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Access</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-service-projects.html">National Service Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prace-access.html">PRACE Access</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Contributing to the documentation page</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../contact-us.html">Contact Us</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/softwares/singularity.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Singularity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-code">1. Serial code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-code-over-multiple-nodes-using-host-and-container-mpi">3. MPI code over multiple nodes (using host and container MPI)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="singularity">
+<h1>Singularity<a class="headerlink" href="#singularity" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="admonition-versions-installed admonition">
+<p class="admonition-title">Versions Installed</p>
+<p>class: note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">2.6.0</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+</div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Singularity enable users to use containers on HPC systems such as Kay.
+Using singularity you can make complicated software stacks portable. For more information about singularity refer <a class="reference external" href="https://sylabs.io/guides/2.6/user-guide/index.html">here</a></p>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
+<p>Singularity provide multiple workflows for building, deploying and using
+containers. In the following text, we have presented a generic workflow
+suitable to most users.</p>
+<p>In this workflow you should build singularity images on your local
+computer (where you have sudo rights) and then copy the singularity
+images to Kay to run your simulations. To install singularity on your
+local computer refer <a class="reference external" href="https://sylabs.io/guides/2.6/user-guide/installation.html">here</a></p>
+<p>Some examples are given below</p>
+<section id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h4>
+</section>
+<section id="serial-code">
+<h4>1. Serial code<a class="headerlink" href="#serial-code" title="Link to this heading">#</a></h4>
+<p><strong>On Local Computer</strong>: Create a singularity definition file (e.g. serial.def) with the contents</p>
+<div class="highlight-Singularity notranslate"><div class="highlight"><pre><span></span><span class="k">BootStrap</span>:<span class="w"> </span>docker
+<span class="k">From</span>:<span class="w"> </span>centos:<span class="m">7</span>
+
+<span class="gh">%environment</span>
+<span class="w">    </span><span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+<span class="w">    </span><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+<span class="w">    </span><span class="nv">LANGUAGE</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span>LC_ALL<span class="w"> </span>LC_CTYPE<span class="w"> </span>LANGUAGE
+
+<span class="gh">%post</span>
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>update
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>epel-release
+<span class="w">    </span>yum<span class="w"> </span>repolist
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>cowsay
+</pre></div>
+</div>
+<p></p>
+<p>Create the singularity image (e.g. serial.simg) from the singularity
+definition file (serial.def), using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>serial.simg<span class="w"> </span>serial.def
+</pre></div>
+</div>
+<p>Copy the singularity image (serial.simg) to Kay (e.g. home directory)</p>
+<p><strong>On Kay</strong></p>
+<p>In the same directory as the singularity image (e.g. home directory),
+create a Slurm submission file (e.g. submit_serial.sh) with the
+contents</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --account=MY_PROJECT_ID</span>
+<span class="c1">#SBATCH --partition=DevQ</span>
+<span class="c1">#SBATCH --job-name=serial</span>
+<span class="c1">#SBATCH --output=log_slurm.txt</span>
+
+module<span class="w"> </span>load<span class="w"> </span>singularity/2.6.0
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>serial.simg<span class="w"> </span>cowsay<span class="w"> </span><span class="s1">&#39;Hello!&#39;</span>
+</pre></div>
+</div>
+<p>Make sure to replace the MY_PROJECT_ID with your project ID in the
+slurm submission file (submit_serial.sh)</p>
+<p>Submit a job, using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>submit_serial.sh
+</pre></div>
+</div>
+<p>Once the job finishes, the output (in the log_slurm.txt) will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     ________
+    &lt; Hello! &gt;
+     --------
+            \   ^__^
+             \  (oo)\_______
+                (__)\       )\/\
+                    ||----w |
+                    ||     ||
+-------------------/ \----/ \---
+``` 
+
+
+#### 2. MPI code within a single node (using container MPI)
+
+**On Local Computer**
+
+Create a C file (e.g. hello_world.c) with the contents
+
+```c++
+#include &lt;mpi.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;utmpx.h&gt;
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;world_size);
+
+    // Get the rank of the process
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;world_rank);
+
+    // Get the name of the processor
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &amp;name_len);
+
+    // Get the id of the core
+    int core_id;
+    core_id = sched_getcpu();
+
+    // Print off a hello world message
+    printf(&quot;host=%s, size=%d, rank=%d, core=%d\n&quot;, processor_name, world_size, world_rank, core_id);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+</pre></div>
+</div>
+<p>Create a singularity definition file (e.g. mpi_container.def) with the contents</p>
+<div class="highlight-Singularity notranslate"><div class="highlight"><pre><span></span><span class="k">BootStrap</span>:<span class="w"> </span>docker
+<span class="k">From</span>:<span class="w"> </span>centos:<span class="m">7</span>
+
+<span class="gh">%post</span>
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>update
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>openmpi3-devel
+<span class="w">    </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/lib64/openmpi3/bin/mpicc<span class="w"> </span>/usr/bin/mpicc
+<span class="w">    </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/lib64/openmpi3/bin/mpirun<span class="w"> </span>/usr/bin/mpirun
+
+<span class="gh">%files</span>
+<span class="w">    </span>hello_world.c<span class="w"> </span>/var/tmp/hello_world.c
+
+<span class="gh">%post</span>
+<span class="w">    </span>mpicc<span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/hello_world<span class="w"> </span>/var/tmp/hello_world.c
+</pre></div>
+</div>
+<p>Create the singularity image (e.g. mpi_container.simg) from the
+singularity definition file (mpi_container.def), using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>mpi_container.simg<span class="w"> </span>mpi_container.def
+</pre></div>
+</div>
+<p>Copy the singularity image (mpi_container.simg) to Kay (e.g. home directory)</p>
+<p><strong>On Kay</strong></p>
+<p>In the same directory as the singularity image (e.g. home directory), create a Slurm submission file (e.g. submit_mpi_container.sh) with the contents</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --account=MY_PROJECT_ID</span>
+<span class="c1">#SBATCH --partition=DevQ</span>
+<span class="c1">#SBATCH --job-name=mpi_container</span>
+<span class="c1">#SBATCH --output=log_slurm.txt</span>
+
+module<span class="w"> </span>load<span class="w"> </span>singularity/2.6.0
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>mpi_container.simg<span class="w"> </span>/usr/bin/mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">40</span><span class="w"> </span>/usr/local/bin/hello_world
+</pre></div>
+</div>
+<p>Make sure to replace the MY_PROJECT_ID with your project ID in the slurm submission file (submit_mpi_container.sh)</p>
+<p>Submit a job, using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>submit_mpi_container.sh
+</pre></div>
+</div>
+<p>Once the job finishes, the output (in the log_slurm.txt) will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">12</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">14</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">37</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">33</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">11</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">28</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">17</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">22</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">15</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">13</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">34</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">39</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">30</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">7</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">26</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">19</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">36</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">8</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">35</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">18</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">16</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">32</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">5</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">24</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">8</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">24</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">23</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">10</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">37</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">38</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">17</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">29</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">29</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">21</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">4</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">36</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">22</span>
+</pre></div>
+</div>
+</section>
+<section id="mpi-code-over-multiple-nodes-using-host-and-container-mpi">
+<h4>3. MPI code over multiple nodes (using host and container MPI)<a class="headerlink" href="#mpi-code-over-multiple-nodes-using-host-and-container-mpi" title="Link to this heading">#</a></h4>
+<p>To run singularity containers with MPI over multiple nodes, the host MPI
+and the container MPI should be compatible. To simplify the preparation
+of singularity containers, you can use HPCCM on your local computer. For
+more information about HPCCM refer <a class="reference external" href="https://github.com/NVIDIA/hpc-container-maker/blob/master/docs/getting_started.md">here</a>.</p>
+<p><strong>On Local Computer</strong></p>
+<p>Create a C file (e.g. hello_world.c) with the contents</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mpi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utmpx.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize the MPI environment</span>
+<span class="w">    </span><span class="n">MPI_Init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get the number of processes</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">world_size</span><span class="p">;</span>
+<span class="w">    </span><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">world_size</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get the rank of the process</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">world_rank</span><span class="p">;</span>
+<span class="w">    </span><span class="n">MPI_Comm_rank</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">world_rank</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get the name of the processor</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">processor_name</span><span class="p">[</span><span class="n">MPI_MAX_PROCESSOR_NAME</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">name_len</span><span class="p">;</span>
+<span class="w">    </span><span class="n">MPI_Get_processor_name</span><span class="p">(</span><span class="n">processor_name</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name_len</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get the id of the core</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">core_id</span><span class="p">;</span>
+<span class="w">    </span><span class="n">core_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sched_getcpu</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Print off a hello world message</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;host=%s, size=%d, rank=%d, core=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">processor_name</span><span class="p">,</span><span class="w"> </span><span class="n">world_size</span><span class="p">,</span><span class="w"> </span><span class="n">world_rank</span><span class="p">,</span><span class="w"> </span><span class="n">core_id</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Finalize the MPI environment.</span>
+<span class="w">    </span><span class="n">MPI_Finalize</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create a HPCCM recipe file (e.g. mpi_host_container.py) with the contents</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MPI Bandwidth</span>
+<span class="sd">Contents:</span>
+<span class="sd">    CentOS 7</span>
+<span class="sd">    GNU compilers (upstream)</span>
+<span class="sd">    Mellanox OFED</span>
+<span class="sd">    OpenMPI version 3.1.2</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">comment</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">reformat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># CentOS base image</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">baseimage</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;centos:7&#39;</span><span class="p">)</span>
+
+<span class="c1"># GNU compilers</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">gnu</span><span class="p">()</span>
+
+<span class="c1"># Mellanox OFED</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">mlnx_ofed</span><span class="p">()</span>
+
+<span class="c1"># OpenMPI</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">openmpi</span><span class="p">(</span><span class="n">configure_opts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;--with-slurm&#39;</span><span class="p">],</span> <span class="n">infiniband</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;3.1.2&#39;</span><span class="p">)</span>
+
+<span class="c1"># MPI Hello World</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">copy</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;hello_world.c&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;/var/tmp/hello_world.c&#39;</span><span class="p">)</span>
+<span class="n">Stage0</span> <span class="o">+=</span> <span class="n">shell</span><span class="p">(</span><span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mpicc -o /usr/local/bin/hello_world /var/tmp/hello_world.c&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the singularity definition file (e.g. mpi_host_container.def) from the HPCCM recipe file (mpi_host_container.py)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>hpccm<span class="w"> </span>--format<span class="w"> </span>singularity<span class="w"> </span>--recipe<span class="w"> </span>./mpi_host_container.py<span class="w"> </span>--singularity-version<span class="o">=</span><span class="m">2</span>.6<span class="w"> </span>&gt;<span class="w"> </span>mpi_host_container.def
+</pre></div>
+</div>
+<p>Create the singularity image (e.g. mpi_host_container.simg) from the
+singularity definition file (mpi_host_container.def), using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>mpi_host_container.simg<span class="w"> </span>mpi_host_container.def
+</pre></div>
+</div>
+<p>Copy the singularity image (mpi_host_container.simg) to Kay (e.g. home directory)</p>
+<p><strong>On Kay</strong></p>
+<p>In the same directory as the singularity image (e.g. home directory),
+create a Slurm submission file (e.g. submit_mpi_host_container.sh)
+with the contents</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --account=MY_PROJECT_ID</span>
+<span class="c1">#SBATCH --partition=DevQ</span>
+<span class="c1">#SBATCH --job-name=mpi_host_container</span>
+<span class="c1">#SBATCH --output=log_slurm.txt</span>
+
+module<span class="w"> </span>load<span class="w"> </span>singularity/2.6.0
+module<span class="w"> </span>load<span class="w"> </span>openmpi/gcc/3.1.2
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</span><span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>mpi_host_container.simg<span class="w"> </span>/usr/local/bin/hello_world
+</pre></div>
+</div>
+<p>Make sure to replace the MY_PROJECT_ID with your project ID in the
+slurm submission file (submit_mpi_host_container.sh)</p>
+<p>Submit a job, using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>submit_mpi_host_container.sh
+</pre></div>
+</div>
+<p>Once the job finishes, the output (in the log_slurm.txt) will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">5</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">27</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">25</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">19</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">21</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">11</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">37</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">26</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">66</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">31</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">47</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">28</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">62</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">15</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">5</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">69</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">38</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">77</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">30</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">34</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">44</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">16</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">7</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">27</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">57</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">59</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">39</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">4</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">71</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">37</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">78</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">6</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">49</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">36</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">35</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">52</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">9</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">31</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">67</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">23</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">73</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">33</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">17</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">15</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">54</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">8</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">61</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">21</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">38</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">10</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">74</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">12</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">76</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">14</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">26</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">27</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">46</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">9</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">58</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">11</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">28</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">19</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">25</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">10</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">35</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">12</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">39</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">33</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">37</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">29</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">15</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">31</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">19</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">32</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">16</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">36</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">6</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">24</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">4</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">23</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">17</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">22</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">27</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">11</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">8</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">29</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">39</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">9</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">33</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">5</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">38</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">13</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">38</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">18</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">39</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="mi">25</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>Singularity is released under a standard 3 clause BSD license.</p>
+</section>
+<section id="benchmarks">
+<h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
+<p>N/A.</p>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
+<p>To use singularity load the relevant environment module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>singularity/2.6.0
+</pre></div>
+</div>
+<p>Further information can be found <a class="reference external" href="https://sylabs.io/guides/2.6/user-guide/index.html">here</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./softwares"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#serial-code">1. Serial code</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mpi-code-over-multiple-nodes-using-host-and-container-mpi">3. MPI code over multiple nodes (using host and container MPI)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ICHEC Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright@2024
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -2,6 +2,7 @@
 
 
 ```{admonition} Versions Installed
+:class: note
 
 `Kay: 3.12.3, 3.15.1, 3.15.4, 3.20.1`
 

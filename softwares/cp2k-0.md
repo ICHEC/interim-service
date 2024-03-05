@@ -1,6 +1,7 @@
 # CP2K
 
 ```{admonition} Versions Installed
+:class: note
 
 `Kay: 6.1.0, 7.1`
 

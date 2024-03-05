@@ -1,7 +1,7 @@
 # R programming
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay: 3.4.4 / 3.5.1`
 

@@ -1,7 +1,7 @@
 # Python/Conda
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay: 2.7.5 (System Install) / 2.7.15 (Conda) / 3.7.0 (Conda)`
 

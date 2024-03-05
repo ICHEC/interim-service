@@ -1,7 +1,7 @@
 # Quantum Espresso
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay: 6.3`
 

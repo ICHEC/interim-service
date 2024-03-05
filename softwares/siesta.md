@@ -1,7 +1,7 @@
 # Siesta
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay: 4.0.2/4.1.5`
 

@@ -2,7 +2,7 @@
 
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay: 0.4.6`
 

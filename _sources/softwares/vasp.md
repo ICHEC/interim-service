@@ -1,7 +1,7 @@
 # VASP
 
 ```{admonition} Versions Installed
-class: note
+:class: note
 
 `Kay:  5.4.4`
 

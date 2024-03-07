@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing to the documentation page &#8212; Documentations for the Interim Service</title>
+    <title>ICHEC National Service Docs &#8212; Documentations for the Interim Service</title>
   
   
   
@@ -62,8 +62,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contact Us" href="contact-us.html" />
-    <link rel="prev" title="PRACE Access" href="prace-access.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -198,8 +198,8 @@
 <li class="toctree-l1"><a class="reference internal" href="prace-access.html">PRACE Access</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing to the documentation page</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing to the documentation page</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="contact-us.html">Contact Us</a></li>
 </ul>
@@ -340,7 +340,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Contributing to the documentation page</h1>
+    <h1>ICHEC National Service Docs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -350,7 +350,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Contributing to the documentation page</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ICHEC National Service Docs</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-source">Structure of the source</a></li>
 </ul>
 
@@ -364,49 +364,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-the-documentation-page">
-<h1>Contributing to the documentation page<a class="headerlink" href="#contributing-to-the-documentation-page" title="Link to this heading">#</a></h1>
-<div class="note admonition">
-<p class="admonition-title">For Users</p>
-<p>If you find mistakes in the page, please report it using <a class="reference external" href="https://github.com/ICHEC/interim-service/issues">Issues</a> page.
-Please mention topics you think are missing, incorrect, or aren’t structured appropriately. If you want to get more actively involved, make a fork, implement you changes, and submit a pull request.</p>
-</div>
-<div class="note admonition">
-<p class="admonition-title">For staff</p>
-<p>Please add yourself as members of this <a class="reference external" href="https://github.com/ICHEC/interim-service">repository</a>, and make changes to a branch in your name. Once changes are made, submit a pull/merge request to the main branch.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="ichec-national-service-docs">
+<h1>ICHEC National Service Docs<a class="headerlink" href="#ichec-national-service-docs" title="Link to this heading">#</a></h1>
+<p>This repository contains the source of the documentation for ICHEC’s national computational service platforms, which include access to supercomputing resources, support on softwares, and help pages for running simulations.</p>
+<p>If you find something worth adding, or mistakes in the content, please see the <a class="reference internal" href="CONTRIBUTING.html"><span class="std std-doc">CONTRIBUTING</span></a> page to make suggestion or contribution.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="structure-of-the-source">
 <h1>Structure of the source<a class="headerlink" href="#structure-of-the-source" title="Link to this heading">#</a></h1>
 <p>This website is created using <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyterbook</a>, based on <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a>.
 See the <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyterbook</a> for more details. The source for this website uses <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/index.html">MyST Markdown</a>.</p>
-<p>The structure of the files looks like follows -</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(web)</span> <span class="go">👽 618-rajarshi 0 (main)✗  tree .</span>
-<span class="go">.</span>
-<span class="go">├── README.md</span>
-<span class="go">├── _config.yml</span>
-<span class="go">├── _static</span>
-<span class="go">│   └── style.css</span>
-<span class="go">├── _toc.yml</span>
-<span class="go">├── contact-us.md</span>
-<span class="go">├── index.md</span>
-<span class="go">├── interim-service.md</span>
-<span class="go">├── logo.png</span>
-<span class="go">├── lxp</span>
-<span class="go">│   └── introduction.md</span>
-<span class="go">├── national-hpc-service.md</span>
-<span class="go">├── references.bib</span>
-<span class="go">├── requirements.txt</span>
-<span class="go">└── scratch.md</span>
-<span class="go">...</span>
+<p>The structure of the files  looks like follows -</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>web<span class="o">)</span><span class="w"> </span>👽<span class="w"> </span><span class="m">618</span>-rajarshi<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>main<span class="o">)</span>✗<span class="w">  </span>tree<span class="w"> </span>.
+.
+├──<span class="w"> </span>README.md
+├──<span class="w"> </span>_config.yml
+├──<span class="w"> </span>_static
+│<span class="w">   </span>└──<span class="w"> </span>style.css
+├──<span class="w"> </span>_toc.yml
+├──<span class="w"> </span>contact-us.md
+├──<span class="w"> </span>index.md
+├──<span class="w"> </span>interim-service.md
+├──<span class="w"> </span>logo.png
+├──<span class="w"> </span>lxp
+│<span class="w">   </span>└──<span class="w"> </span>introduction.md
+├──<span class="w"> </span>national-hpc-service.md
+├──<span class="w"> </span>references.bib
+├──<span class="w"> </span>requirements.txt
+└──<span class="w"> </span>scratch.md
+...
 </pre></div>
 </div>
-<p>There are three types of files</p>
-<ul class="simple">
+<p>There are three types of files -</p>
+<ol class="arabic simple">
 <li><p>YAML files, with extension <code class="docutils literal notranslate"><span class="pre">.yml</span></code> which are used to define structure and build process of the pages. <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file defines all the configurational options for building the pages, and <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> file defines the <a class="reference external" href="https://jupyterbook.org/en/stable/start/create.html#table-of-contents-toc-yml">table of contents</a>, and structure of the documents.</p></li>
 <li><p>CSS files, primarily stored in <code class="docutils literal notranslate"><span class="pre">_static</span></code> folder, and define the appearance settings for the webpages.</p></li>
 <li><p>Markdown files, with <code class="docutils literal notranslate"><span class="pre">.md</span></code> extension. These are primarily ones that contain the documentation information. Jupyterbook follows MyST format, which is quite feature rich for building pages and pdfs of the technical documents. Checkout the MyST features <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">here</a>.</p></li>
-</ul>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -439,24 +432,6 @@ See the <a class="reference external" href="https://jupyterbook.org/en/stable/in
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="prace-access.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">PRACE Access</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="contact-us.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contact Us</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -473,7 +448,7 @@ See the <a class="reference external" href="https://jupyterbook.org/en/stable/in
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Contributing to the documentation page</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ICHEC National Service Docs</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-the-source">Structure of the source</a></li>
 </ul>
 

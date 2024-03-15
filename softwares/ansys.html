@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ANSYS - CFX, Fluent, Mechanical &#8212; Documentations for the Interim Service</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=aebb3ad3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'softwares/ansys';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Documentations for the Interim Service - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Documentations for the Interim Service - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ICHEC National Service Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Service</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-hpc-service.html">National HPC Service</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../interim-service.html">Interim National HPC Service</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../slurm.html">Slurm Workload Manager</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../software-support.html">Software Support</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Access</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../national-service-projects.html">National Service Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prace-access.html">PRACE Access</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing to the documentation page</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../contact-us.html">Contact Us</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/softwares/ansys.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ANSYS - CFX, Fluent, Mechanical</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cfx-job-submission-example">CFX Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluent-job-submission-example">Fluent Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-job-submission-example">Mechanical Job Submission Example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ansys-cfx-fluent-mechanical">
+<h1>ANSYS - CFX, Fluent, Mechanical<a class="headerlink" href="#ansys-cfx-fluent-mechanical" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Versions Installed</p>
+<p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">19.2</span> <span class="pre">/</span> <span class="pre">2019R3</span> <span class="pre">/</span> <span class="pre">2020R1</span> <span class="pre">/</span> <span class="pre">2021R1</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+</div>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Ansys suite of software provides multi-disciplinary modelling and simulation tools. It includes popular solvers such as Fluent, CFX. More information can be found <a class="reference external" href="https://www.ansys.com/products">here</a>.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>In order to use any Ansys software a user must contact the <a class="reference external" href="https://rt.ichec.ie">Helpdesk</a> and request to be added in the respective user group.</p>
+</section>
+<section id="benchmarks">
+<h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
+<p>N/A.</p>
+</section>
+<section id="cfx-job-submission-example">
+<h2>CFX Job Submission Example<a class="headerlink" href="#cfx-job-submission-example" title="Link to this heading">#</a></h2>
+<p>Like other jobs on ICHEC systems, CFX jobs must be submitted using a Slurm submission script. The following is an example Slurm submission script for running a CFX job on 2 nodes for 1 hour wall time (the CFX definition file is called <code class="docutils literal notranslate"><span class="pre">test.def</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
+<span class="c1"># PARTITION AVAIL  TIMELIMIT</span>
+<span class="c1"># DevQ         up    1:00:00</span>
+<span class="c1"># ProdQ*       up 3-00:00:00</span>
+<span class="c1"># LongQ        up 6-00:00:00</span>
+<span class="c1"># ShmemQ       up 3-00:00:00</span>
+<span class="c1"># PhiQ         up 1-00:00:00</span>
+<span class="c1"># GpuQ         up 2-00:00:00</span>
+
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH -p ProdQ</span>
+<span class="c1">#SBATCH -N 2</span>
+<span class="c1">#SBATCH -t 1:00:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+
+<span class="c1"># Charge job to myproject</span>
+<span class="c1">#SBATCH -A myproject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+<span class="c1">#Create a list of available nodes for the CFX executable:</span>
+<span class="nv">hostnames</span><span class="o">=</span><span class="sb">`</span>scontrol<span class="w"> </span>show<span class="w"> </span>hostnames<span class="w"> </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="sb">`</span>
+<span class="nv">hostnames</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$hostnames</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/ /,/g&#39;</span><span class="sb">`</span>
+
+<span class="c1">#Load the ansys module - CFX is then accessible</span>
+<span class="nv">version</span><span class="o">=</span><span class="m">19</span>.2
+module<span class="w"> </span>load<span class="w"> </span>ansys/<span class="nv">$version</span>
+
+<span class="c1">#Partition + Solve:</span>
+cfx5solve<span class="w"> </span>-def<span class="w"> </span>test.def<span class="w"> </span>-par-dist<span class="w"> </span><span class="nv">$hostnames</span><span class="w"> </span>-start-method<span class="w"> </span><span class="s1">&#39;HP MPI Distributed Parallel&#39;</span>
+</pre></div>
+</div>
+<p>This job can be submitted using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>scriptname.sh
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">scriptname.sh</span></code> is the filename of the sample Slurm submission script.</p>
+</section>
+<section id="fluent-job-submission-example">
+<h2>Fluent Job Submission Example<a class="headerlink" href="#fluent-job-submission-example" title="Link to this heading">#</a></h2>
+<p>Like other jobs on ICHEC systems, Fluent jobs must be submitted using a Slurm submission script. The Slurm submission script should launch the Fluent executable with the Graphical User Interface (GUI) disabled. This can be achieved by specifying the <code class="docutils literal notranslate"><span class="pre">-g</span></code> argument on the command line. When the GUI is disabled, Fluent commands can be issued using the Fluent Text User Interface (TUI). A series of TUI commands can be saved to a text file, which can subsequently read by the Fluent solver using the <code class="docutils literal notranslate"><span class="pre">-i</span></code> command line argument. The following is a minimal example Slurm submission script for running a steady-state 3D Fluent job on 2 nodes for a wall time of 1 hour (the Fluent case file is called “example.cas.gz”):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
+<span class="c1"># PARTITION AVAIL  TIMELIMIT</span>
+<span class="c1"># DevQ         up    1:00:00</span>
+<span class="c1"># ProdQ*       up 3-00:00:00</span>
+<span class="c1"># LongQ        up 6-00:00:00</span>
+<span class="c1"># ShmemQ       up 3-00:00:00</span>
+<span class="c1"># PhiQ         up 1-00:00:00</span>
+<span class="c1"># GpuQ         up 2-00:00:00</span>
+
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH -p ProdQ</span>
+<span class="c1">#SBATCH -N 2</span>
+<span class="c1">#SBATCH -t 1:00:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+
+<span class="c1"># Charge job to myproject</span>
+<span class="c1">#SBATCH -A myproject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=me@mydom.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+<span class="c1">#Load the ansys module - Fluent is then accessible</span>
+<span class="nv">version</span><span class="o">=</span><span class="m">19</span>.2
+module<span class="w"> </span>load<span class="w"> </span>ansys/<span class="nv">$version</span>
+
+<span class="c1"># Load intel module for using the Intel MPI libraries</span>
+module<span class="w"> </span>load<span class="w"> </span>intel
+
+<span class="c1"># Get hostnames of the allocated nodes</span>
+scontrol<span class="w"> </span>show<span class="w"> </span>hostnames<span class="w"> </span><span class="nv">$SLURM_JOB_NODELIST</span><span class="w"> </span>&gt;<span class="w"> </span>hostNamesFile.txt
+
+<span class="c1">#Run the fluent executable:</span>
+fluent<span class="w"> </span>3ddp<span class="w"> </span>-t80<span class="w"> </span>-cnf<span class="o">=</span>hostNamesFile.txt<span class="w"> </span>-g<span class="w"> </span>-i<span class="w"> </span>fluentCommandsFile.txt<span class="w"> </span>-platform<span class="o">=</span>intel<span class="w"> </span>-mpi<span class="o">=</span>intel
+</pre></div>
+</div>
+<p>The following is a summary of Fluent command line parameters used in the above Slurm submission script:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>parameters</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">3ddp</span></code></p></td>
+<td class="text-left"><p>Run a 3D simulation in double precision (remove dp for single precision).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-t80</span></code></p></td>
+<td class="text-left"><p>Use 80 cores (i.e. 2 nodes of 40 cores each)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-cnf=hostNamesFile.txt</span></code></p></td>
+<td class="text-left"><p>Provides the Fluent solver with the list of nodes allocated to the Slurm job</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-g</span></code></p></td>
+<td class="text-left"><p>Run Fluent without the GUI</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">fluentCommandsFile.txt</span></code></p></td>
+<td class="text-left"><p>Read Fluent commands from fluentCommandsFile.txt <a class="footnote-reference brackets" href="#cmd" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-platform=intel</span></code></p></td>
+<td class="text-left"><p>Use the Fluent executable optimized for Intel processors</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-mpi=intel</span></code></p></td>
+<td class="text-left"><p>Use the Intel MPI for communication among Fluent processes</p></td>
+</tr>
+</tbody>
+</table>
+<p>For this example, fluentCommandsFile.txt contains the following Fluent commands (comments in this file begin with a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code>):</p>
+<div class="highlight-ansys notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="w"> </span><span class="nv">Read</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">Fluent</span><span class="w"> </span><span class="nv">case</span><span class="w"> </span><span class="nv">file</span>
+<span class="o">/</span><span class="nv">file</span><span class="o">/</span><span class="nv">read</span><span class="o">-</span><span class="nv">case</span><span class="o">/</span><span class="w"> </span><span class="nv">example</span><span class="p">.</span><span class="nv">cas</span><span class="p">.</span><span class="nv">gz</span>
+<span class="p">;</span><span class="w"> </span><span class="nv">Initialise</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">flow</span><span class="w"> </span><span class="nv">field</span>
+<span class="o">/</span><span class="nv">solve</span><span class="o">/</span><span class="nv">initialize</span><span class="o">/</span><span class="nv">initialize</span><span class="o">-</span><span class="nv">flow</span>
+<span class="p">;</span><span class="w"> </span><span class="nv">Run</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">solver</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="nv">iterations</span>
+<span class="o">/</span><span class="nv">solve</span><span class="o">/</span><span class="nv">iterate</span><span class="w"> </span><span class="mi">200</span>
+<span class="p">;</span><span class="w"> </span><span class="nv">Write</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">results</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">file</span>
+<span class="o">/</span><span class="nv">file</span><span class="o">/</span><span class="nv">write</span><span class="o">-</span><span class="nv">data</span><span class="w"> </span><span class="nv">example</span><span class="p">.</span><span class="nv">dat</span>
+<span class="p">;</span><span class="w"> </span><span class="nv">Exit</span><span class="w"> </span><span class="nv">Fluent</span>
+<span class="k">/exit</span><span class="w"> </span><span class="nv">yes</span>
+</pre></div>
+</div>
+<p>This job can be submitted using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>scriptname.sh
+</pre></div>
+</div>
+<p>where <a class="reference external" href="http://scriptname.sh">scriptname.sh</a> is the filename of the sample Slurm script.</p>
+</section>
+<section id="mechanical-job-submission-example">
+<h2>Mechanical Job Submission Example<a class="headerlink" href="#mechanical-job-submission-example" title="Link to this heading">#</a></h2>
+<p>Like other jobs on ICHEC systems, Ansys Mechanical jobs must be submitted using a Slurm submission script. The following is an example Slurm submission script for running a Ansys Mechanical job on 1 node for 1 hour wall time (the input file is <code class="docutils literal notranslate"><span class="pre">./myinput.inp</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
+<span class="c1"># PARTITION AVAIL  TIMELIMIT</span>
+<span class="c1"># DevQ         up    1:00:00</span>
+<span class="c1"># ProdQ*       up 3-00:00:00</span>
+<span class="c1"># LongQ        up 6-00:00:00</span>
+<span class="c1"># ShmemQ       up 3-00:00:00</span>
+<span class="c1"># PhiQ         up 1-00:00:00</span>
+<span class="c1"># GpuQ         up 2-00:00:00</span>
+
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH --partition=ProdQ</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=40</span>
+<span class="c1">#SBATCH --time=1:00:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+
+<span class="c1"># Charge job to myproject</span>
+<span class="c1">#SBATCH --account=myproject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH --output=log_slurm.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=me@mydom.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+<span class="c1">#Load the ansys module - Ansys Mechanical is then accessible</span>
+<span class="nv">version</span><span class="o">=</span><span class="m">19</span>.2
+module<span class="w"> </span>load<span class="w"> </span>ansys/<span class="nv">$version</span>
+
+<span class="c1"># Get hostnames of the allocated nodes</span>
+<span class="nv">MYMACHINES</span><span class="o">=</span><span class="k">$(</span>srun<span class="w"> </span>hostname<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\a</span>wk<span class="w"> </span><span class="s1">&#39;{print $2 &quot;:&quot; $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\p</span>aste<span class="w"> </span>-s<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span>-<span class="k">)</span>
+
+<span class="c1"># Run Ansys MAPDL</span>
+mapdl<span class="w"> </span>-dis<span class="w"> </span>-mpi<span class="w"> </span>INTELMPI<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-machines<span class="w"> </span><span class="nv">$MYMACHINES</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-j<span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-s<span class="w"> </span>noread<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-b<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-i<span class="w"> </span>./myinput.inp<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-o<span class="w"> </span>./file.out
+</pre></div>
+</div>
+<p>This job can be submitted using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>scriptname.sh
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">scriptname.sh</span></code> is the filename of the sample Slurm submission script.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="cmd" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>This is a plain text file containing the TUI commands that will be executed by the Fluent solver.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./softwares"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cfx-job-submission-example">CFX Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluent-job-submission-example">Fluent Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanical-job-submission-example">Mechanical Job Submission Example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ICHEC Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright@2024
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

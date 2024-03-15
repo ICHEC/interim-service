@@ -33,6 +33,7 @@ html:
 
 html:
   extra_footer: "Copyright@2024"
+  default_mode: "light"
 
 # remove jupyterbooks copyright info
 sphinx:
@@ -44,6 +45,7 @@ sphinx:
   config:
     html_show_copyright: false
     drawio_headless: auto
+
 
 parse:
   myst_heading_anchors: 3

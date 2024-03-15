@@ -14,6 +14,33 @@ parts:
     chapters:
     - file: slurm
     - file: software-support
+    sections:
+      - file: softwares/abaqus.md
+      - file: softwares/abinit.md
+      - file: softwares/amber.md
+      - file: softwares/ansys.md
+      - file: softwares/cmake3.md
+      - file: softwares/cp2k-0.md
+      - file: softwares/cuda-toolkit.md
+      - file: softwares/dlpoly.md
+      - file: softwares/gamess-us.md
+      - file: softwares/gaussian.md
+      - file: softwares/gcc.md
+      - file: softwares/gromacs.md
+      - file: softwares/gsl.md
+      - file: softwares/intel-compiler.md
+      - file: softwares/namd.md
+      - file: softwares/openfoam.md
+      - file: softwares/orca.md
+      - file: softwares/parallel.md
+      - file: softwares/paraview.md
+      - file: softwares/python-conda.md
+      - file: softwares/quantum-espresso.md
+      - file: softwares/r.md
+      - file: softwares/siesta.md
+      - file: softwares/singularity.md
+      - file: softwares/vasp.md
+      - file: softwares/voro.md
 
   - caption: Access
     chapters:

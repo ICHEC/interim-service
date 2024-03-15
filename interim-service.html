@@ -540,6 +540,23 @@ so you may need to request outbound access to <a class="reference external" href
 <p class="admonition-title">Note</p>
 <p>For <strong>Windows</strong>, you need to install a SSH client. We recommend MobaXterm.</p>
 </div>
+<div class="tip admonition">
+<p class="admonition-title">ssh tip</p>
+<p>For several users, if may feel a bit tedious to provide the username and port information. One can ease this by defining the configurations for ssh to meluxina login node via following config in your <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> file in your home directory on the computer you are going to login from.</p>
+<ul class="simple">
+<li><p>If the file <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> does not exist, create it, using emacs/vi or any choice of editor.</p></li>
+<li><p>Fill the following settings, replacing <code class="docutils literal notranslate"><span class="pre">$USER</span></code> with your username.</p></li>
+</ul>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">Host lxp</span>
+<span class="w">    </span><span class="na">User $USER</span>
+<span class="w">    </span><span class="na">HostName login.lxp.lu</span>
+<span class="w">    </span><span class="na">Port 8822</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now save the file <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> . Now when you ssh using <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">lxp</span></code> the ssh client will automatically read the username and the port from the config file, and you don’t need to provide it through command line.</p></li>
+</ul>
+</div>
 </section>
 <section id="finding-your-project-name-and-resource-allocations">
 <h2>Finding your Project Name and Resource Allocations<a class="headerlink" href="#finding-your-project-name-and-resource-allocations" title="Link to this heading">#</a></h2>

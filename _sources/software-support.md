@@ -29,7 +29,7 @@ The following list is not exhaustive and does not include many packages one migh
 | [Abinit](./softwares/abinit.md): DFT based simulation                          |            | Physics     |
 | [Amber](./softwares/amber.md)                                                  |            |        |
 | [ANSYS](./softwares/ansys.md)                                                  |            |        |
-| [Cmake3-Cross-Platform-Make](./softwares/cmake3-cross-platform-make.md)        |            |        |
+| [Cmake3](./softwares/cmake3.md)        |            |        |
 | [Cp2k-0](./softwares/cp2k-0.md)                                                |            |        |
 | [Cuda-Toolkit](./softwares/cuda-toolkit.md)                                    |            |        |
 | [Dlpoly](./softwares/dlpoly.md)                                                |            |        |

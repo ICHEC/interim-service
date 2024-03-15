@@ -130,6 +130,25 @@ Where `$USER` should be replaced by your username on Meluxina. For example, if y
 For **Windows**, you need to install a SSH client. We recommend MobaXterm.
 ```
 
+``````{admonition} ssh tip
+:class: tip
+For several users, if may feel a bit tedious to provide the username and port information. One can ease this by defining the configurations for ssh to meluxina login node via following config in your `~/.ssh/config` file in your home directory on the computer you are going to login from.
+
+- If the file `~/.ssh/config` does not exist, create it, using emacs/vi or any choice of editor.
+
+- Fill the following settings, replacing `$USER` with your username.
+
+```ini
+Host lxp
+    User $USER
+    HostName login.lxp.lu
+    Port 8822
+```
+
+- Now save the file `~/.ssh/config` . Now when you ssh using `ssh lxp` the ssh client will automatically read the username and the port from the config file, and you don't need to provide it through command line.
+
+``````
+
 
 ## Finding your Project Name and Resource Allocations
 

@@ -3,7 +3,7 @@
 {"name": "Abinit", "path": "./softwares/abinit.md", "about": "DFT based simulation", "version": "", "domain": "Physics"},
 {"name": "Amber", "path": "./softwares/amber.md", "about": "", "version": "", "domain": "" },
 {"name": "Ansys", "path": "./softwares/ansys.md", "about": "", "version": "", "domain": "" },
-{"name": "Cmake3-Cross-Platform-Make", "path": "./softwares/cmake3-cross-platform-make.md", "about": "", "version": "", "domain": "" },
+{"name": "Cmake3", "path": "./softwares/cmake3.md", "about": "", "version": "", "domain": "" },
 {"name": "Cp2k-0", "path": "./softwares/cp2k-0.md", "about": "", "version": "", "domain": "" },
 {"name": "Cuda-Toolkit", "path": "./softwares/cuda-toolkit.md", "about": "", "version": "", "domain": "" },
 {"name": "Dlpoly", "path": "./softwares/dlpoly.md", "about": "", "version": "", "domain": "" },

@@ -240,13 +240,19 @@ To submit a job, create a submission script in a file named, say `mybatchjob.sh`
 #SBATCH --time=00:20:00
 #SBATCH --nodes=1
 #SBATCH -A {{myProjectID}}
-#SBATCH -p cpu
+#SBATCH --partition cpu
+#SBATCH --qos default
+#SBATCH --hint nomultithread
 
+# load relevant modules. You can load multiple module depending on
+# the dependency of your actual code
+module load some_module_name
 
-module load GCC/12.3.0
-
-mpirun mpi-benchmarks/src/IMB-MPI1
+# run the actual command/program/executable
+mpirun /path/to/mpi_executable
 ```
+
+In the above script, the first line defines type of interpreter the script is using, which in this case is `/bin/sh` shell. The lines following `#SBATCH` are read by the SLURM scheduler as job submission parameters. They can, alternatively be also passed as command line arguments, such as `sbatch --time=00:20:00 ...`. But writing them within the script is easier for record keeping, and makes the job submission quicker.
 
 Submit the job using:
 
@@ -260,7 +266,14 @@ You can check the progress of any jobs you have submitted by using:
 squeue
 ```
 
-Need help?
+```{important}
+Note the two arguments that you did not use while using Kay. Those are following -
+
+1. `--qos` which defines quality of service. It enables various modes of usage. Allowed values are one of the [`dev`, `test`, `short`, `short-preempt`, `default`, `long`, `large`, `urgent`].
+2. `--hint` which accepts one of the two arugements: `multithreaded` or `nomultithreaded`. It defines whether the node allocated will have multithreading `on` or `off`. With `on`, you will see $128x2=256$ logical cores, and with `off` you will see 128 logical cores. By default, it's `on`.
+```
+
+For more details of these two options, and SLURM usage on Meluxina, see our [slurm page](./slurm.md).
 
 If you get stuck, you can check our:
 

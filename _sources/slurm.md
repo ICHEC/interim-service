@@ -15,11 +15,22 @@ The typical way a user will interact with compute resources managed by a workloa
 
 The two types of job commonly used are:
 
-- **Interactive** : Request a set of nodes to run an interactive bash shell on. This is useful for quick tests and development work. These type of jobs should only be used with the DevQ queue. For example, the following command will submit an interactive job requesting 1 node for 1 hour to be charged to myproj_id:
+- **Interactive** : Request a set of nodes to run an interactive bash shell on. This is useful for quick tests and development work. These type of jobs should only be used with the with resource requested appropriately.
+
+In Kay, we had a specific partition called `DevQ` queue, restricted with maximum wall time of 1 hour. For example, the following command will submit an interactive job requesting 1 node for 1 hour to be charged to myproj_id:
+
+On Kay:
 
 ```bash
-srun -p DevQ -N 1 -A myproj_id -t 1:00:00 --pty bash
+salloc -p DevQ -N 1 -A myproj_id -t 1:00:00
 ```
+
+The similar command for Meluxina will be 
+On Meluxina:
+```bash
+salloc -p cpu -q test -N 1 -A myproj_id -t 1:00:00
+```
+
 - **Batch** : A script is submitted for later execution whenever the requested resources are available. Both within this script and on the commandline when submitting the job, a set of constraints, required information and instructions are given. The file must be a shell script (i.e start with `#!/bin/sh`) and Slurm directives must be preceeded by `#SBATCH`. A sample script is displayed below which request 4 nodes (each with 40 cores) for 48 hours to run an MPI application and could be submitted using the command:
 
 ```bash

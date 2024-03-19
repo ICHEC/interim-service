@@ -59,6 +59,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'interim-service';</script>
@@ -647,14 +649,19 @@ put<span class="w"> </span>localFilePath
 <span class="c1">#SBATCH --time=00:20:00</span>
 <span class="c1">#SBATCH --nodes=1</span>
 <span class="c1">#SBATCH -A {{myProjectID}}</span>
-<span class="c1">#SBATCH -p cpu</span>
+<span class="c1">#SBATCH --partition cpu</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH --hint nomultithread</span>
 
+<span class="c1"># load relevant modules. You can load multiple module depending on</span>
+<span class="c1"># the dependency of your actual code</span>
+module<span class="w"> </span>load<span class="w"> </span>some_module_name
 
-module<span class="w"> </span>load<span class="w"> </span>GCC/12.3.0
-
-mpirun<span class="w"> </span>mpi-benchmarks/src/IMB-MPI1
+<span class="c1"># run the actual command/program/executable</span>
+mpirun<span class="w"> </span>/path/to/mpi_executable
 </pre></div>
 </div>
+<p>In the above script, the first line defines type of interpreter the script is using, which in this case is <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> shell. The lines following <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code> are read by the SLURM scheduler as job submission parameters. They can, alternatively be also passed as command line arguments, such as <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">--time=00:20:00</span> <span class="pre">...</span></code>. But writing them within the script is easier for record keeping, and makes the job submission quicker.</p>
 <p>Submit the job using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>mybatchjob.sh
 </pre></div>
@@ -663,7 +670,15 @@ mpirun<span class="w"> </span>mpi-benchmarks/src/IMB-MPI1
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
 </pre></div>
 </div>
-<p>Need help?</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note the two arguments that you did not use while using Kay. Those are following -</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--qos</span></code> which defines quality of service. It enables various modes of usage. Allowed values are one of the [<code class="docutils literal notranslate"><span class="pre">dev</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">short-preempt</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">large</span></code>, <code class="docutils literal notranslate"><span class="pre">urgent</span></code>].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--hint</span></code> which accepts one of the two arugements: <code class="docutils literal notranslate"><span class="pre">multithreaded</span></code> or <code class="docutils literal notranslate"><span class="pre">nomultithreaded</span></code>. It defines whether the node allocated will have multithreading <code class="docutils literal notranslate"><span class="pre">on</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. With <code class="docutils literal notranslate"><span class="pre">on</span></code>, you will see <span class="math notranslate nohighlight">\(128x2=256\)</span> logical cores, and with <code class="docutils literal notranslate"><span class="pre">off</span></code> you will see 128 logical cores. By default, it’s <code class="docutils literal notranslate"><span class="pre">on</span></code>.</p></li>
+</ol>
+</div>
+<p>For more details of these two options, and SLURM usage on Meluxina, see our <a class="reference internal" href="slurm.html"><span class="std std-doc">slurm page</span></a>.</p>
 <p>If you get stuck, you can check our:</p>
 <ul class="simple">
 <li><p>FAQs</p></li>

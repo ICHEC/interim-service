@@ -383,9 +383,16 @@ document.write(`
 </ul>
 <p>The two types of job commonly used are:</p>
 <ul class="simple">
-<li><p><strong>Interactive</strong> : Request a set of nodes to run an interactive bash shell on. This is useful for quick tests and development work. These type of jobs should only be used with the DevQ queue. For example, the following command will submit an interactive job requesting 1 node for 1 hour to be charged to myproj_id:</p></li>
+<li><p><strong>Interactive</strong> : Request a set of nodes to run an interactive bash shell on. This is useful for quick tests and development work. These type of jobs should only be used with the with resource requested appropriately.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun<span class="w"> </span>-p<span class="w"> </span>DevQ<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-A<span class="w"> </span>myproj_id<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>:00:00<span class="w"> </span>--pty<span class="w"> </span>bash
+<p>In Kay, we had a specific partition called <code class="docutils literal notranslate"><span class="pre">DevQ</span></code> queue, restricted with maximum wall time of 1 hour. For example, the following command will submit an interactive job requesting 1 node for 1 hour to be charged to myproj_id:</p>
+<p>On Kay:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc<span class="w"> </span>-p<span class="w"> </span>DevQ<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-A<span class="w"> </span>myproj_id<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>:00:00
+</pre></div>
+</div>
+<p>The similar command for Meluxina will be
+On Meluxina:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc<span class="w"> </span>-p<span class="w"> </span>cpu<span class="w"> </span>-q<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-A<span class="w"> </span>myproj_id<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span>:00:00
 </pre></div>
 </div>
 <ul class="simple">

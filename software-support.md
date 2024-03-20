@@ -20,7 +20,11 @@ We do our best to offer latest versions of all required software. If you require
 
 On the interim service system, [Meluxina](https://docs.lxp.lu/) we are also making sure all the softwares of user's interest are installed.
 
+## Software support from ICHEC
+
 The following list is not exhaustive and does not include many packages one might take for granted, e.g. perl. Certain packages are installed on a request basis and so may not yet have been requested on a given system. Some are general purpose compilers or libraries, other are softwares specific to a domain, such as material science, physics, chemistry, computational biology, statistics etc. For more details about the software, please click on the link therein.
+
+We provide support for all of these softwares. We will keep adding further documentations, illustrations and examples on these, and other softwares that ICHEC users intend to use.
 
 
 | Package Name: Description                                                      | Version(s) | Domain |
@@ -70,8 +74,23 @@ display(Markdown(ss))
 #
 ```
 
+
+## Software Catalogue on Meluxina
+
 Following is a snapshot of the `module avail` command on Meluxina. It showcases the list of softwares readily available on the compute nodes.
 
+- Note the software under the heading `/project/home/p200272/modules`. This is the list of softwares maintained by ICHEC staff, so the issues related to these can be directly handled by ICHEC. For the rest, we need to coordinate with Meluxina support staff.
+
+- The next heading `/apps/USE/system/modules` contains a list of high level modules which themselves contain several modules, that one can load.
+
+- The third heading `/apps/USE/easybuild/release/2023.1/modules/all` shows the list of modules available through the high level module `env/release/2023.1`
+
+```{margin}
+:class: tip
+On Meluxina, the list of software packages are grouped into releases, as seen the the second heading. Different releases have more or less the same set of softwares, however their version progressively change release to release.
+
+So if you can see the software you want in the list below, or by running `module avail` on the compute node, you can change the release by `module purge && module load env/release/xxxx.x` and see which release seems to have the version you want.
+```
 
 ```bash
 mel0134 02:42:18 0 ~  module avail
@@ -266,3 +285,6 @@ Use "module keyword key1 key2 ..." to search for all possible modules matching a
 
 mel0134 02:43:03 0 ~ 
 ```
+
+## Using the module system
+

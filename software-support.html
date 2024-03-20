@@ -327,7 +327,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -343,6 +345,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-support-from-ichec">Software support from ICHEC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-catalogue-on-meluxina">Software Catalogue on Meluxina</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-module-system">Using the module system</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -357,7 +369,10 @@ document.write(`
 <p>ICHEC provides access and support to a large range of compilers, libraries and high-performance computing packages on it’s supercomputer systems (Kay). If you are interested in using software which is not on the list, it is best to email us at <a class="reference external" href="mailto:support&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a> or log a query using the Helpdesk Portal. ICHEC can also assist you with installing packages for your own use.</p>
 <p>We do our best to offer latest versions of all required software. If you require a newer version please ask us for it.</p>
 <p>On the interim service system, <a class="reference external" href="https://docs.lxp.lu/">Meluxina</a> we are also making sure all the softwares of user’s interest are installed.</p>
+<section id="software-support-from-ichec">
+<h2>Software support from ICHEC<a class="headerlink" href="#software-support-from-ichec" title="Link to this heading">#</a></h2>
 <p>The following list is not exhaustive and does not include many packages one might take for granted, e.g. perl. Certain packages are installed on a request basis and so may not yet have been requested on a given system. Some are general purpose compilers or libraries, other are softwares specific to a domain, such as material science, physics, chemistry, computational biology, statistics etc. For more details about the software, please click on the link therein.</p>
+<p>We provide support for all of these softwares. We will keep adding further documentations, illustrations and examples on these, and other softwares that ICHEC users intend to use.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Package Name: Description</p></th>
@@ -472,7 +487,20 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</section>
+<section id="software-catalogue-on-meluxina">
+<h2>Software Catalogue on Meluxina<a class="headerlink" href="#software-catalogue-on-meluxina" title="Link to this heading">#</a></h2>
 <p>Following is a snapshot of the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> command on Meluxina. It showcases the list of softwares readily available on the compute nodes.</p>
+<ul class="simple">
+<li><p>Note the software under the heading <code class="docutils literal notranslate"><span class="pre">/project/home/p200272/modules</span></code>. This is the list of softwares maintained by ICHEC staff, so the issues related to these can be directly handled by ICHEC. For the rest, we need to coordinate with Meluxina support staff.</p></li>
+<li><p>The next heading <code class="docutils literal notranslate"><span class="pre">/apps/USE/system/modules</span></code> contains a list of high level modules which themselves contain several modules, that one can load.</p></li>
+<li><p>The third heading <code class="docutils literal notranslate"><span class="pre">/apps/USE/easybuild/release/2023.1/modules/all</span></code> shows the list of modules available through the high level module <code class="docutils literal notranslate"><span class="pre">env/release/2023.1</span></code></p></li>
+</ul>
+<aside class="tip margin sidebar">
+<p class="sidebar-title"></p>
+<p>On Meluxina, the list of software packages are grouped into releases, as seen the the second heading. Different releases have more or less the same set of softwares, however their version progressively change release to release.</p>
+<p>So if you can see the software you want in the list below, or by running <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> on the compute node, you can change the release by <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">purge</span> <span class="pre">&amp;&amp;</span> <span class="pre">module</span> <span class="pre">load</span> <span class="pre">env/release/xxxx.x</span></code> and see which release seems to have the version you want.</p>
+</aside>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mel0134<span class="w"> </span><span class="m">02</span>:42:18<span class="w"> </span><span class="m">0</span><span class="w"> </span>~<span class="w">  </span>module<span class="w"> </span>avail
 
 -------------------------------------------------------------------------------<span class="w"> </span>/project/home/p200272/modules<span class="w"> </span>-------------------------------------------------------------------------------
@@ -667,6 +695,10 @@ mel0134<span class="w"> </span><span class="m">02</span>:43:03<span class="w"> <
 </pre></div>
 </div>
 </section>
+<section id="using-the-module-system">
+<h2>Using the module system<a class="headerlink" href="#using-the-module-system" title="Link to this heading">#</a></h2>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -723,7 +755,22 @@ mel0134<span class="w"> </span><span class="m">02</span>:43:03<span class="w"> <
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-support-from-ichec">Software support from ICHEC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-catalogue-on-meluxina">Software Catalogue on Meluxina</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-module-system">Using the module system</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

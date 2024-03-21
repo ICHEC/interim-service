@@ -365,6 +365,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-micromamba">Using micromamba</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment">Managing environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a></li>
 </ul>
             </nav>
@@ -518,7 +519,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <li><p>You can only use pip to install packages, and hence only python packages.</p></li>
 </ul>
 <p>Conda is usually popular alternative, as its a package manager for python as well as non-python packages, and has systematic commands to create and manage environments. However it tends to create lot’s of files, so not a good choice for meluxina.</p>
-<p>A slightly better alternative that works like conda is <a class="reference external" href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html">micromamba</a>. It comes as single binary file from <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">here</a>, which you can put in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, such as <code class="docutils literal notranslate"><span class="pre">$HOME/bin</span></code>. Then you can use the micromamba similar to conda.</p>
+<p>A slightly better alternative that works like conda is <a class="reference external" href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html">micromamba</a>. It comes as single binary file: See from the installation section of micromamba <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">here</a>, and checkout the installation and initialization instructure there. Once you have put the executable in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, such as <code class="docutils literal notranslate"><span class="pre">$HOME/bin</span></code>, you can use the micromamba similar to conda.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>micromamba<span class="w"> </span>--help
 
 Subcommands:
@@ -543,6 +544,100 @@ Subcommands:
 </pre></div>
 </div>
 </section>
+</section>
+<section id="managing-environment">
+<h2>Managing environment<a class="headerlink" href="#managing-environment" title="Link to this heading">#</a></h2>
+<p>Even with mamba, you can get into large number of files if you either creating large number of environments, or environments with large sized packages. If so, you will quickly hit the quota of the maximum number of files, which will lead into you not being able to create new files.</p>
+<p>A simple approach here could be following. Instead of keeping all the packages installed there, you could just keep the <code class="docutils literal notranslate"><span class="pre">fingerprint</span></code> of the environment in files on Meluxina, and create the environment on the go, as you run a job.</p>
+<p>Conda/micromamba allows exporting the details of an environment in a single file, usually either plain text, or YAML format. This is what we mean by fingerprint, as it can be used to recreate the environement anywhere. Let’s see how we do that.</p>
+<p>Below shows the list of environments</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>login03<span class="w"> </span><span class="m">11</span>:24:18<span class="w"> </span><span class="m">0</span><span class="w"> </span>~<span class="w">  </span>micromamba<span class="w"> </span>env<span class="w"> </span>list<span class="w"> </span>
+<span class="w">  </span>Name<span class="w">   </span>Active<span class="w">  </span>Path<span class="w">                                          </span>
+─────────────────────────────────────────────────────────────────
+<span class="w">  </span>base<span class="w">           </span>/mnt/tier2/users/u101223/micromamba<span class="w">           </span>
+<span class="w">  </span>cunum<span class="w">          </span>/mnt/tier2/users/u101223/micromamba/envs/cunum
+<span class="w">  </span>cupy<span class="w">           </span>/mnt/tier2/users/u101223/micromamba/envs/cupy
+</pre></div>
+</div>
+<p>We see that we have two environments <code class="docutils literal notranslate"><span class="pre">cupy</span></code> and <code class="docutils literal notranslate"><span class="pre">cunum</span></code> (Note that base environment in micromamba is kep intentionally empty).</p>
+<p>We can export the environment, say <code class="docutils literal notranslate"><span class="pre">cupy</span></code> as following -</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-n<span class="w"> </span>cupy
+</pre></div>
+</div>
+<p>which prints following -</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cupy</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1=conda_forge</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_openmp_mutex=4.5=2_gnu</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">asttokens=2.4.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bzip2=1.0.8=hd590300_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certificates=2024.2.2=hbcca054_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cuda-nvrtc=12.4.99=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cuda-version=12.4=h3060b56_3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cupy=13.0.0=py312h5add188_3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cupy-core=13.0.0=py312h7d03b9e_3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decorator=5.1.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exceptiongroup=1.2.0=pyhd8ed1ab_2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">executing=2.0.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastrlock=0.8.2=py312h30efb56_2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ipython=8.22.2=pyh707e725_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jedi=0.19.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ld_impl_linux-64=2.40=h41732ed_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libblas=3.9.0=21_linux64_openblas</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcblas=3.9.0=21_linux64_openblas</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcublas=12.4.2.65=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcufft=11.2.0.44=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcurand=10.3.5.119=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcusolver=11.6.0.99=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcusparse=12.3.0.142=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libexpat=2.6.1=h59595ed_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libffi=3.4.2=h7f98852_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgcc-ng=13.2.0=h807b86a_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgfortran-ng=13.2.0=h69a702a_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgfortran5=13.2.0=ha4646dd_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgomp=13.2.0=h807b86a_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">liblapack=3.9.0=21_linux64_openblas</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libnsl=2.0.1=hd590300_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libnvjitlink=12.4.99=hd3aeb46_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libopenblas=0.3.26=pthreads_h413a1c8_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libsqlite=3.45.1=h2797004_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libstdcxx-ng=13.2.0=h7e041cc_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libuuid=2.38.1=h0b41bf4_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libxcrypt=4.4.36=hd590300_1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libzlib=1.2.13=hd590300_5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib-inline=0.1.6=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ncurses=6.4=h59595ed_2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy=1.26.4=py312heda63a1_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssl=3.2.1=hd590300_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parso=0.8.3=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pexpect=4.9.0=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pickleshare=0.7.5=py_1003</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip=24.0=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prompt-toolkit=3.0.42=pyha770c72_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ptyprocess=0.7.0=pyhd3deb0d_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pure_eval=0.2.2=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pygments=2.17.2=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.12.2=hab00c5b_0_cpython</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi=3.12=4_cp312</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">readline=8.2=h8228510_1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools=69.1.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">six=1.16.0=pyh6c4a22f_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stack_data=0.6.2=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tk=8.6.13=noxft_h4845f30_101</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traitlets=5.14.1=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typing_extensions=4.10.0=pyha770c72_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tzdata=2024a=h0c530f3_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wcwidth=0.2.13=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wheel=0.42.0=pyhd8ed1ab_0</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xz=5.2.6=h166bdaf_0</span>
+</pre></div>
+</div>
+<p>You can save it in a text file, called <code class="docutils literal notranslate"><span class="pre">cupy.yml</span></code>. You can use this file on any system that has micromamba initialized by simply</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>cupy.yml
+</pre></div>
+</div>
 </section>
 <section id="additional-information">
 <h2>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
@@ -611,6 +706,7 @@ Subcommands:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-micromamba">Using micromamba</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-environment">Managing environment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a></li>
 </ul>
   </nav></div>

@@ -210,9 +210,9 @@ login03 11:24:18 0 ~  micromamba env list
   cunum          /mnt/tier2/users/u101223/micromamba/envs/cunum
   cupy           /mnt/tier2/users/u101223/micromamba/envs/cupy
 ```
-We see that we have two environments `cupy` and `cunum` (Note that base environment in micromamba is kep intentionally empty).
+We see that we have two environments `cupy` and `cunum` (Note that base environment in micromamba is kept intentionally empty).
 
-We can export the environment, say `cupy` as following -
+We can export the environment, say `cupy` as following (We use cupy as example, but you can replace it with the environment with name of your choice) -
 
 ```bash
 micromamba env export -n cupy
@@ -294,6 +294,29 @@ You can save it in a text file, called `cupy.yml`. You can use this file on any 
 ```bash
 micromamba env create --file cupy.yml
 ```
+
+You can add `--yes` at the end so that it automatically assumes yes answer to interactive steps, and can be used to create environment in non-interactive way in scripts.
+
+```bash
+micromamba env create --file cupy.yml --yes
+```
+
+Once done with the environment for good, you can remove it by
+
+```bash
+micromamba env remove -n cupy --yes
+```
+
+You can run the python script you want directly in environment `cupy` by
+
+```bash
+micromamba run -n cupy ./path_to_script.py
+```
+
+Thus, once you have the environments made on meluxina, you can export them to a yaml file, all you need is to keep the yaml files organized, and keep the actual environments empty, and creation and deletion of the environments becomes part of your submission script. This keeps the number of files minimal while using the full equivalent of conda setup.
+
+For typical package sizes such as the `cupy` above, the time to create environment with packages installed or remove is about 30 seconds.
+
 
 
 ## Additional Information

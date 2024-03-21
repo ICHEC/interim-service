@@ -559,8 +559,8 @@ Subcommands:
 <span class="w">  </span>cupy<span class="w">           </span>/mnt/tier2/users/u101223/micromamba/envs/cupy
 </pre></div>
 </div>
-<p>We see that we have two environments <code class="docutils literal notranslate"><span class="pre">cupy</span></code> and <code class="docutils literal notranslate"><span class="pre">cunum</span></code> (Note that base environment in micromamba is kep intentionally empty).</p>
-<p>We can export the environment, say <code class="docutils literal notranslate"><span class="pre">cupy</span></code> as following -</p>
+<p>We see that we have two environments <code class="docutils literal notranslate"><span class="pre">cupy</span></code> and <code class="docutils literal notranslate"><span class="pre">cunum</span></code> (Note that base environment in micromamba is kept intentionally empty).</p>
+<p>We can export the environment, say <code class="docutils literal notranslate"><span class="pre">cupy</span></code> as following (We use cupy as example, but you can replace it with the environment with name of your choice) -</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-n<span class="w"> </span>cupy
 </pre></div>
 </div>
@@ -638,6 +638,20 @@ Subcommands:
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>cupy.yml
 </pre></div>
 </div>
+<p>You can add <code class="docutils literal notranslate"><span class="pre">--yes</span></code> at the end so that it automatically assumes yes answer to interactive steps, and can be used to create environment in non-interactive way in scripts.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>cupy.yml<span class="w"> </span>--yes
+</pre></div>
+</div>
+<p>Once done with the environment for good, you can remove it by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>cupy<span class="w"> </span>--yes
+</pre></div>
+</div>
+<p>You can run the python script you want directly in environment <code class="docutils literal notranslate"><span class="pre">cupy</span></code> by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>run<span class="w"> </span>-n<span class="w"> </span>cupy<span class="w"> </span>./path_to_script.py
+</pre></div>
+</div>
+<p>Thus, once you have the environments made on meluxina, you can export them to a yaml file, all you need is to keep the yaml files organized, and keep the actual environments empty, and creation and deletion of the environments becomes part of your submission script. This keeps the number of files minimal while using the full equivalent of conda setup.</p>
+<p>For typical package sizes such as the <code class="docutils literal notranslate"><span class="pre">cupy</span></code> above, the time to create environment with packages installed or remove is about 30 seconds.</p>
 </section>
 <section id="additional-information">
 <h2>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>

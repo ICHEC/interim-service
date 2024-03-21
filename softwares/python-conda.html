@@ -350,16 +350,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-on-kay">Python on Kay</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-install-python-2-only">1. System Install (Python 2 Only)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-python-2-and-3">2. Conda (Python 2 and 3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-conda-commands">Useful Conda Commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-packages">Installing Python Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-packages">Installing Python Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-on-meluxina">Python on Meluxina</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-venv-environments">Using venv environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-micromamba">Using micromamba</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a></li>
 </ul>
             </nav>
         </div>
@@ -375,11 +381,20 @@ document.write(`
 <h1>Python/Conda<a class="headerlink" href="#python-conda" title="Link to this heading">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
-<p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">2.7.5</span> <span class="pre">(System</span> <span class="pre">Install)</span> <span class="pre">/</span> <span class="pre">2.7.15</span> <span class="pre">(Conda)</span> <span class="pre">/</span> <span class="pre">3.7.0</span> <span class="pre">(Conda)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p>Kay: <code class="docutils literal notranslate"><span class="pre">2.7.5</span> <span class="pre">(System),</span> <span class="pre">2.7.15</span> <span class="pre">(Conda),</span> <span class="pre">3.7.0</span> <span class="pre">(Conda)</span></code></p>
+<p>LXP: <code class="docutils literal notranslate"><span class="pre">2.7</span> <span class="pre">(System),</span> <span class="pre">3.6</span> <span class="pre">(System),</span> <span class="pre">3.8</span> <span class="pre">(System),</span> <span class="pre">3.10</span> <span class="pre">(module),</span> <span class="pre">3.11</span> <span class="pre">(module)</span></code></p>
+<p>Note: Here system indicates usual path in <code class="docutils literal notranslate"><span class="pre">/usr/bin/</span></code>, module indicates that it can be loaded from available modules.</p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>Python is one of the most widely used language of modern time due to it’s ease of use and rich ecosystem of libraries in areas ranging from traditional physics, chemistry, computational biology to datascience, machine learning and quantum computing. It has also started replacing the bash scripts in linux distributions over the years, and as result every HPC cluster has a few versions of python installed at system level.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>Available under Python Software Foundation (PSF) License.</p>
+</section>
+<section id="python-on-kay">
+<h2>Python on Kay<a class="headerlink" href="#python-on-kay" title="Link to this heading">#</a></h2>
 <p>On Kay, we provide the Python interpreters and packages using two methods:</p>
 <section id="system-install-python-2-only">
 <h3>1. System Install (Python 2 Only)<a class="headerlink" href="#system-install-python-2-only" title="Link to this heading">#</a></h3>
@@ -390,51 +405,54 @@ Python 2.</p>
 <h3>2. Conda (Python 2 and 3)<a class="headerlink" href="#conda-python-2-and-3" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://conda.io/docs/">Conda</a> is our preferred method to provide Python 2 and 3 interpreters, and some commonly used packages to users. You can use these by loading the Conda module and then activating the desired Conda environment.</p>
 </section>
-</section>
-<section id="license">
-<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
-<p>Available under Python Software Foundation (PSF) License.</p>
-</section>
-<section id="useful-commands">
-<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Link to this heading">#</a></h2>
-<p>To load the environment module:</p>
+<section id="useful-conda-commands">
+<h3>Useful Conda Commands<a class="headerlink" href="#useful-conda-commands" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Click to expand for Conda Commands<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To load the environment module:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>conda/2
 </pre></div>
 </div>
-<p>To list the available Conda environments:</p>
+<p class="sd-card-text">To list the available Conda environments:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>info<span class="w"> </span>--envs
 </pre></div>
 </div>
-<p>The <em>base</em> environment provides Python 2 interpreter, while the <em>python3</em> Conda environment provides Python 3 interpreter. Both the Conda environments provide the following packages:</p>
+<p class="sd-card-text">The <em>base</em> environment provides Python 2 interpreter, while the <em>python3</em> Conda environment provides Python 3 interpreter. Both the Conda environments provide the following packages:</p>
 <ul class="simple">
-<li><p>matplotlib</p></li>
-<li><p>numpy</p></li>
-<li><p>opencv</p></li>
-<li><p>pandas</p></li>
-<li><p>scikit-learn</p></li>
-<li><p>scipy</p></li>
+<li><p class="sd-card-text">matplotlib</p></li>
+<li><p class="sd-card-text">numpy</p></li>
+<li><p class="sd-card-text">opencv</p></li>
+<li><p class="sd-card-text">pandas</p></li>
+<li><p class="sd-card-text">scikit-learn</p></li>
+<li><p class="sd-card-text">scipy</p></li>
 </ul>
-<p>To activate the base (default) Conda environment:</p>
+<p class="sd-card-text">To activate the base (default) Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>activate
 </pre></div>
 </div>
-<p>To activate any other Conda environment from the list of available environments:</p>
+<p class="sd-card-text">To activate any other Conda environment from the list of available environments:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activates python3 Conda environment</span>
 <span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>python3
 </pre></div>
 </div>
-<p>To list the software installed in the Conda environment:</p>
+<p class="sd-card-text">To list the software installed in the Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists all software installed in the python3 Conda environment</span>
 conda<span class="w"> </span>list<span class="w"> </span>--name<span class="w"> </span>python3
 </pre></div>
 </div>
-<p>To deactivate the Conda environment:</p>
+<p class="sd-card-text">To deactivate the Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>deactivate
 </pre></div>
 </div>
-</section>
+</div>
+</details></section>
 <section id="installing-python-packages">
-<h2>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading">#</a></h2>
+<h3>Installing Python Packages<a class="headerlink" href="#installing-python-packages" title="Link to this heading">#</a></h3>
 <p>To install any Python package or to use a different version of Python,
 you can create a new Conda environment. Your Conda environments are
 saved in your <em>$HOME</em> directory.</p>
@@ -451,11 +469,83 @@ conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"
 </div>
 </section>
 <section id="jupyter-notebooks">
-<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Link to this heading">#</a></h2>
+<h3>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Link to this heading">#</a></h3>
 <p>To use Jupyter Notebooks on Kay, refer to our documentation <a class="reference internal" href="#/academic/national-hpc/documentation/tutorials/using-jupyter-notebook-kay-jupyter-hub"><span class="xref myst">here</span></a></p>
 </section>
-<section id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
+</section>
+<section id="python-on-meluxina">
+<h2>Python on Meluxina<a class="headerlink" href="#python-on-meluxina" title="Link to this heading">#</a></h2>
+<p>On Meluxina, we have 2.7, 3.6, and 3.8 versions of python available at system level. Also, 3.10 and 3.11 can be used by loading modules:</p>
+<ul class="simple">
+<li><p>For 3.10</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>Python/3.10.8-GCCcore-12.3.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>For 3.11</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>Python/3.11.3-GCCcore-12.3.0
+</pre></div>
+</div>
+<p>On Meluxina, it is discouraged creating large number of files, hence the quota on number of files created on each users/projects. As a result they do not recommend using Conda, and also do not support Conda.</p>
+<p>There are two alternatives ICHEC users can follow:</p>
+<section id="using-venv-environments">
+<h3>Using venv environments<a class="headerlink" href="#using-venv-environments" title="Link to this heading">#</a></h3>
+<p>Python usually comes with built-in module called <code class="docutils literal notranslate"><span class="pre">venv</span></code> that can create a virtual environment with <code class="docutils literal notranslate"><span class="pre">pip</span></code> installed within it, so that user can install further packages via <code class="docutils literal notranslate"><span class="pre">pip</span></code> in the evironment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/path/to/env
+</pre></div>
+</div>
+<p>The above creates a virtual environment in the path provided, which is essentially a folder with file <code class="docutils literal notranslate"><span class="pre">pyvenv.cfg</span></code> and folders <code class="docutils literal notranslate"><span class="pre">bin</span>&#160; <span class="pre">include</span>&#160; <span class="pre">lib</span>&#160; <span class="pre">lib64</span>&#160; <span class="pre">pyvenv.cfg</span></code>.</p>
+<p>For general management, it’s a good idea to create environments 1. in the same place, or 2. inside folder where most of your source code is. Say, you create a folder called <code class="docutils literal notranslate"><span class="pre">venvs</span></code> in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> or <code class="docutils literal notranslate"><span class="pre">$PROJECT</span></code> folder, and create environments using the above command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/venvs<span class="w"> </span><span class="c1"># create this folder if it doesn&#39;t exist using mkdir</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tf
+</pre></div>
+</div>
+<p>The above creates a virtual enviroment in <code class="docutils literal notranslate"><span class="pre">$HOME/venvs/tf</span></code>. Now there will be a file <code class="docutils literal notranslate"><span class="pre">$HOME/venvs/tf/bin/activate</span></code>, which is used to activate the environment by sourcing it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/venvs/tf/bin/activate
+</pre></div>
+</div>
+<p>Once activated, <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">pip</span></code> will point to <code class="docutils literal notranslate"><span class="pre">$HOME/venvs/tf/bin/python</span></code> and <code class="docutils literal notranslate"><span class="pre">$HOME/venvs/tf/bin/pip</span></code> respectively, and anything you install using pip will be installed in the environment.</p>
+<p>Once you are done using it, you can just deactivate the environment by <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> command.</p>
+<p>In order to delete the environment, simply delete the environment folder <code class="docutils literal notranslate"><span class="pre">$HOME/venvs/tf/</span></code>.</p>
+</section>
+<section id="using-micromamba">
+<h3>Using micromamba<a class="headerlink" href="#using-micromamba" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">venv</span></code> approach is fast, lightweight and simple. However, it has two limitations.</p>
+<ul class="simple">
+<li><p>The python version in the environment is tied to the python interpeter that created it.</p></li>
+<li><p>You can only use pip to install packages, and hence only python packages.</p></li>
+</ul>
+<p>Conda is usually popular alternative, as its a package manager for python as well as non-python packages, and has systematic commands to create and manage environments. However it tends to create lot’s of files, so not a good choice for meluxina.</p>
+<p>A slightly better alternative that works like conda is <a class="reference external" href="https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html">micromamba</a>. It comes as single binary file from <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">here</a>, which you can put in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, such as <code class="docutils literal notranslate"><span class="pre">$HOME/bin</span></code>. Then you can use the micromamba similar to conda.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>micromamba<span class="w"> </span>--help
+
+Subcommands:
+<span class="w">  </span>shell<span class="w">                       </span>Generate<span class="w"> </span>shell<span class="w"> </span>init<span class="w"> </span>scripts
+<span class="w">  </span>create<span class="w">                      </span>Create<span class="w"> </span>new<span class="w"> </span>environment
+<span class="w">  </span>install<span class="w">                     </span>Install<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>environment
+<span class="w">  </span>update<span class="w">                      </span>Update<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>environment
+<span class="w">  </span>repoquery<span class="w">                   </span>Find<span class="w"> </span>and<span class="w"> </span>analyze<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>environment<span class="w"> </span>or<span class="w"> </span>channels
+<span class="w">  </span>remove<span class="w">                      </span>Remove<span class="w"> </span>packages<span class="w"> </span>from<span class="w"> </span>active<span class="w"> </span>environment
+<span class="w">  </span>list<span class="w">                        </span>List<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>environment
+<span class="w">  </span>package<span class="w">                     </span>Extract<span class="w"> </span>a<span class="w"> </span>package<span class="w"> </span>or<span class="w"> </span>bundle<span class="w"> </span>files<span class="w"> </span>into<span class="w"> </span>an<span class="w"> </span>archive
+<span class="w">  </span>clean<span class="w">                       </span>Clean<span class="w"> </span>package<span class="w"> </span>cache
+<span class="w">  </span>config<span class="w">                      </span>Configuration<span class="w"> </span>of<span class="w"> </span>micromamba
+<span class="w">  </span>info<span class="w">                        </span>Information<span class="w"> </span>about<span class="w"> </span>micromamba
+<span class="w">  </span>constructor<span class="w">                 </span>Commands<span class="w"> </span>to<span class="w"> </span>support<span class="w"> </span>using<span class="w"> </span>micromamba<span class="w"> </span><span class="k">in</span><span class="w"> </span>constructor
+<span class="w">  </span>env<span class="w">                         </span>List<span class="w"> </span>environments
+<span class="w">  </span>activate<span class="w">                    </span>Activate<span class="w"> </span>an<span class="w"> </span>environment
+<span class="w">  </span>run<span class="w">                         </span>Run<span class="w"> </span>an<span class="w"> </span>executable<span class="w"> </span><span class="k">in</span><span class="w"> </span>an<span class="w"> </span>environment
+<span class="w">  </span>ps<span class="w">                          </span>Show,<span class="w"> </span>inspect<span class="w"> </span>or<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>running<span class="w"> </span>processes
+<span class="w">  </span>auth<span class="w">                        </span>Login<span class="w"> </span>or<span class="w"> </span><span class="nb">logout</span><span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>given<span class="w"> </span>host
+<span class="w">  </span>search<span class="w">                      </span>Find<span class="w"> </span>packages<span class="w"> </span><span class="k">in</span><span class="w"> </span>active<span class="w"> </span>environment<span class="w"> </span>or<span class="w"> </span>channels
+</pre></div>
+</div>
+</section>
+</section>
+<section id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
 <p>For more information see <a class="reference external" href="http://www.python.org">here</a>.</p>
 </section>
 </section>
@@ -506,16 +596,22 @@ conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-on-kay">Python on Kay</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-install-python-2-only">1. System Install (Python 2 Only)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-python-2-and-3">2. Conda (Python 2 and 3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-conda-commands">Useful Conda Commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-packages">Installing Python Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python-packages">Installing Python Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-on-meluxina">Python on Meluxina</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-venv-environments">Using venv environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-micromamba">Using micromamba</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional Information</a></li>
 </ul>
   </nav></div>
 

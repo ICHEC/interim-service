@@ -25,7 +25,7 @@ The `Kay` platform which supported the National HPC Service reached the end of i
 ```{card} Apply for a National Service Project.
 The application form is hosted on the same web service used for the [Helpdesk](https://helpdesk.ichec.ie) and requires that you have an active ICHEC account to log in.
 
-As the application form requires the upload of supporting documents, please ensure you read the requirements and understand the different [classes of project](interim-service/national-service-projects.html) and also have both the [Project Case document](https://www.ichec.ie/sites/default/files/files/2024-03/Interim_class_A-B-C_template.doc) and the [LuxProvide Terms of Use document](https://www.ichec.ie/sites/default/files/files/2024-03/LUXPROVIDE_Meluxina_terms_of_use.doc) completed and ready for upload.
+As the application form requires the upload of supporting documents, please ensure you read the requirements and understand the different [classes of project](https://ichec.github.io/interim-service/national-service-projects.html#project-classes)and also have both the [Project Case document](https://www.ichec.ie/sites/default/files/files/2024-03/Interim_class_A-B-C_template.doc) and the [LuxProvide Terms of Use document](https://www.ichec.ie/sites/default/files/files/2024-03/LUXPROVIDE_Meluxina_terms_of_use.doc) completed and ready for upload.
 
 - Using your ICHEC username (not your email address) and password, log into the ICHEC Helpdesk
 - Go to the top left Homepage menu and select Create Project Application.

@@ -352,7 +352,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-kay">For Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-meluxina">For Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
 </ul>
             </nav>
@@ -370,7 +374,7 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
 <p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">8.10.1/8.10.2</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> <span class="pre">9.10.5</span></code></p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
@@ -389,6 +393,8 @@ Functional Theory (DFT), using pseudopotentials and a planewave basis.</p>
 </section>
 <section id="job-submission-example">
 <h2>Job Submission Example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
+<section id="for-kay">
+<h3>For Kay<a class="headerlink" href="#for-kay" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
 <span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
@@ -422,6 +428,32 @@ module<span class="w"> </span>load<span class="w"> </span>abinit/8.10.2
 mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</span><span class="w"> </span>abinit<span class="w"> </span>&lt;<span class="w"> </span>MyInputFile<span class="w"> </span>&gt;<span class="w"> </span>MyOutputFile
 </pre></div>
 </div>
+</section>
+<section id="for-meluxina">
+<h3>For Meluxina<a class="headerlink" href="#for-meluxina" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH -p cpu</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH -t 02:00:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+<span class="c1"># Charge job to myproject</span>
+<span class="c1">#SBATCH -A myproject</span>
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+<span class="c1"># Load the module for the specific version</span>
+module<span class="w"> </span>load<span class="w"> </span>abinit
+mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">128</span><span class="w"> </span>abinit<span class="w"> </span>&lt;<span class="w"> </span>MyInputFile<span class="w"> </span>&gt;<span class="w"> </span>MyOutputFile
+</pre></div>
+</div>
+</section>
 </section>
 <section id="additional-notes">
 <h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
@@ -479,7 +511,11 @@ at <a class="reference external" href="http://www.abinit.org/about/">www.abinit
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-kay">For Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-meluxina">For Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
 </ul>
   </nav></div>

@@ -354,7 +354,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-for-kay">Script for kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-for-meluxina">Script for Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-functions">User Defined Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
 </ul>
@@ -381,7 +385,7 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
 <p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">6.14-6</span>&#160; <span class="pre">/</span> <span class="pre">2017</span> <span class="pre">/</span> <span class="pre">2018</span> <span class="pre">/</span> <span class="pre">2019</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> <span class="pre">2023</span></code></p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
@@ -569,10 +573,14 @@ via environment modules with the most recent being the default version:</p>
 <p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">abaqus/6.14-6</span></code></p>
 <p>or</p>
 <p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">abaqus/2018</span></code></p>
+<p>One Meluxina we have 2023 installed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">abaqus/2023</span></code></p>
 <p>Abaqus jobs must be submitted using the Slurm queueing system. The
 following is an example Slurm script for running an Abaqus job on 40
 cores of the Kay system for a maximum runtime of 30 hours:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<section id="script-for-kay">
+<h3>Script for kay<a class="headerlink" href="#script-for-kay" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
 
 <span class="c1">#SBATCH -J MyJobName</span>
 <span class="c1">#SBATCH -A myaccount</span>
@@ -625,12 +633,70 @@ cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; ${env_file}</span>
 abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span><span class="si">${</span><span class="nv">job_name</span><span class="si">}</span><span class="w"> </span><span class="nv">input</span><span class="o">=</span><span class="si">${</span><span class="nv">input_file</span><span class="si">}</span><span class="w"> </span><span class="nv">double</span><span class="o">=</span>both<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_NTASKS</span><span class="si">}</span><span class="w"> </span><span class="nv">mp_mode</span><span class="o">=</span>mpi<span class="w"> </span>interactive
 </pre></div>
 </div>
+</section>
+<section id="script-for-meluxina">
+<h3>Script for Meluxina<a class="headerlink" href="#script-for-meluxina" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+
+<span class="c1">#SBATCH -J MyJobName</span>
+<span class="c1">#SBATCH -A myaccount</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --time=30:00:00</span>
+<span class="c1">#SBATCH -p cpu</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#</span>
+<span class="c1">#SBATCH --ntasks-per-node=128</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH -o %x-%j.log</span>
+
+<span class="c1">### Load ABAQUS module</span>
+module<span class="w"> </span>load<span class="w"> </span>abaqus/2023
+
+<span class="c1">### Configure environment variables, need to unset SLURM&#39;s Global Task ID for ABAQUS&#39;s PlatformMPI to work</span>
+<span class="nb">unset</span><span class="w"> </span>SLURM_GTIDS
+
+<span class="c1">### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)</span>
+<span class="nv">env_file</span><span class="o">=</span>abaqus_v6.env
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; ${env_file}</span>
+<span class="s">#verbose = 3</span>
+<span class="s">#ask_delete = OFF</span>
+
+<span class="s"># Location of scratch directory</span>
+<span class="s">## multi-node jobs should use the scratch on Lustre</span>
+<span class="s">scratch=&quot;/scratch/global&quot;</span>
+<span class="s">## single-node jobs can use the scratch on the node for better performance (max 400GB)</span>
+<span class="s"># scratch=&quot;/scratch/local&quot;</span>
+
+<span class="s">mp_mpirun_options=&quot;-TCP&quot;</span>
+<span class="s">EOF</span>
+
+<span class="nv">node_list</span><span class="o">=</span><span class="k">$(</span>scontrol<span class="w"> </span>show<span class="w"> </span>hostname<span class="w"> </span><span class="si">${</span><span class="nv">SLURM_NODELIST</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="k">)</span>
+
+<span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;[&quot;</span>
+<span class="k">for</span><span class="w"> </span>host<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">node_list</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">	</span><span class="nv">mp_host_list</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">[&#39;</span><span class="nv">$host</span><span class="s2">&#39;, </span><span class="si">${</span><span class="nv">SLURM_CPUS_ON_NODE</span><span class="si">}</span><span class="s2">],&quot;</span>
+<span class="k">done</span>
+
+<span class="nv">mp_host_list</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;s/,</span>$<span class="s2">/]/&quot;</span><span class="k">)</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;mp_host_list=</span><span class="si">${</span><span class="nv">mp_host_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">  </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">env_file</span><span class="si">}</span>
+
+<span class="c1">### Set input file and job (file prefix) name here</span>
+<span class="nv">job_name</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_JOB_NAME</span><span class="si">}</span>
+
+<span class="c1">### ABAQUS parallel execution</span>
+<span class="nv">input_file</span><span class="o">=</span>input.inp
+abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span><span class="si">${</span><span class="nv">job_name</span><span class="si">}</span><span class="w"> </span><span class="nv">input</span><span class="o">=</span><span class="si">${</span><span class="nv">input_file</span><span class="si">}</span><span class="w"> </span><span class="nv">double</span><span class="o">=</span>both<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="si">${</span><span class="nv">SLURM_NTASKS</span><span class="si">}</span><span class="w"> </span><span class="nv">mp_mode</span><span class="o">=</span>mpi<span class="w"> </span>interactive
+</pre></div>
+</div>
 <p>Assuming that this Slurm script is saved as <code class="docutils literal notranslate"><span class="pre">abaqus.sh</span></code>, the job can be
 submitted to the queue by running the following command in the same
 directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>abaqus.sh
 </pre></div>
 </div>
+</section>
 </section>
 <section id="user-defined-functions">
 <h2>User Defined Functions<a class="headerlink" href="#user-defined-functions" title="Link to this heading">#</a></h2>
@@ -655,6 +721,7 @@ directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span>myJob_restart<span class="w"> </span><span class="nv">inp</span><span class="o">=</span>myJob_restart.inp<span class="w"> </span><span class="nv">oldjob</span><span class="o">=</span>myJob<span class="w"> </span><span class="nv">cpus</span><span class="o">=</span><span class="m">40</span><span class="w"> </span>interactive
 </pre></div>
 </div>
+<p>On Meluxina, you should change the cpu option as <code class="docutils literal notranslate"><span class="pre">cups=128</span></code> or <code class="docutils literal notranslate"><span class="pre">cpus=256</span></code> depending on whether you have hyperthreading enabled or not.</p>
 </section>
 <section id="abaqus-explicit">
 <h3>Abaqus/Explicit<a class="headerlink" href="#abaqus-explicit" title="Link to this heading">#</a></h3>
@@ -733,7 +800,11 @@ For a 40 core job:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-for-kay">Script for kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-for-meluxina">Script for Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-functions">User Defined Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compilation">Compilation</a></li>
 </ul>

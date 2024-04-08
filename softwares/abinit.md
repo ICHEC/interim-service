@@ -5,7 +5,7 @@
 
 `Kay: 8.10.1/8.10.2`
 
-`LXP: `
+`LXP: 9.10.5`
 ```
 
 ## Description
@@ -25,7 +25,10 @@ N/A.
 
 ## Job Submission Example
 
-```bash
+
+### For Kay
+
+```bash -l
 #!/bin/bash
 # All the information about queues can be obtained using 'sinfo'
 # PARTITION AVAIL  TIMELIMIT  
@@ -57,6 +60,31 @@ cd $SLURM_SUBMIT_DIR
 # Load the module for the specific version
 module load abinit/8.10.2
 mpirun -np 80 abinit < MyInputFile > MyOutputFile
+```
+
+### For Meluxina
+
+```bash -l
+#!/bin/bash
+# Slurm flags
+#SBATCH -p cpu
+#SBATCH -N 1
+#SBATCH --qos default
+#SBATCH -t 02:00:00
+#SBATCH --job-name=myjobname
+# Charge job to myproject
+#SBATCH -A myproject
+# Write stdout+stderr to file
+#SBATCH -o output.txt
+# Mail me on job start & end
+#SBATCH --mail-user=myemailaddress@universityname.ie
+#SBATCH --mail-type=BEGIN,END
+
+cd $SLURM_SUBMIT_DIR
+
+# Load the module for the specific version
+module load abinit
+mpirun -np 128 abinit < MyInputFile > MyOutputFile
 ```
 
 ## Additional Notes

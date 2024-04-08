@@ -213,7 +213,8 @@ abaqus job=${job_name} input=${input_file} double=both cpus=${SLURM_NTASKS} mp_m
 #SBATCH --time=30:00:00
 #SBATCH -p cpu
 #SBATCH --qos default
-#
+# disable multithreading. Please check both cases to see which gives better performance
+#SBATCH --hint=nomultithread
 #SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 #SBATCH -o %x-%j.log

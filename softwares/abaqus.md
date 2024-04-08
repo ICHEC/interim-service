@@ -5,7 +5,7 @@
 :class: note
 `Kay: 6.14-6  / 2017 / 2018 / 2019`
 
-`LXP: `
+`LXP: 2023`
 
 ```
 
@@ -136,12 +136,19 @@ or
 
 `module load abaqus/2018`
 
+One Meluxina we have 2023 installed.
+
+`module load abaqus/2023`
+
+
 Abaqus jobs must be submitted using the Slurm queueing system. The
 following is an example Slurm script for running an Abaqus job on 40
 cores of the Kay system for a maximum runtime of 30 hours:
 
+### Script for kay
+
 ```bash
-#!/bin/bash
+#!/bin/bash -l
 
 #SBATCH -J MyJobName
 #SBATCH -A myaccount
@@ -194,6 +201,66 @@ input_file=input.inp
 abaqus job=${job_name} input=${input_file} double=both cpus=${SLURM_NTASKS} mp_mode=mpi interactive
 ```
 
+
+### Script for Meluxina
+
+```bash
+#!/bin/bash -l
+
+#SBATCH -J MyJobName
+#SBATCH -A myaccount
+#SBATCH --nodes=1
+#SBATCH --time=30:00:00
+#SBATCH -p cpu
+#SBATCH --qos default
+#
+#SBATCH --ntasks-per-node=128
+#SBATCH --cpus-per-task=1
+#SBATCH -o %x-%j.log
+
+### Load ABAQUS module
+module load abaqus/2023
+
+### Configure environment variables, need to unset SLURM's Global Task ID for ABAQUS's PlatformMPI to work
+unset SLURM_GTIDS
+
+### Create ABAQUS environment file for current job, you can set/add your own options (Python syntax)
+env_file=abaqus_v6.env
+
+cat << EOF > ${env_file}
+#verbose = 3
+#ask_delete = OFF
+
+# Location of scratch directory
+## multi-node jobs should use the scratch on Lustre
+scratch="/scratch/global"
+## single-node jobs can use the scratch on the node for better performance (max 400GB)
+# scratch="/scratch/local"
+
+mp_mpirun_options="-TCP"
+EOF
+
+node_list=$(scontrol show hostname ${SLURM_NODELIST} | sort -u)
+
+mp_host_list="["
+for host in ${node_list}; do
+	mp_host_list="${mp_host_list}['$host', ${SLURM_CPUS_ON_NODE}],"
+done
+
+mp_host_list=$(echo ${mp_host_list} | sed -e "s/,$/]/")
+
+echo "mp_host_list=${mp_host_list}"  >> ${env_file}
+
+### Set input file and job (file prefix) name here
+job_name=${SLURM_JOB_NAME}
+
+### ABAQUS parallel execution
+input_file=input.inp
+abaqus job=${job_name} input=${input_file} double=both cpus=${SLURM_NTASKS} mp_mode=mpi interactive
+```
+
+
+
 Assuming that this Slurm script is saved as `abaqus.sh`, the job can be
 submitted to the queue by running the following command in the same
 directory:
@@ -227,6 +294,8 @@ The job can then be submitted using a Slurm script as described in the previous 
 ```bash
 abaqus job=myJob_restart inp=myJob_restart.inp oldjob=myJob cpus=40 interactive
 ```
+
+On Meluxina, you should change the cpu option as `cups=128` or `cpus=256` depending on whether you have hyperthreading enabled or not.
 
 ### Abaqus/Explicit
 To continue an Abaqus/Explicit analysis, a new analysis does not need to be created. Instead, the analysis can be restarted by supplying the recover option to the abaqus command in the Slurmscript, e.g.:

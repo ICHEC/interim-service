@@ -1,11 +1,6 @@
 
 # National Service Projects
 
-```{important}
-During the migration of current projects to the Interim Service, between Feb 1 and April 1 2024 no new project applications will be accepted.
-```
- 
-
 ICHEC's National Service provides three different project classes with differing resource allocations, review levels and review turnaround times. The selection of each class largely depends on the necessities and requirements of the research and applicant's objectives. Applicants should be aware that:
 
 - Grant award details, where applicable, are recorded for applications.
@@ -30,9 +25,9 @@ Class C project applicants should note that the maximum resource levels are mode
 #### Resources and Considerations
 
 ```yaml
-Max. CPU:       100,000 h 
-Max. Storage:   250 GB
-Max. Duration:  12 months 
+Max Normalised Node Hours:      2,500 h 
+Max. Storage:                   1000 GB
+Max. Duration:                  12 months 
 Max. Review:    1 week
 Proposal:       2-3 pages.
 Applicants:     Group Leader/Professor/Lecturer/Post-doc/Graduate Student
@@ -55,9 +50,9 @@ No more than 3 concurrent Class B projects from any one PI will be supported. In
 #### Resources and Considerations
 
 ```yaml
-Max. CPU:       1,000,000 h 
-Max. Storage:   2000 GB
-Max. Duration:  18 months 
+Max. Normalised Node Hours:     25,000 h 
+Max. Storage:                   4000 GB
+Max. Duration:                  18 months 
 Max. Review:    8 weeks
 Proposal:       4-5 pages.
 Applicants:     Group Leader/Professor/Lecturer/Post-doc
@@ -85,9 +80,9 @@ A 'light touch' interim project report and material for inclusion in ICHEC annua
 #### Resources and Considerations
 
 ```yaml
-Max. CPU:       10,000,000 h 
-Max. Storage:   5000 GB
-Max. Duration:  24 months 
+Max. Normalised Node Hours:     250,000 h 
+Max. Storage:                   10000 GB
+Max. Duration:                  24 months 
 Max. Review:    12 weeks
 Proposal:       6-10 pages.
 Applicants:     Group Leader/Professor/Lecturer
@@ -103,6 +98,18 @@ Applicants:     Group Leader/Professor/Lecturer
 - List of Relevant Publications: Applicants should include a list of relevant publications (no more than ten) at the end of their proposal.
 - Short Biographies: Applicants should include short descriptions of research positions and successful uses of previous resource awards.
 
+#### Resource Allocation on Meluxina
+
+Compute resources on Meluxina are allocated separately for CPU, GPU and Large Memory nodes. If a mix of resource types are required they can be allocated with a weighting of CPU : GPU : LMN = 1 : 3.37 : 4.36. 
+
+The following equation should be used to calculate and check that the Normalised Node Hours requested does not exceed 250000 , 25000 , 2500 for Class A, Class B and Class C projects respectively.
+
+
+Normalised Number of Node Hours Requested = 
+                         Number of CPU Node Hours + 
+                        (3.37 x Number of GPU Node Hours) + 
+                        (4.36 x Number of Large Memory Node Hours)
+
 #### Review Process
 
 All the applications submitted through the National Service are subject to a technical evaluation carried out by one of our computational scientists in order to verify the technical viability of the project and that:
@@ -110,7 +117,7 @@ All the applications submitted through the National Service are subject to a tec
 - CPU time requested is correct
 - Storage does not exceed the class project limits
 - Software is installed and available for the applicant
-- Simulation's plan is in agreement with ICHEC scheduling policies
+- Simulation's plan is in agreement with Meluxina scheduling policies
 - Any special requirement is needed
 
 ```{mermaid}
@@ -132,9 +139,4 @@ ichec --Rejected--> Asub
 ```
 
 After the technical evaluation, Class C applicants are notified and their respective projects are activated. In the case of Class A and B applications, after the technical evaluation, projects are sent out for peer review by the [Science Council](https://www.ichec.ie/about/governance/science-council), usually by two national reviewers (Class B) or one national and one international reviewer (Class A) in order to evaluate the scientific merit of the proposal and applicant track record. Once both reviewer's reports are received, the decision is communicated to the applicant. This process might take between 4-8 weeks for Class B projects and up to 12 weeks for Class A projects 
-
--    How to apply for the National Service
--    Class Projects Requirements
--    Science Council Members
--    FAQs
 

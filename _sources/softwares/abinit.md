@@ -10,10 +10,7 @@
 
 ## Description
 
-ABINIT is a package whose main program allows one to find the total
-energy, charge density and electronic structure of systems made of
-electrons and nuclei (molecules and periodic solids) within Density
-Functional Theory (DFT), using pseudopotentials and a planewave basis.
+ABINIT is a package whose main program allows one to find the total energy, charge density and electronic structure of systems made of electrons and nuclei (molecules and periodic solids) within Density Functional Theory (DFT), using pseudopotentials and a plane-wave basis.
 
 ## License
 
@@ -79,12 +76,17 @@ mpirun -np 80 abinit < MyInputFile > MyOutputFile
 # Mail me on job start & end
 #SBATCH --mail-user=myemailaddress@universityname.ie
 #SBATCH --mail-type=BEGIN,END
+#SBATCH --hint=nomultithread
 
 cd $SLURM_SUBMIT_DIR
 
 # Load the module for the specific version
 module load abinit
 mpirun -np 128 abinit < MyInputFile > MyOutputFile
+```
+
+```{margin}
+On Meluxina, the number of processes requested per node should be 128 or 256 depending on whether you have hyperthreading enabled or not.
 ```
 
 ## Additional Notes

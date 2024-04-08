@@ -644,7 +644,8 @@ abaqus<span class="w"> </span><span class="nv">job</span><span class="o">=</span
 <span class="c1">#SBATCH --time=30:00:00</span>
 <span class="c1">#SBATCH -p cpu</span>
 <span class="c1">#SBATCH --qos default</span>
-<span class="c1">#</span>
+<span class="c1"># disable multithreading. Please check both cases to see which gives better performance</span>
+<span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH --ntasks-per-node=128</span>
 <span class="c1">#SBATCH --cpus-per-task=1</span>
 <span class="c1">#SBATCH -o %x-%j.log</span>

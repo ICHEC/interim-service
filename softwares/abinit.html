@@ -378,10 +378,7 @@ document.write(`
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
-<p>ABINIT is a package whose main program allows one to find the total
-energy, charge density and electronic structure of systems made of
-electrons and nuclei (molecules and periodic solids) within Density
-Functional Theory (DFT), using pseudopotentials and a planewave basis.</p>
+<p>ABINIT is a package whose main program allows one to find the total energy, charge density and electronic structure of systems made of electrons and nuclei (molecules and periodic solids) within Density Functional Theory (DFT), using pseudopotentials and a plane-wave basis.</p>
 </section>
 <section id="license">
 <h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
@@ -445,6 +442,7 @@ mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</spa
 <span class="c1"># Mail me on job start &amp; end</span>
 <span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
 <span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+<span class="c1">#SBATCH --hint=nomultithread</span>
 
 <span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
 
@@ -453,6 +451,10 @@ module<span class="w"> </span>load<span class="w"> </span>abinit
 mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">128</span><span class="w"> </span>abinit<span class="w"> </span>&lt;<span class="w"> </span>MyInputFile<span class="w"> </span>&gt;<span class="w"> </span>MyOutputFile
 </pre></div>
 </div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>On Meluxina, the number of processes requested per node should be 128 or 256 depending on whether you have hyperthreading enabled or not.</p>
+</aside>
 </section>
 </section>
 <section id="additional-notes">

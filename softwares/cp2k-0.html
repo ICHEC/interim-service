@@ -352,7 +352,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-on-kay">Job Submission Example on Kay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
             </nav>
@@ -387,9 +394,25 @@ License (GPL).</p>
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
 <p>N/A.</p>
 </section>
-<section id="job-submission-example-on-kay">
-<h2>Job Submission Example on Kay<a class="headerlink" href="#job-submission-example-on-kay" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<section id="on-meluxina">
+<h3>On Meluxina<a class="headerlink" href="#on-meluxina" title="Link to this heading">#</a></h3>
+<p>An appropriate stable version for cpu and cuda is installed by meluxina in their release modules. You can load them by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>CP2K/2023.1-foss-2023a
+</pre></div>
+</div>
+<p>for CPU, or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>CP2K/2023.1-foss-2023a-CUDA-12.2.0
+</pre></div>
+</div>
+<p>to run on GPU macines.</p>
+</section>
+</section>
+<section id="job-submission-example">
+<h2>Job Submission Example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
+<p>### on Kay</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -l</span>
 <span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
 <span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
 <span class="c1"># DevQ         up    1:00:00   </span>
@@ -425,11 +448,41 @@ module<span class="w"> </span>load<span class="w"> </span>cp2k/gfortran/7.1
 cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>inputfile<span class="w"> </span>-o<span class="w"> </span>outputfile
 </pre></div>
 </div>
+<section id="id1">
+<h3>On Meluxina<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -l</span>
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH -p cpu</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH --hint=nomultithread</span>
+<span class="c1">#SBATCH -t 24:00:00</span>
+<span class="c1">#SBATCH --job-name=cp2kJob</span>
+
+<span class="c1"># Charge job to myproject </span>
+<span class="c1">#SBATCH -A MyProject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=myEmail@domain.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>CP2K/2023.1-foss-2023a
+
+<span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span>unlimited
+
+cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>inputfile<span class="w"> </span>-o<span class="w"> </span>outputfile
+</pre></div>
+</div>
+</section>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
-<p>It is recommended to use the gfortran version of the cp2k module on Kay.
- We have had reports of memory leaks with the intel-compiled version.</p>
+<p>It is recommended to use the gfortran version of the cp2k module on Kay. We have had reports of memory leaks with the intel-compiled version.</p>
 <p>Further information on cp2k can be obtained <a class="reference external" href="https://www.cp2k.org/">here</a>.</p>
 </section>
 </section>
@@ -483,7 +536,14 @@ cp2k.psmp<span class="w"> </span>-i<span class="w"> </span>inputfile<span class=
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-on-kay">Job Submission Example on Kay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
   </nav></div>

@@ -352,7 +352,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-kay">On Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
 </ul>
             </nav>
@@ -370,7 +374,7 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
 <p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">10</span> <span class="pre">/</span> <span class="pre">10.1.243</span> <span class="pre">/</span> <span class="pre">11.2</span> <span class="pre">/</span> <span class="pre">11.3</span> <span class="pre">/</span> <span class="pre">11.4</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> <span class="pre">11.7</span> <span class="pre">/</span> <span class="pre">12.1.1</span> <span class="pre">/</span> <span class="pre">12.2.0</span></code></p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
@@ -391,12 +395,10 @@ Agreement (see CUDA Toolkit <a class="reference external" href="https://docs.nvi
 </section>
 <section id="job-submission-example">
 <h2>Job Submission Example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
-<p>Like other jobs on ICHEC systems, CUDA Toolkit jobs must be submitted
-using a Slurm submission script. The following is an example Slurm
-submission script for allocating 1 node of Kay (40 cores) for 30
-minutes, then running a CUDA-compiled tutorial program matmul, which
-multiplies large matrices using gpu acceleration.  Since CUDA takes
-advantage only of gpus, all CUDA jobs must be submitted to the GpuQ.</p>
+<p>Like other jobs on ICHEC systems, CUDA Toolkit jobs must be submitted using a Slurm submission script. The following is an example Slurm submission script for allocating 1 node of Kay (40 cores) for 30 minutes, then running a CUDA-compiled tutorial program matmul, which multiplies large matrices using gpu acceleration.  Since CUDA takes advantage only of gpus, all CUDA jobs must be submitted to the <code class="docutils literal notranslate"><span class="pre">GpuQ</span></code> on Kay, and <code class="docutils literal notranslate"><span class="pre">gpu</span></code> on Meluxina.</p>
+<p>On Kay we have two GPUs per node, while on Meluxina, gpu nodes have 4 GPUs. Below scripts are for example purpose only. On production runs, to utilise the resource fully, either run a code that can parallelize on multiple GPUs, or alternatively <strong>taskfarm</strong> so that all the GPUs are utilized.</p>
+<section id="on-kay">
+<h3>On Kay<a class="headerlink" href="#on-kay" title="Link to this heading">#</a></h3>
 <p>Load the desired version of the toolkit module:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">version</span><span class="o">=</span><span class="m">11</span>.4
 module<span class="w"> </span>load<span class="w"> </span>cuda/<span class="nv">$version</span>
@@ -413,13 +415,10 @@ we compile the CUDA source file <a class="reference external" href="http://matmu
 <span class="c1">#SBATCH -N 1</span>
 <span class="c1">#SBATCH -t 00:30:00</span>
 <span class="c1">#SBATCH --job-name=myjobname</span>
-
 <span class="c1"># Charge job to myproject</span>
 <span class="c1">#SBATCH -A myproject</span>
-
 <span class="c1"># Write stdout+stderr to file</span>
 <span class="c1">#SBATCH -o output.txt</span>
-
 <span class="c1"># Mail me on job start &amp; end</span>
 <span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
 <span class="c1">#SBATCH --mail-type=BEGIN,END</span>
@@ -437,6 +436,48 @@ module<span class="w"> </span>load<span class="w"> </span>cuda/<span class="nv">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>myjob.sh
 </pre></div>
 </div>
+</section>
+<section id="on-meluxina">
+<h3>On Meluxina<a class="headerlink" href="#on-meluxina" title="Link to this heading">#</a></h3>
+<p>Load the desired version of the toolkit module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">version</span><span class="o">=</span><span class="m">12</span>.1.1
+module<span class="w"> </span>load<span class="w"> </span>CUDA/<span class="nv">$version</span>
+</pre></div>
+</div>
+<p>Following the ICHEC <a class="reference external" href="https://www.ichec.ie/academic/national-hpc/documentation/tutorials/compiling-program-cuda">tutorial</a>,
+we compile the CUDA source file <a class="reference external" href="http://matmul.cu">matmul.cu</a> using nvcc as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvcc<span class="w"> </span>matmul.cu<span class="w"> </span>-o<span class="w"> </span>matmul<span class="w"> </span>-arch<span class="o">=</span>sm_70<span class="w"> </span>-O3
+</pre></div>
+</div>
+<p>Create the submission script (and name it <a class="reference external" href="http://myjob.sh">myjob.sh</a>) for the SLURM Workload Manager and modify it with your parameters</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh -l</span>
+<span class="c1">#SBATCH -p gpu</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 00:30:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+<span class="c1"># Charge job to myproject</span>
+<span class="c1">#SBATCH -A myproject</span>
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
+<span class="c1"># Load the module for the specific version</span>
+<span class="nv">version</span><span class="o">=</span><span class="m">12</span>.1.1
+module<span class="w"> </span>load<span class="w"> </span>CUDA/<span class="nv">$version</span>
+
+./matmul<span class="w"> </span><span class="m">10000</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Submit the job with the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>myjob.sh
+</pre></div>
+</div>
+</section>
 </section>
 <section id="additional-notes">
 <h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
@@ -493,7 +534,11 @@ module<span class="w"> </span>load<span class="w"> </span>cuda/<span class="nv">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job Submission Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-kay">On Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional Notes</a></li>
 </ul>
   </nav></div>

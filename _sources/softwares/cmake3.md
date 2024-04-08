@@ -6,7 +6,7 @@
 
 `Kay: 3.12.3, 3.15.1, 3.15.4, 3.20.1`
 
-`LXP: `
+`LXP: 3.18, 3.26`
 
 ```
 
@@ -26,8 +26,9 @@ CMake is freely available under the [CMAKE (BSD) License](http://www.cmake.org/c
 
 N/A.
 
-## Additional Notes
+## Usage
 
+### On Kay
 To use CMake 3.12.3 load the relevant environment module:
 
 ```bash
@@ -41,6 +42,22 @@ they can by set by issuing the following commands:
 ```bash
 export CC=icc export CXX=icpc export FC=ifort
 ```
+
+### On Meluxina
+
+On meluxina, you can load one of the following module to use cmake.
+
+```bash
+module load CMake/3.18.4
+```
+
+or
+
+```bash
+module load CMake/3.26.3-GCCcore-12.3.0
+```
+
+## Additional Notes
 
 Further information can be found [here](http://www.cmake.org).
 

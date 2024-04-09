@@ -25,8 +25,8 @@ N/A.
 
 ### For Kay
 
-```bash -l
-#!/bin/bash
+```bash
+#!/bin/bash -l
 # All the information about queues can be obtained using 'sinfo'
 # PARTITION AVAIL  TIMELIMIT  
 # DevQ         up    1:00:00   
@@ -61,8 +61,8 @@ mpirun -np 80 abinit < MyInputFile > MyOutputFile
 
 ### For Meluxina
 
-```bash -l
-#!/bin/bash
+```bash
+#!/bin/bash -l
 # Slurm flags
 #SBATCH -p cpu
 #SBATCH -N 1

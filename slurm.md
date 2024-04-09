@@ -1,44 +1,66 @@
 (slurm-workload-manager)=
 # Slurm Workload Manager
 
+## Typical Cluster overview
 
-A typical layout of any HPC system resembles like following -
+A typical layout of any HPC system looks like following -
 
 ```{mermaid}
+:align: center
 graph LR
 login[(Login node)]
 
 subgraph CPU
+direction LR
 c1
 c2
 c3
 c4
 c5["..."]
+c1 <--> c2 <--> c3 <--> c4 <--> c5
 end
 
 subgraph GPU
+direction LR
 g1
 g2
 g3
 g4
 g5["..."]
+g1 <--> g2 <--> g3 <--> g4 <--> g5
 end
 
 subgraph LargeMem
+direction LR
 m1
 m2
 m3
 m4
 m5["..."]
+m1 <--> m2 <--> m3 <--> m4 <--> m5
 end
-
+c1 <--> g1 <--> m1
+c2 <--> g2 <--> m2
+c3 <--> g3 <--> m3
+c4 <--> g4 <--> m4
+c5 <--> g5 <--> m5
 login --"ssh/slurm
 access"--> CPU & GPU & LargeMem
 ```
 
-There is a **login node** which you `ssh` to. Then there are a number of what we call computational nodes.
+There is a **login node** which you `ssh` to. Then there are a number of what we call computational nodes, shown in the figure above in groups as CPU, GPU and LargeMem. The dual arrows indicate high speed network connection between nodes.
 
-The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used [Slurm](https://slurm.schedmd.com/) workload manager.
+- **CPU**: Typically, CPU nodes are standard or default machines with a certain number of server grade cores available, and relatively 1-2GB RAM per core. These are the machines that are used largely for CPU based computations, with parallelism implemented through either OpenMP or MPI.
+- **GPU**: These nodes are similar to CPU, as they have similar number of CPU cores (sometimes lower) as CPU nodes, but in addition they usually have at least 1 high performance GPU cards, though in practice 2 or more. One uses these to run programs that can leverage parallization of GPUs. Usually programs with large parallel loops can be accelerated very well on GPUs, so that their wall time can be upto 20-100 times shorter than when run on CPUs using MPI/OpenMP.
+- **LargeMem**: These are nodes configured to address usecases or programs that require unusually high RAM to run. They can be of either type CPU/GPU in terms of compute capability, however they have an order of magnitude larger RAM than usual machines. On Meluxina, for example CPU/GPU nodes have 512GB RAM per node, but large memory nodes have 4TB RAM per node.
+
+
+## SLURM Overview
+The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler. Most HPC systems give direct user access only on login node, from where you delegate/run your computation/simulation to compute nodes.
+
+HPC systems are essentially multi-user environments, where several users asynchronously and frequently login and run their codes. It is the scheduler or the workload manager, that monitors which compute nodes are free to use, and the ones that are occuppied running code, how long will they be in that state. It monitors the workload, and assigns to work submitted by the user to idle nodes. The scheduler used on Kay and Meluxina both, and widely used in HPC systems is [Slurm](https://slurm.schedmd.com/) workload manager.
+
+SLURM provides command line tools to launch your code to appropriate compute nodes, monitor their progress, stop or manipulate the running codes in a number of ways. We look into some of those aspect below.
 
 ## Basic Usage
 

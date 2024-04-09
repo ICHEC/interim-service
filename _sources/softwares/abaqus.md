@@ -128,7 +128,7 @@ across three nodes i.e. 72 cores. Little is gained beyond three nodes.
 ## Job Submission Example
 
 Abaqus is installed under **/ichec/packages/abaqus** and is accessible
-via environment modules with the most recent being the default version:
+via environment modules. On **Kay** the most recent being the default version is:
 
 `module load abaqus/6.14-6`
 
@@ -136,7 +136,7 @@ or
 
 `module load abaqus/2018`
 
-One Meluxina we have 2023 installed.
+On **Meluxina** we have 2023 installed.
 
 `module load abaqus/2023`
 

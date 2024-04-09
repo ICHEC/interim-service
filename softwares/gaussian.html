@@ -353,6 +353,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thin-component">Thin Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job submission example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-kay">On Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional notes</a></li>
 </ul>
             </nav>
@@ -370,7 +375,7 @@ document.write(`
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
 <p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">09e01</span> <span class="pre">/</span> <span class="pre">16b01</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> <span class="pre">16c02</span></code></p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
@@ -400,8 +405,13 @@ Gaussian input file (.com or .gjf)</p>
 but expect a few percentages lost in performance compared with the 100GB
 case. Of course you can fine tune these values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">%mem=100000mb</span></code></p>
+</section>
+<section id="job-submission-example">
+<h2>Job submission example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
 <p>An example of submission slurm script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<section id="on-kay">
+<h3>On Kay<a class="headerlink" href="#on-kay" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
 <span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
 <span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
 <span class="c1"># DevQ         up    1:00:00   </span>
@@ -436,15 +446,48 @@ g16<span class="w"> </span>&lt;<span class="w"> </span>input.gjf<span class="w">
 </pre></div>
 </div>
 </section>
+<section id="on-meluxina">
+<h3>On Meluxina<a class="headerlink" href="#on-meluxina" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1"># Slurm flags</span>
+<span class="c1">#SBATCH -p cpu</span>
+<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH --hint=nomultithread</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 12:00:00</span>
+<span class="c1">#SBATCH --job-name=myjobname</span>
+
+<span class="c1"># Charge job to myproject </span>
+<span class="c1">#SBATCH -A myproject</span>
+
+<span class="c1"># Write stdout+stderr to file</span>
+<span class="c1">#SBATCH -o output.txt</span>
+
+<span class="c1"># Mail me on job start &amp; end</span>
+<span class="c1">#SBATCH --mail-user=myemailaddress@universityname.ie</span>
+<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$GAUSS_SCRDIR</span>
+
+module<span class="w"> </span>load<span class="w"> </span>gaussian/16c02
+
+g16<span class="w"> </span>&lt;<span class="w"> </span>input.gjf<span class="w"> </span>&gt;<span class="w"> </span>output.log
+</pre></div>
+</div>
+</section>
+</section>
 <section id="additional-notes">
 <h2>Additional notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
 <p>The Gaussian module sets the <strong>GAUSS_SCRDIR</strong> to the correct location
 for that node type. Jobs can use very large RWF files as the scratch
 space is provided by a large high-performance shared volume including
 the follow in your submission script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span>/scratch/local/
+<p>For Meluxina, use RAMDISK as there are no local disks on compute nodes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="s2">&quot;/dev/shm&quot;</span>
 </pre></div>
 </div>
+<p>For Kay, you can give path to any folder you have access to.</p>
 <p>Further information can be obtained at <a class="reference external" href="http://www.gaussian.com/" title="Gaussian homepage">www.gaussian.com</a>.</p>
 </section>
 </section>
@@ -499,6 +542,11 @@ the follow in your submission script:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thin-component">Thin Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example">Job submission example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-kay">On Kay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-meluxina">On Meluxina</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes">Additional notes</a></li>
 </ul>
   </nav></div>

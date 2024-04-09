@@ -392,7 +392,7 @@ document.write(`
 <h2>Job Submission Example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
 <section id="for-kay">
 <h3>For Kay<a class="headerlink" href="#for-kay" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
 <span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
 <span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
 <span class="c1"># DevQ         up    1:00:00   </span>
@@ -428,7 +428,7 @@ mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</spa
 </section>
 <section id="for-meluxina">
 <h3>For Meluxina<a class="headerlink" href="#for-meluxina" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
 <span class="c1"># Slurm flags</span>
 <span class="c1">#SBATCH -p cpu</span>
 <span class="c1">#SBATCH -N 1</span>

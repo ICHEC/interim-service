@@ -59,6 +59,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'slurm';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -371,10 +373,60 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="slurm-workload-manager">
 <span id="id1"></span><h1>Slurm Workload Manager<a class="headerlink" href="#slurm-workload-manager" title="Link to this heading">#</a></h1>
+<p>A typical layout of any HPC system resembles like following -</p>
+<div class="mermaid">
+            graph LR
+login[(Login node)]
+
+subgraph CPU
+c1
+c2
+c3
+c4
+c5[&quot;...&quot;]
+end
+
+subgraph GPU
+g1
+g2
+g3
+g4
+g5[&quot;...&quot;]
+end
+
+subgraph LargeMem
+m1
+m2
+m3
+m4
+m5[&quot;...&quot;]
+end
+
+login --&quot;ssh/slurm
+access&quot;--&gt; CPU &amp; GPU &amp; LargeMem
+        </div><p>There is a <strong>login node</strong> which you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. Then there are a number of what we call computational nodes.</p>
 <p>The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used <a class="reference external" href="https://slurm.schedmd.com/">Slurm</a> workload manager.</p>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
-<p>The typical way a user will interact with compute resources managed by a workload manager is as follows:</p>
+<p>There are two modes a user can run a code on pretty much any HPC system on the planet, as illustrated in the flowchart below, the <strong>Interactive</strong> mode, and <strong>Batch</strong> mode.</p>
+<div class="mermaid">
+            graph LR
+subgraph Interactive
+direction LR
+login[&quot;Login Node&quot;] --&quot;Allocate Compute
+node &amp; ssh to it&quot;--&gt; comp([&quot;Compute node&quot;]) --&gt; run(((&quot;Execute code&quot;))) --&gt;done((&quot;Done&quot;))
+end
+
+subgraph Batch
+direction LR
+login1[&quot;Login Node&quot;] --&quot;Prepare job script
+and submit to slurm&quot;--&gt; comp1([&quot;Compute node&quot;]) --&gt; run1(((&quot;slurm runs
+the code&quot;))) --&gt;done1((&quot;Done&quot;))
+end
+
+desk[(&quot;Local machine&quot;)] --&quot;ssh to
+login node&quot;--&gt; Batch &amp; Interactive
+        </div><p>The typical way a user will interact with compute resources managed by a workload manager is as follows:</p>
 <ul class="simple">
 <li><p>Write a job script which describes the resources required (e.g how many CPUs and for how long), instructions such as where to print standard out and error, and the commands to run once the job starts.</p></li>
 <li><p>Submit the job to the workload manager which will then start the job once the requested resources are available.</p></li>

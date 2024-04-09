@@ -1,9 +1,71 @@
 (slurm-workload-manager)=
 # Slurm Workload Manager
 
+
+A typical layout of any HPC system resembles like following -
+
+```{mermaid}
+graph LR
+login[(Login node)]
+
+subgraph CPU
+c1
+c2
+c3
+c4
+c5["..."]
+end
+
+subgraph GPU
+g1
+g2
+g3
+g4
+g5["..."]
+end
+
+subgraph LargeMem
+m1
+m2
+m3
+m4
+m5["..."]
+end
+
+login --"ssh/slurm
+access"--> CPU & GPU & LargeMem
+```
+
+There is a **login node** which you `ssh` to. Then there are a number of what we call computational nodes.
+
 The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used [Slurm](https://slurm.schedmd.com/) workload manager.
 
 ## Basic Usage
+
+There are two modes a user can run a code on pretty much any HPC system on the planet, as illustrated in the flowchart below, the **Interactive** mode, and **Batch** mode.
+
+```{mermaid}
+graph LR
+subgraph Interactive
+direction LR
+login["Login Node"] --"Allocate Compute
+node & ssh to it"--> comp(["Compute node"]) --> run((("Execute code"))) -->done(("Done"))
+end
+
+subgraph Batch
+direction LR
+login1["Login Node"] --"Prepare job script
+and submit to slurm"--> comp1(["Compute node"]) --> run1((("slurm runs
+the code"))) -->done1(("Done"))
+end
+
+desk[("Local machine")] --"ssh to
+login node"--> Batch & Interactive
+```
+
+
+
+
 
 The typical way a user will interact with compute resources managed by a workload manager is as follows:
 

@@ -352,6 +352,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Slurm Workload Manager</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-cluster-overview">Typical Cluster overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm-overview">SLURM Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 </ul>
 </li>
@@ -373,39 +375,63 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="slurm-workload-manager">
 <span id="id1"></span><h1>Slurm Workload Manager<a class="headerlink" href="#slurm-workload-manager" title="Link to this heading">#</a></h1>
-<p>A typical layout of any HPC system resembles like following -</p>
-<div class="mermaid">
+<section id="typical-cluster-overview">
+<h2>Typical Cluster overview<a class="headerlink" href="#typical-cluster-overview" title="Link to this heading">#</a></h2>
+<p>A typical layout of any HPC system looks like following -</p>
+<div align="center" class="mermaid align-center">
             graph LR
 login[(Login node)]
 
 subgraph CPU
+direction LR
 c1
 c2
 c3
 c4
 c5[&quot;...&quot;]
+c1 &lt;--&gt; c2 &lt;--&gt; c3 &lt;--&gt; c4 &lt;--&gt; c5
 end
 
 subgraph GPU
+direction LR
 g1
 g2
 g3
 g4
 g5[&quot;...&quot;]
+g1 &lt;--&gt; g2 &lt;--&gt; g3 &lt;--&gt; g4 &lt;--&gt; g5
 end
 
 subgraph LargeMem
+direction LR
 m1
 m2
 m3
 m4
 m5[&quot;...&quot;]
+m1 &lt;--&gt; m2 &lt;--&gt; m3 &lt;--&gt; m4 &lt;--&gt; m5
 end
-
+c1 &lt;--&gt; g1 &lt;--&gt; m1
+c2 &lt;--&gt; g2 &lt;--&gt; m2
+c3 &lt;--&gt; g3 &lt;--&gt; m3
+c4 &lt;--&gt; g4 &lt;--&gt; m4
+c5 &lt;--&gt; g5 &lt;--&gt; m5
 login --&quot;ssh/slurm
 access&quot;--&gt; CPU &amp; GPU &amp; LargeMem
-        </div><p>There is a <strong>login node</strong> which you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. Then there are a number of what we call computational nodes.</p>
-<p>The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler and the one used on Kay is the widely used <a class="reference external" href="https://slurm.schedmd.com/">Slurm</a> workload manager.</p>
+        </div>
+        <p>There is a <strong>login node</strong> which you <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to. Then there are a number of what we call computational nodes, shown in the figure above in groups as CPU, GPU and LargeMem. The dual arrows indicate high speed network connection between nodes.</p>
+<ul class="simple">
+<li><p><strong>CPU</strong>: Typically, CPU nodes are standard or default machines with a certain number of server grade cores available, and relatively 1-2GB RAM per core. These are the machines that are used largely for CPU based computations, with parallelism implemented through either OpenMP or MPI.</p></li>
+<li><p><strong>GPU</strong>: These nodes are similar to CPU, as they have similar number of CPU cores (sometimes lower) as CPU nodes, but in addition they usually have at least 1 high performance GPU cards, though in practice 2 or more. One uses these to run programs that can leverage parallization of GPUs. Usually programs with large parallel loops can be accelerated very well on GPUs, so that their wall time can be upto 20-100 times shorter than when run on CPUs using MPI/OpenMP.</p></li>
+<li><p><strong>LargeMem</strong>: These are nodes configured to address usecases or programs that require unusually high RAM to run. They can be of either type CPU/GPU in terms of compute capability, however they have an order of magnitude larger RAM than usual machines. On Meluxina, for example CPU/GPU nodes have 512GB RAM per node, but large memory nodes have 4TB RAM per node.</p></li>
+</ul>
+</section>
+<section id="slurm-overview">
+<h2>SLURM Overview<a class="headerlink" href="#slurm-overview" title="Link to this heading">#</a></h2>
+<p>The standard usage model for a HPC cluster is that you log into a front-end server or web portal and from there launch applications to run on one of more back-end servers. The software tool which manages this is called a workload manager or batch scheduler. Most HPC systems give direct user access only on login node, from where you delegate/run your computation/simulation to compute nodes.</p>
+<p>HPC systems are essentially multi-user environments, where several users asynchronously and frequently login and run their codes. It is the scheduler or the workload manager, that monitors which compute nodes are free to use, and the ones that are occuppied running code, how long will they be in that state. It monitors the workload, and assigns to work submitted by the user to idle nodes. The scheduler used on Kay and Meluxina both, and widely used in HPC systems is <a class="reference external" href="https://slurm.schedmd.com/">Slurm</a> workload manager.</p>
+<p>SLURM provides command line tools to launch your code to appropriate compute nodes, monitor their progress, stop or manipulate the running codes in a number of ways. We look into some of those aspect below.</p>
+</section>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <p>There are two modes a user can run a code on pretty much any HPC system on the planet, as illustrated in the flowchart below, the <strong>Interactive</strong> mode, and <strong>Batch</strong> mode.</p>
@@ -621,6 +647,8 @@ mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">80</spa
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Slurm Workload Manager</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-cluster-overview">Typical Cluster overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slurm-overview">SLURM Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 </ul>
 </li>

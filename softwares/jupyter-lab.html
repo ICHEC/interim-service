@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quantum Espresso &#8212; Documentations for the Interim Service</title>
+    <title>JupyterLab &#8212; Documentations for the Interim Service</title>
   
   
   
@@ -59,7 +59,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'softwares/quantum-espresso';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'softwares/jupyter-lab';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -255,7 +255,7 @@
       
       
       
-      <li><a href="../_sources/softwares/quantum-espresso.md" target="_blank"
+      <li><a href="../_sources/softwares/jupyter-lab.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +339,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Quantum Espresso</h1>
+    <h1>JupyterLab</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -350,9 +350,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-on-kay">Job Submission Example on Kay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-jupyter-notebooks-on-meluxina">Running Jupyter Notebooks on MeluXina</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed steps</a></li>
 </ul>
             </nav>
         </div>
@@ -364,65 +363,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="quantum-espresso">
-<h1>Quantum Espresso<a class="headerlink" href="#quantum-espresso" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyterlab">
+<h1>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h1>
 <div class="note admonition">
 <p class="admonition-title">Versions Installed</p>
-<p><code class="docutils literal notranslate"><span class="pre">Kay:</span> <span class="pre">6.3</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">LXP:</span> <span class="pre">4.0.5</span></code></p>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
-<p>Quantum ESPRESSO is an integrated suite of computer codes for
-electronic-structure calculations and materials modeling at the
-nanoscale. It is based on density-functional theory, plane waves, and
-pseudopotentials (both norm-conserving and ultrasoft).</p>
+<p>JupyterLab is the a web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing and machine learning.</p>
 </section>
-<section id="license">
-<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
-<p>Quantum Espresso is licensed to the public under the terms of the GNU
-Public License (GPL) Version 2.</p>
+<section id="running-jupyter-notebooks-on-meluxina">
+<h2>Running Jupyter Notebooks on MeluXina<a class="headerlink" href="#running-jupyter-notebooks-on-meluxina" title="Link to this heading">#</a></h2>
+<p>LuxProvide offers JupyterLab as SaaS on the MeluXina Cloud, with native Python support and capability for custom Jupyter kernels.</p>
+<p>JupyterLab can be accessed <a class="reference external" href="https://jlab.lxp-prod.cloud.lxp.lu">here</a>. You can refer to the MeluXina documentation page for JupyterLab for additional info <a class="reference external" href="https://docs.lxp.lu/cloud/jlab/jlab/">here</a>.</p>
 </section>
-<section id="benchmarks">
-<h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
-<p>N/A.</p>
-</section>
-<section id="job-submission-example-on-kay">
-<h2>Job Submission Example on Kay<a class="headerlink" href="#job-submission-example-on-kay" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-<span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
-<span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
-<span class="c1"># DevQ         up    1:00:00   </span>
-<span class="c1"># ProdQ*       up 3-00:00:00    </span>
-<span class="c1"># LongQ        up 6-00:00:00    </span>
-<span class="c1"># ShmemQ       up 3-00:00:00    </span>
-<span class="c1"># PhiQ         up 1-00:00:00   </span>
-<span class="c1"># GpuQ         up 2-00:00:00    </span>
-
-<span class="c1"># Slurm flags</span>
-<span class="c1">#SBATCH -p ProdQ</span>
-<span class="c1">#SBATCH -N 1</span>
-<span class="c1">#SBATCH -t 24:00:00</span>
-<span class="c1">#SBATCH --job-name=QEJob</span>
-
-<span class="c1"># Charge job to myproject </span>
-<span class="c1">#SBATCH -A MyProject</span>
-
-<span class="c1"># Write stdout+stderr to file</span>
-<span class="c1">#SBATCH -o output.txt</span>
-
-<span class="c1"># Mail me on job start &amp; end</span>
-<span class="c1">#SBATCH --mail-user=myEmail@domain.ie</span>
-<span class="c1">#SBATCH --mail-type=BEGIN,END</span>
-
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
-
-module<span class="w"> </span>load<span class="w"> </span>qe/6.3
-
-mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">40</span><span class="w"> </span>pw.x<span class="w"> </span>&lt;<span class="w"> </span>MyInputFile<span class="w"> </span>&gt;<span class="w"> </span>MyOutputFile
+<section id="detailed-steps">
+<h2>Detailed steps<a class="headerlink" href="#detailed-steps" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>The first step before requesting a job on the MeluXina Cloud page is to upload the notebook(s) you wish to run to MeluXina.</p></li>
+<li><p>The second step is to set up a Python virtual environment(s) on MeluXina for you to use as your Python kernel for the notebook(s).</p>
+<p>You can do this by requesting an interactive job via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>salloc<span class="w"> </span>-A<span class="w"> </span>&lt;project_id&gt;<span class="w"> </span>-t<span class="w"> </span>&lt;time&gt;<span class="w"> </span>--qos<span class="o">=</span>dev<span class="w"> </span>--res<span class="w"> </span>cpudev<span class="w"> </span>-p<span class="w"> </span>cpu<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
-<p>Further information can be obtained <a class="reference external" href="https://www.quantum-espresso.org/">here.</a>.</p>
+<p>Now load your desired version of Python (here we just use the default version of the MeluXina 2023.1 software stack, Python 3.11.3):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Python
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Python version of the Python kernel will be the same as the Python version used to create the environment, and this cannot be changed. If you require a specific Python version, make sure to load the correct version. If it is a version older than 3.10.8 you will have to load older    MeluXina software stacks before you are able to load them.</p>
+</div>
+<p>Suppose you want to create an environment called <em>my_env</em> and you want to download numpy, scipy and matplotlib.</p>
+<p>First, create a directory to store your virtual environments. I will create one called <em>venvs</em> in my home directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>~/venvs
+</pre></div>
+</div>
+<p>Then create your environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>my_env<span class="w"> </span>
+</pre></div>
+</div>
+<p>Then activate it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/venvs/my_env/bin/activate
+</pre></div>
+</div>
+<p>Your environment will now be activated and you will see <em>(my_env)</em> preceding your username. The first thing to do whenever you create a new environment is to upgrade <em>pip</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>my_env<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+<p>And now I can install the desired packages as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>my_env<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib
+</pre></div>
+</div>
+</li>
+<li><p>Still inside your interactive job session, and with your environment still activated, you must install the <em>ipykernel</em> package in your environment - without this package, the environment cannot be used by JupyterLab as a python kernel.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>my_env<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>ipykernel
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Still inside your interactive job session, and with your environment still activated, you must register your environment as a Jupyter kernel - else, your environment will not be listed as an avaiable kernel later in your JupyterLab session.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>my_env<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--name<span class="w"> </span>my_env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;my_env&quot;</span><span class="w"> </span>--user
+</pre></div>
+</div>
+<p>At this point, you can exit your interactive session via</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>my_env<span class="o">)</span><span class="w"> </span>$<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>unless there are any pther packages you wish to install, although you can also do this at a later time.</p>
+<p>Now you are ready to start a JupyterLab session and run your notebooks.</p>
+<ol class="arabic simple" start="5">
+<li><p>Following MeluXina instructions, request a session via the MeluXina cloud. Once your job begins, the page will take you to an online Jupyter Lab session, where your notebooks and any Python environments that have been registered as kernels will be available.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you ecounter any issues with the MeluXina cloud, we have a script that allows you to start a JupyterLab session on your browser and guides you through the instructions to achieve this. If you need this script, please request it by opening a ticket with us at <a class="reference external" href="mailto:suport&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a>.</p>
+</div>
 </section>
 </section>
 
@@ -473,9 +491,8 @@ mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">40</spa
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#job-submission-example-on-kay">Job Submission Example on Kay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-jupyter-notebooks-on-meluxina">Running Jupyter Notebooks on MeluXina</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed steps</a></li>
 </ul>
   </nav></div>
 

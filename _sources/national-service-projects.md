@@ -11,6 +11,8 @@ ICHEC's National Service provides three different project classes with differing
 
 Ahead of new proposal submission and in accordance with the ICHEC [Acceptable Usage Policy](https://www.ichec.ie/academic/national-hpc/acceptable-usage-policy), applicants should notify ICHEC of all publications arising out of work completed with the help of ICHEC from past projects. Simply email the [Helpdesk](support@ichec.ie) with the publication reference and link to the online version.
 
+Please note that, given the migration to the [Interim National Service](https://ichec.github.io/interim-service/interim-service.html), all new projects will be directly set up on MeluXina. We encourage users to review the documentation pages here on our Interim Service Docs, as well as the detailed [MeluXina documentation](https://ichec.github.io/interim-service/interim-service.html) to learn more about this platform and how to use it.
+
 ## Project Classes
 ### 1. Class C project: Discovery
 
@@ -22,13 +24,21 @@ Class C projects are intended to provide fast access to modest resources with le
 
 Class C project applicants should note that the maximum resource levels are modest and will be exhausted very quickly if larger scale runs are performed.
 
+```{note}
+It is not permitted for experienced users to keep applying for concurrent class Cs in order to avoid the stricter review process of class B and A projects. 
+
+We understand that a user may want to start off with a class C to obtain some preliminary results and familiarise themselves with the runtimes of jobs required for their research. Once such a class C is completed, and the user is ready to run the majority of the jobs they require for their research, they should then apply for a class B (unless they aere a PhD student, in which case their supervisor should submit the application). 
+
+The only scenario when applying for a class C continuation is acceptable is if all jobs that remain will be finished within the resources of a class C - very detailed justification of this is expected in the project application.
+```
+
 #### Resources and Considerations
 
 ```yaml
 Max Normalised Node Hours:      2,500 h 
 Max. Storage:                   1000 GB
 Max. Duration:                  12 months 
-Max. Review:    1 week
+Max. Review:    1 week 
 Proposal:       2-3 pages.
 Applicants:     Group Leader/Professor/Lecturer/Post-doc/Graduate Student
 ```
@@ -39,7 +49,6 @@ Applicants:     Group Leader/Professor/Lecturer/Post-doc/Graduate Student
 - Methodology: Explain what methodology are you planning to use. Specify the packages, compilers, libraries, etc, to be used. 
 - Justification: Explain how many runs you intend to carry out, their memory requirements, expected run-times, on how many CPUs. In case of pure explorative projects and inexperience users a tentative data would be useful but not compulsory.
 
- 
 
 ### 2. Class B project: Regular
 
@@ -110,6 +119,12 @@ Normalised Number of Node Hours Requested =
                         (3.37 x Number of GPU Node Hours) + 
                         (4.36 x Number of Large Memory Node Hours)
 
+```{note}
+You must state in your application which resource types you require for your research. Even if you only require one type of resource, it should be explicitly mentioned. 
+
+For each type of resource, a separate node hour estimation table must be provided with details of the jobs to be run and their resource requirements (except for inexperienced users applying for a first class C).
+```
+
 #### Review Process
 
 All the applications submitted through the National Service are subject to a technical evaluation carried out by one of our computational scientists in order to verify the technical viability of the project and that:
@@ -140,3 +155,10 @@ ichec --Rejected--> Asub
 
 After the technical evaluation, Class C applicants are notified and their respective projects are activated. In the case of Class A and B applications, after the technical evaluation, projects are sent out for peer review by the [Science Council](https://www.ichec.ie/about/governance/science-council), usually by two national reviewers (Class B) or one national and one international reviewer (Class A) in order to evaluate the scientific merit of the proposal and applicant track record. Once both reviewer's reports are received, the decision is communicated to the applicant. This process might take between 4-8 weeks for Class B projects and up to 12 weeks for Class A projects 
 
+#### Project Application Requirements
+
+All projects should follow our [Interim Service Project Template](https://www.ichec.ie/sites/default/files/files/2024-03/Interim_class_A-B-C_template.doc) structure. Applications with proposal documents that do not follow this structure or that ommit any of the required sections risk rejection.
+
+Please ensure your appliction also includes a signed [LuxProvide Terms of Use document](https://www.ichec.ie/sites/default/files/files/2024-03/LUXPROVIDE_Meluxina_terms_of_use.doc). This document must be signed off by the project PI - LuxProvide will reject an application if it is signed by a student.
+
+For additional information please visit [our website](https://www.ichec.ie/academic/national-hpc/national-service-projects).

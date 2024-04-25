@@ -44,7 +44,7 @@
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -386,7 +386,7 @@ basic computation types.</p>
 </section>
 <section id="license">
 <h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
-<p>Gaussian is available for use. Please contact the <a class="reference internal" href="#/academic/national-hpc/user-support"><span class="xref myst">Helpdesk</span></a> to gain access.</p>
+<p>Gaussian is available for use by all ICHEC users.</p>
 </section>
 <section id="benchmarks">
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Link to this heading">#</a></h2>
@@ -394,24 +394,28 @@ basic computation types.</p>
 </section>
 <section id="thin-component">
 <h2>Thin Component<a class="headerlink" href="#thin-component" title="Link to this heading">#</a></h2>
-<p>Gaussian jobs on Kay are run via shared memory (<strong>without Linda</strong>) on
-a <strong>single</strong> compute node. Users should specify 40 processes in their
+<p>Gaussian jobs on Kay and MeluXina are run via shared memory (<strong>without Linda</strong>) on
+a <strong>single</strong> compute node. Users should specify up to 40 processes on Kay/128 on MeluXina in the
 Gaussian input file (.com or .gjf)</p>
-<p><code class="docutils literal notranslate"><span class="pre">%nproc=40</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%nproc=40</span></code> (Kay) or <code class="docutils literal notranslate"><span class="pre">%nproc=128</span></code> (MeluXina)</p>
 <p>or</p>
-<p><code class="docutils literal notranslate"><span class="pre">%cpu=0-39</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">%cpu=0-39</span></code> (Kay) or <code class="docutils literal notranslate"><span class="pre">%cpu=0-127</span></code> (MeluXina)</p>
 <p>For good performance use the %mem directive. A good compromise would be
 100GB. If needed at expense of I/O caches one can go as high as 150GB,
 but expect a few percentages lost in performance compared with the 100GB
 case. Of course you can fine tune these values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">%mem=100000mb</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Further testing and user input is required to understand the optimal configuration for Gaussian jobs on MeluXina. If you are using Gaussian on MeluXina, please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;ichec&#46;ie">support<span>&#64;</span>ichec<span>&#46;</span>ie</a> with your findings.</p>
+</div>
 </section>
 <section id="job-submission-example">
 <h2>Job submission example<a class="headerlink" href="#job-submission-example" title="Link to this heading">#</a></h2>
 <p>An example of submission slurm script:</p>
 <section id="on-kay">
 <h3>On Kay<a class="headerlink" href="#on-kay" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># All the information about queues can be obtained using &#39;sinfo&#39;</span>
 <span class="c1"># PARTITION AVAIL  TIMELIMIT  </span>
 <span class="c1"># DevQ         up    1:00:00   </span>
@@ -438,6 +442,7 @@ case. Of course you can fine tune these values.</p>
 <span class="c1">#SBATCH --mail-type=BEGIN,END</span>
 
 <span class="nb">cd</span><span class="w"> </span><span class="nv">$SLURM_SUBMIT_DIR</span>
+
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$GAUSS_SCRDIR</span>
 
 module<span class="w"> </span>load<span class="w"> </span>gaussian/16b01
@@ -451,7 +456,7 @@ g16<span class="w"> </span>&lt;<span class="w"> </span>input.gjf<span class="w">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
 <span class="c1"># Slurm flags</span>
 <span class="c1">#SBATCH -p cpu</span>
-<span class="c1">#SBATCH --qos default</span>
+<span class="c1">#SBATCH --qos=default</span>
 <span class="c1">#SBATCH --hint=nomultithread</span>
 <span class="c1">#SBATCH -N 1</span>
 <span class="c1">#SBATCH -t 12:00:00</span>
@@ -479,15 +484,14 @@ g16<span class="w"> </span>&lt;<span class="w"> </span>input.gjf<span class="w">
 </section>
 <section id="additional-notes">
 <h2>Additional notes<a class="headerlink" href="#additional-notes" title="Link to this heading">#</a></h2>
-<p>The Gaussian module sets the <strong>GAUSS_SCRDIR</strong> to the correct location
-for that node type. Jobs can use very large RWF files as the scratch
-space is provided by a large high-performance shared volume including
-the follow in your submission script:</p>
-<p>For Meluxina, use RAMDISK as there are no local disks on compute nodes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="s2">&quot;/dev/shm&quot;</span>
+<p>On Kay, the Gaussian module sets the <strong>GAUSS_SCRDIR</strong> o the correct location for that node type. Jobs can use very large RWF files as the scratch space is provided by a large high-performance shared volume including the follow in your submission script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span>/scratch/local/
 </pre></div>
 </div>
-<p>For Kay, you can give path to any folder you have access to.</p>
+<p>For MeluXina, the node’s RAMDISK (/dev/shm) is automatically set as the scratch directory as there are no local disks on CPU nodes. Note that on CPU nodes on MeluXina, the RAM space is 512 GB, so if your scratch files require larger space, you should change the scratch directory to your project directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="s2">&quot;&lt;your project directory&gt;&quot;</span>
+</pre></div>
+</div>
 <p>Further information can be obtained at <a class="reference external" href="http://www.gaussian.com/" title="Gaussian homepage">www.gaussian.com</a>.</p>
 </section>
 </section>

@@ -76,5 +76,5 @@ Now you are ready to start a JupyterLab session and run your notebooks.
 5. Following MeluXina instructions, request a session via the MeluXina cloud. Once your job begins, the page will take you to an online Jupyter Lab session, where your notebooks and any Python environments that have been registered as kernels will be available.
 
 ```{note}
-If you have troubles with the MeluXina cloud, we have a script that allows you to start a JupyterLab session on your browser and guides you through the instructions to achieve this. If you need this script, please request it by opening a ticket with us at [support@ichec.ie](mailto:suport@ichec.ie).
+If you ecounter any issues with the MeluXina cloud, we have a script that allows you to start a JupyterLab session on your browser and guides you through the instructions to achieve this. If you need this script, please request it by opening a ticket with us at [support@ichec.ie](mailto:suport@ichec.ie).
 ```

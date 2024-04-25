@@ -29,6 +29,7 @@ parts:
       - file: softwares/gromacs.md
       - file: softwares/gsl.md
       - file: softwares/intel-compiler.md
+      - file: softwares/jupyter-lab.md 
       - file: softwares/namd.md
       - file: softwares/openfoam.md
       - file: softwares/orca.md

@@ -44,6 +44,7 @@ We provide support for all of these softwares. We will keep adding further docum
 | [Gromacs](./softwares/gromacs.md)                                              |            |        |
 | [Gsl](./softwares/gsl.md)                                                      |            |        |
 | [Intel-Compiler](./softwares/intel-compiler.md)                                |            |        |
+| [JupyterLab](./softwares/jupyter-lab.md)                                |            |        |
 | [Namd](./softwares/namd.md)                                                    |            |        |
 | [Openfoam](./softwares/openfoam.md)                                            |            |        |
 | [Orca](./softwares/orca.md)                                                    |            |        |

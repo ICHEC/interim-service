@@ -121,5 +121,21 @@ post-processing.
 
 ## Additional Notes
 
+### Using micromamba
+
+One can install the openfoam package using conda/micromamba as following - 
+
+
+```bash
+# create an empty environment
+micromamba create -n of-env
+# activate the environment
+micromamba activate of-env
+# install openfoam via conda/micromamba
+micromamba install -c conda-forge openfoam
+# for openfoam with gpu support
+micromamba install -c conda-forge openfoam cuda-cudart cuda-version=12
+```
+
 Further information can be obtained from the OpenFOAM Foundation [Website](http://www.openfoam.org).
 
